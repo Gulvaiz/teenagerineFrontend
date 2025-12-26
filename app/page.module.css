@@ -1,0 +1,287 @@
+/* Hero Section */
+.heroSection {
+  height: 85vh;
+  min-height: 600px;
+  background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&h=1080&fit=crop&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-white);
+  position: relative;
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 33, 52, 0.6) 0%, rgba(242, 133, 0, 0.3) 100%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-bottom: 15px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.95;
+}
+
+.heroTitle {
+  font-family: var(--font-serif);
+  font-size: 4.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.heroDescription {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Featured Section */
+.featuredSection {
+  padding: 100px 20px;
+  background-color: var(--color-white);
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.viewAllContainer {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Categories Section */
+.categoriesSection {
+  padding: 100px 20px;
+  background-color: var(--color-bg-light);
+}
+
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 40px;
+}
+
+.categoryCard {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.categoryCard:hover {
+  transform: translateY(-5px);
+}
+
+.categoryImage {
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.categoryOverlay {
+  background: linear-gradient(135deg, rgba(0, 33, 52, 0.85) 0%, rgba(242, 133, 0, 0.75) 100%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  transition: opacity 0.3s ease;
+}
+
+.categoryCard:hover .categoryOverlay {
+  opacity: 0.95;
+}
+
+.categoryTitle {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: var(--color-white);
+}
+
+.categorySubtitle {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+/* Bestsellers Section */
+.bestsellersSection {
+  padding: 100px 20px;
+  background-color: var(--color-white);
+}
+
+/* Newsletter Section */
+.newsletterSection {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, var(--color-secondary) 0%, #003d5c 100%);
+  color: var(--color-white);
+}
+
+.newsletterContent {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.newsletterTitle {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: var(--color-white);
+}
+
+.newsletterSubtitle {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.newsletterForm {
+  display: flex;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.newsletterInput {
+  flex: 1;
+  padding: 15px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-white);
+  font-size: 1rem;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+.newsletterInput::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.newsletterInput:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .productsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+  }
+
+  .categoriesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroTitle {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    height: 70vh;
+    min-height: 500px;
+    background-attachment: scroll;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .heroDescription {
+    font-size: 1rem;
+  }
+
+  .heroButtons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .heroButtons .btn {
+    width: 100%;
+  }
+
+  .featuredSection,
+  .categoriesSection,
+  .bestsellersSection {
+    padding: 60px 20px;
+  }
+
+  .productsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .categoryImage {
+    height: 350px;
+  }
+
+  .newsletterForm {
+    flex-direction: column;
+  }
+
+  .newsletterInput {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .productsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .categoryTitle {
+    font-size: 2rem;
+  }
+}

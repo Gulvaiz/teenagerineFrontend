@@ -1,0 +1,199 @@
+.heroSection {
+    height: 85vh;
+    min-height: 600px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 33, 52, 0.6) 0%, rgba(242, 133, 0, 0.3) 100%);
+    z-index: 1;
+}
+
+.navButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 10;
+    color: var(--color-white);
+   
+}
+
+.navButton:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+
+.navPrev {
+    left: 20px;
+    right: auto;
+}
+
+
+.navNext {
+    right: 20px;
+    left: auto;
+}
+
+
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.fadeIn {
+    animation: fadeIn 0.5s ease-in;
+}
+
+.fadeOut {
+    animation: fadeOut 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+.heroSubtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.95;
+}
+
+.heroTitle {
+    font-family: var(--font-serif);
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.heroDescription {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.heroButtons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 0;
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.dot.active {
+    background: var(--color-white);
+    border-color: var(--color-white);
+    width: 30px;
+    border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+    .heroSection {
+        height: 70vh;
+        min-height: 500px;
+        background-attachment: scroll;
+    }
+
+    .heroTitle {
+        font-size: 2.5rem;
+    }
+
+    .heroSubtitle {
+        font-size: 1rem;
+    }
+
+    .heroDescription {
+        font-size: 1rem;
+    }
+
+    .heroButtons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .heroButtons .btn {
+        width: 100%;
+    }
+
+    .navButton {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+

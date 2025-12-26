@@ -1,0 +1,329 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    max-width: 1200px;
+    width: 95%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideUp 0.4s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.closeButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-light);
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+    z-index: 10;
+}
+
+.closeButton:hover {
+    color: var(--color-text-main);
+}
+
+.modalContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 40px;
+}
+
+.imageSection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mainImageContainer {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: var(--color-bg-light);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.mainImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.navButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+    z-index: 5;
+}
+
+.navButton:hover {
+    background: var(--color-white);
+}
+
+.imageCounter {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    color: var(--color-white);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+.thumbnails {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+}
+
+.thumbnail {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--color-bg-light);
+    padding: 0;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumbnail.active {
+    border-color: var(--color-primary);
+}
+
+.infoSection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-main);
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.saleTag {
+    background-color: #D32F2F;
+    color: var(--color-white);
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.productName {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--color-text-main);
+    line-height: 1.2;
+}
+
+.pricing {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.estRetail {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+}
+
+.ourPrice {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+}
+
+.originalPrice {
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    text-decoration: line-through;
+}
+
+.discount {
+    display: inline-block;
+    background-color: #D32F2F;
+    color: var(--color-white);
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    width: fit-content;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border);
+}
+
+.detailItem {
+    display: flex;
+    gap: 10px;
+}
+
+.detailLabel {
+    font-weight: 600;
+    color: var(--color-text-main);
+    min-width: 80px;
+}
+
+.detailValue {
+    color: var(--color-text-light);
+    text-transform: capitalize;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 20px;
+}
+
+.saveButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-main);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 4px;
+}
+
+.saveButton:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.viewDetailsButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: var(--color-secondary);
+    color: var(--color-white);
+    font-weight: 600;
+    text-align: center;
+    transition: background 0.2s;
+    border-radius: 4px;
+}
+
+.viewDetailsButton:hover {
+    background: #003d5c;
+}
+
+.addToBagButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--color-secondary);
+    color: var(--color-white);
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-radius: 4px;
+}
+
+.addToBagButton:hover {
+    background: #003d5c;
+}
+
+@media (max-width: 968px) {
+    .modalContent {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px 20px;
+    }
+
+    .productName {
+        font-size: 1.5rem;
+    }
+}
+
+

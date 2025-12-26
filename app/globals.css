@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* Brand Colors - Tangerine Luxury Color Scheme */
+  --color-primary: #F28500;
+  /* Tangerine orange */
+  --color-secondary: #002134;
+  /* Navy blue */
+  --color-accent: #C8C4C1;
+  /* Taupe */
+  --color-accent-2: #8BA3A8;
+  /* Blue-gray */
+  --color-text-main: #222222;
+  /* Charcoal for text */
+  --color-text-light: #555555;
+  /* Medium grey */
+  --color-bg-light: #F8F8F8;
+  /* Very subtle off-white */
+  --color-white: #FFFFFF;
+  --color-border: #E0E0E0;
+
+  /* Layout */
+  --max-width: 1440px;
+  --header-height: 90px;
+
+  /* Fonts */
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Lato', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-main);
+  background-color: var(--color-white);
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Utilities */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background-color: #003d5c;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--color-text-main);
+  color: var(--color-text-main);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-text-main);
+  color: var(--color-white);
+}
+
+.btn-white {
+  background-color: var(--color-white);
+  color: var(--color-text-main);
+}
+
+.btn-white:hover {
+  background-color: var(--color-bg-light);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+/* Header Specifics */
+.top-bar {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  text-align: center;
+  padding: 10px 0;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* Rotating heading utility */
+.section-title.rotating {
+  display: inline-block;
+  transform-origin: center center;
+  animation: rotate360 12s linear infinite;
+  /* ensure text remains crisp during transform */
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.section-title.rotating:hover {
+  animation-play-state: paused; /* pause rotation on hover */
+}
+
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

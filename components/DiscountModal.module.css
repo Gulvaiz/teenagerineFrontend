@@ -1,0 +1,246 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal {
+    background-color: #F5F5F0;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 750px;
+    width: 95%;
+    position: relative;
+    animation: slideUp 0.4s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.closeButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-light);
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+    z-index: 10;
+}
+
+.closeButton:hover {
+    color: var(--color-text-main);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+.star {
+    font-size: 1.3rem;
+}
+
+.title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--color-text-main);
+    margin: 0;
+    font-weight: 700;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: .9rem;
+    color: var(--color-text-main);
+    margin-bottom: 20px;
+}
+
+.modalBody {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.leftSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.couponBox {
+    border: 2px dashed var(--color-primary);
+    border-radius: 8px;
+    padding: 25px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.couponLabel {
+    font-size: 0.9rem;
+    color: var(--color-text-main);
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.couponInput {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 2px;
+    background-color: var(--color-white);
+    color: var(--color-text-main);
+    margin-bottom: 10px;
+}
+
+.couponNote {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    text-align: center;
+    margin: 0;
+}
+
+.rightSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.inputGroup {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.inputIcon {
+    position: absolute;
+    left: 15px;
+    color: var(--color-text-light);
+    z-index: 1;
+}
+
+.input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    background-color: var(--color-white);
+    color: var(--color-text-main);
+    transition: border-color 0.3s;
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.input::placeholder {
+    color: var(--color-text-light);
+}
+
+.claimButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.claimButton:hover {
+    background-color: #003d5c;
+}
+
+.terms {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    margin: 0;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .modal {
+        padding: 30px 20px;
+        max-width: 95%;
+    }
+
+    .modalBody {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .couponBox {
+        padding: 20px;
+    }
+}
