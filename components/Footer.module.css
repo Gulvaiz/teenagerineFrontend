@@ -1,62 +1,124 @@
 .footer {
-    background-color: var(--color-secondary);
-    padding: 60px 0 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: #f6f6f6;
+    padding: 60px 0 30px;
     font-family: var(--font-sans);
-    color: var(--color-white);
-}
-
-.grid {
+    color: #111;
+  }
+  
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  
+  .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px;
-    margin-bottom: 40px;
-}
-
-.column h4 {
-    font-family: var(--font-serif);
+    grid-template-columns: 1.3fr 1fr 0.8fr 0.8fr 1.2fr;
+    gap: 60px;
+  }
+  
+  /* BRAND */
+  .logoRow {
+    display: flex;
+    gap: 10px;
     margin-bottom: 20px;
+  }
+  
+  .logoIcon {
+    font-size: 28px;
+  }
+  
+  .brand h2 {
     font-size: 1.1rem;
-    color: var(--color-white);
-}
-
-.column ul li {
-    margin-bottom: 10px;
-}
-
-.column ul li a {
+    font-weight: 700;
+  }
+  
+  .contactItem {
+    display: flex;
+    gap: 10px;
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.column ul li a:hover {
-    color: var(--color-primary);
-    opacity: 1;
-}
-
-.socialIcons {
+    margin-bottom: 10px;
+  }
+  
+  /* COLUMNS */
+  .column h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  
+  .column ul li {
+    margin-bottom: 10px;
+  }
+  
+  .column ul li a {
+    font-size: 0.9rem;
+    color: #333;
+  }
+  
+  .column ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  /* SUBSCRIBE (5th column) */
+  .subscribe {
     display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-.socialIcon {
-    color: rgba(255, 255, 255, 0.8);
-    transition: color 0.3s, transform 0.2s;
+    flex-direction: column;
+  }
+  
+  .socials {
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.socialIcon:hover {
-    color: var(--color-primary);
-    transform: translateY(-2px);
-}
-
-.bottom {
-    text-align: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  
+  .whatsapp {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #22c55e;
+  }
+  
+  .subscribe input {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  .subscribe button {
+    padding: 12px;
+    background: #111827;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .subscribe p {
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 8px;
+  }
+  
+  /* BOTTOM */
+  .bottom {
+    margin-top: 50px;
     padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.6);
-}
+    border-top: 1px solid #ddd;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #444;
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  

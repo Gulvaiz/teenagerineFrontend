@@ -4,7 +4,26 @@
     top: 0;
     z-index: 1000;
     background-color: var(--color-white);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.4s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    /* Custom easing for natural feel */
+}
+
+.header.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.header.hideTop {
+    transform: translateY(-44px);
+    /* Approximate height of TopBar */
+}
+
+/* Wrapper to maintain structure */
+.topBarWrapper {
+    background: #0D131E;
+    overflow: hidden;
 }
 
 /* New top bar layout for currency / message / social links */
@@ -13,8 +32,10 @@
     align-items: center;
     justify-content: space-between;
     padding: 6px 40px;
-    background: #0D131E; /* updated background color requested */
-    color: #ffffff; /* ensure text in top bar is readable on dark bg */
+    background: #0D131E;
+    /* updated background color requested */
+    color: #ffffff;
+    /* ensure text in top bar is readable on dark bg */
     gap: 16px;
 }
 
@@ -22,7 +43,8 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    min-width: 140px; /* prevents left content from collapsing and keeps center centered */
+    min-width: 140px;
+    /* prevents left content from collapsing and keeps center centered */
 }
 
 .topBarCenter {
@@ -30,7 +52,8 @@
     text-align: center;
     font-size: 0.9rem;
     font-weight: 600;
-    color: #ffffff; /* ensure message is visible on dark background */
+    color: #ffffff;
+    /* ensure message is visible on dark background */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -50,18 +73,20 @@
     justify-content: center;
     padding: 6px;
     border-radius: 4px;
-    color: rgba(255,255,255,0.9); /* light icon color for dark bg */
+    color: rgba(255, 255, 255, 0.9);
+    /* light icon color for dark bg */
     transition: color 0.15s ease, background 0.15s ease, transform 0.15s ease;
 }
 
 .socialLink:hover {
     color: var(--color-primary);
-    background: rgba(255,255,255,0.04);
+    background: rgba(255, 255, 255, 0.04);
     transform: translateY(-2px);
 }
 
 .socialIcon {
-    pointer-events: none; /* icon shouldn't capture clicks separately */
+    pointer-events: none;
+    /* icon shouldn't capture clicks separately */
 }
 
 /* Ensure currency dropdown stays correctly positioned within topBarLeft */
@@ -72,12 +97,13 @@
 /* Make currency button text/border visible on dark bg */
 .topBar .currencyButton {
     color: #ffffff;
-    background-color:#333;
-    border-color: rgba(255,255,255,0.12);
+    background-color: #333;
+    border-color: rgba(255, 255, 255, 0.12);
     border-radius: 0.5rem;
 }
+
 .topBar .currencyButton:hover {
-    border-color: rgba(255,255,255,0.22);
+    border-color: rgba(255, 255, 255, 0.22);
 }
 
 /* Responsive: collapse social icons on narrow screens */
@@ -85,9 +111,11 @@
     .topBar {
         padding: 6px 16px;
     }
+
     .topBarCenter {
         font-size: 0.85rem;
     }
+
     .topBarRight {
         gap: 6px;
     }
@@ -176,18 +204,24 @@
 
 .searchContainer {
     flex: 1;
-    max-width: 400px;
+    max-width: 520px; /* increased and unified width */
+    width: 520px;
     margin: 0 40px;
     position: relative;
+    /* new border around the search box to match design */
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-white);
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
 }
 
 .searchParams {
     width: 100%;
-    padding: 12px 20px;
-    padding-right: 50px;
-    border-radius: 0;
-    border: none;
-    border-bottom: 1px solid #ccc;
+    padding: 10px 12px; /* reduced to fit new container padding */
+    border-radius: 6px;
+    border: none; /* remove inner border - container provides border */
     background-color: transparent;
     font-family: var(--font-sans);
     font-size: 0.95rem;
@@ -196,12 +230,12 @@
 
 .searchParams:focus {
     outline: none;
-    border-bottom-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(242,133,0,0.08);
 }
 
 .searchIcon {
     position: absolute;
-    right: 10px;
+    right: 18px;
     top: 50%;
     transform: translateY(-50%);
     color: #333;
@@ -315,7 +349,7 @@
     display: flex;
     gap: 25px;
     align-items: center;
-    margin-left: 24px;
+    margin-left: 40px; /* increased left spacing from nav */
 }
 
 .actionIcon {

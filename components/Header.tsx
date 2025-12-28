@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Search, Heart, ShoppingBag, User, ChevronDown, Facebook, Instagram, Youtube } from 'lucide-react';
 import styles from './Header.module.css';
+import { useCart } from '@/context/CartContext';
 
 export default function Header() {
     const messages = [
@@ -17,11 +18,19 @@ export default function Header() {
     const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
     const [currency, setCurrency] = useState('INR');
     const [showCurrencyDropdown, setShowCurrencyDropdown] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+
+    // Scroll State
+    const [showTopBar, setShowTopBar] = useState(true);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [lastScrollY, setLastScrollY] = useState(0);
+
+    const router = useRouter();
 
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentMessageIndex((prevIndex) => (prevIndex + 1) % messages.length);
-        }, 3000); // 3 seconds per message
+        }, 3000);
         return () => clearInterval(interval);
     }, [messages.length]);
 
@@ -32,18 +41,32 @@ export default function Header() {
                 setShowCurrencyDropdown(false);
             }
         };
-
         if (showCurrencyDropdown) {
             document.addEventListener('mousedown', handleClickOutside);
         }
-
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [showCurrencyDropdown]);
 
-    const [searchQuery, setSearchQuery] = useState('');
-    const router = useRouter();
+    // Scroll Logic
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            setIsScrolled(currentScrollY > 10);
+
+            if (currentScrollY > lastScrollY && currentScrollY > 50) {
+                setShowTopBar(false);
+            } else {
+                setShowTopBar(true);
+            }
+
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [lastScrollY]);
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
@@ -57,59 +80,63 @@ export default function Header() {
         setShowCurrencyDropdown(false);
     };
 
+    const { cartCount } = useCart();
+
     return (
-        <header className={styles.header}>
-           
-            <div className={styles.topBar}>
-                <div className={styles.topBarLeft}>
-                    <div className={styles.currencySelector}>
-                        <button 
-                            className={styles.currencyButton}
-                            onClick={() => setShowCurrencyDropdown(!showCurrencyDropdown)}
-                        >
-                            {currency === 'INR' ? '₹ INR' : '$ USD'}
-                            <ChevronDown size={14} />
-                        </button>
-                        {showCurrencyDropdown && (
-                            <div className={styles.currencyDropdown}>
-                                <button 
-                                    onClick={() => handleCurrencyChange('INR')}
-                                    className={currency === 'INR' ? styles.active : ''}
-                                >
-                                    ₹ INR
-                                </button>
-                                <button 
-                                    onClick={() => handleCurrencyChange('USD')}
-                                    className={currency === 'USD' ? styles.active : ''}
-                                >
-                                    $ USD
-                                </button>
-                            </div>
-                        )}
+        <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''} ${!showTopBar ? styles.hideTop : ''}`}>
+
+            <div className={styles.topBarWrapper}>
+                <div className={styles.topBar}>
+                    <div className={styles.topBarLeft}>
+                        <div className={styles.currencySelector}>
+                            <button
+                                className={styles.currencyButton}
+                                onClick={() => setShowCurrencyDropdown(!showCurrencyDropdown)}
+                            >
+                                {currency === 'INR' ? '₹ INR' : '$ USD'}
+                                <ChevronDown size={14} />
+                            </button>
+                            {showCurrencyDropdown && (
+                                <div className={styles.currencyDropdown}>
+                                    <button
+                                        onClick={() => handleCurrencyChange('INR')}
+                                        className={currency === 'INR' ? styles.active : ''}
+                                    >
+                                        ₹ INR
+                                    </button>
+                                    <button
+                                        onClick={() => handleCurrencyChange('USD')}
+                                        className={currency === 'USD' ? styles.active : ''}
+                                    >
+                                        $ USD
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+
+                    <div className={styles.topBarCenter}>
+                        {messages[currentMessageIndex]}
+                    </div>
+
+                    <div className={styles.topBarRight}>
+                        <a href="https://www.facebook.com/tangerineluxury" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className={styles.socialLink}>
+                            <Facebook size={16} className={styles.socialIcon} />
+                        </a>
+                        <a href="https://www.instagram.com/tangerineluxury" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className={styles.socialLink}>
+                            <Instagram size={16} className={styles.socialIcon} />
+                        </a>
+                        <a href="https://www.youtube.com/@tangerineluxury" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className={styles.socialLink}>
+                            <Youtube size={16} className={styles.socialIcon} />
+                        </a>
                     </div>
                 </div>
-
-                <div className={styles.topBarCenter}>
-                    {messages[currentMessageIndex]}
-                </div>
-
-                <div className={styles.topBarRight}>
-                    <a href="https://www.facebook.com/YourCompanyPage" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className={styles.socialLink}>
-                        <Facebook size={16} className={styles.socialIcon} />
-                    </a>
-                    <a href="https://www.instagram.com/YourCompanyPage" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className={styles.socialLink}>
-                        <Instagram size={16} className={styles.socialIcon} />
-                    </a>
-                    <a href="https://www.youtube.com/YourCompanyChannel" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className={styles.socialLink}>
-                        <Youtube size={16} className={styles.socialIcon} />
-                    </a>
-                </div>
             </div>
-            
+
 
             <div className={styles.mainBar}>
                 <div className={styles.logoSection}>
-                   
+
                     <Link href="/" className={styles.logo}>
                         <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1, marginLeft: '10px' }}>
                             <span style={{ fontSize: '1.2rem', letterSpacing: '1px', fontWeight: 'bold' }}>TANGERINE</span>
@@ -289,7 +316,27 @@ export default function Header() {
 
                 <div className={styles.actions}>
                     <Link href="/wishlist"><Heart size={20} className={styles.actionIcon} /></Link>
-                    <Link href="/cart"><ShoppingBag size={20} className={styles.actionIcon} /></Link>
+                    <Link href="/cart" style={{ position: 'relative' }}>
+                        <ShoppingBag size={20} className={styles.actionIcon} />
+                        {cartCount > 0 && (
+                            <span style={{
+                                position: 'absolute',
+                                top: '-5px',
+                                right: '-5px',
+                                background: 'black',
+                                color: 'white',
+                                borderRadius: '50%',
+                                fontSize: '0.6rem',
+                                width: '15px',
+                                height: '15px',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center'
+                            }}>
+                                {cartCount}
+                            </span>
+                        )}
+                    </Link>
                     <Link href="/account"><User size={20} className={styles.actionIcon} /></Link>
                 </div>
             </div>
