@@ -130,26 +130,3 @@ ul {
   font-weight: 500;
   text-transform: uppercase;
 }
-
-/* Rotating heading utility */
-.section-title.rotating {
-  display: inline-block;
-  transform-origin: center center;
-  animation: rotate360 12s linear infinite;
-  /* ensure text remains crisp during transform */
-  backface-visibility: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-
-.section-title.rotating:hover {
-  animation-play-state: paused; /* pause rotation on hover */
-}
-
-@keyframes rotate360 {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroCarousel from "@/components/HeroCarousel";
@@ -69,7 +69,7 @@ export default function HomeClient({ newArrivals, saleProducts }: HomeClientProp
     console.log("Added to wishlist:", productId);
   };
 
-  const scrollTrack = (ref: React.RefObject<HTMLDivElement>, direction: "left" | "right") => {
+  const scrollTrack = (ref: React.RefObject<HTMLDivElement | null>, direction: "left" | "right") => {
     if (!ref.current) return;
     const amount = direction === "left" ? -320 : 320;
     ref.current.scrollBy({ left: amount, behavior: "smooth" });
@@ -334,40 +334,85 @@ export default function HomeClient({ newArrivals, saleProducts }: HomeClientProp
 
         {/* SELL WITH US */}
         <section className={styles.sellWithUsSection}>
-          <div className="container">
-            <h2 className={styles.sellWithUsTitle}>SELL WITH US</h2>
-            <div className={styles.sellWithUsGrid}>
-              <div className={styles.sellWithUsSteps}>
-                <div className={styles.sellStep}>SHARE IMAGE<br />OF YOUR PRODUCTS</div>
-                <div className={styles.sellStep}>FREE PAN-INDIA PICK-UP<br />NATIONWIDE SERVICE</div>
-                <div className={styles.sellStep}>AUTHENTICATION<br />&amp; LISTING</div>
-                <div className={styles.sellStep}>DIGITAL CONTRACT<br />ASSURANCE CERTIFICATE</div>
-                <div className={styles.sellStep}>PAYMENT IN 24 HOURS<br />NO PAYMENT DELAYS</div>
-                <div className={styles.sellStep}>CONTACT US<br />704 203 9009</div>
-              </div>
-              <div className={styles.sellWithUsImageWrapper}>
-                <div
-                  className={styles.sellWithUsImage}
-                  style={{
-                    backgroundImage:
-                      'url("https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=900&h=900&fit=crop&q=80")'
-                  }}
-                />
-                <div className={styles.sellWithUsImageOverlay}>
-                  {/* Overlay content removed per request to match updated design or kept minimal */}
-                </div>
-              </div>
-            </div>
-            <div className={styles.sellWithUsCtaWrapper} style={{ flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
-              <p style={{ textAlign: 'center', maxWidth: '600px', margin: '0 0 10px', color: '#666' }}>
-                Join the circular fashion revolution. Sell your pre-loved luxury items with us and earn while you declutter.
-              </p>
-              <Link href="/sell-with-us" className={styles.sellWithUsButton}>
-                Sell With Us
-              </Link>
-            </div>
-          </div>
-        </section>
+  <div className="container">
+    {/* MAIN TITLE */}
+    <h2 className={styles.sellWithUsTitle}>SELL WITH US</h2>
+
+    <div className={styles.sellWithUsGrid}>
+      {/* LEFT SIDE */}
+      <div>
+        {/* INTRO TEXT (NEW) */}
+        <h3 className={styles.sellWithUsIntroTitle}>
+          From Closet to Cash –
+        </h3>
+        <p className={styles.sellWithUsIntroSubtitle}>
+          Give Your Luxury a Second Life
+        </p>
+
+        {/* STEPS */}
+        <div className={styles.sellWithUsSteps}>
+  <div className={styles.sellStep}>
+    <span className={styles.sellStepIcon}>🖼️</span>
+    SHARE IMAGE<br />OF YOUR PRODUCTS
+  </div>
+
+  <div className={styles.sellStep}>
+    <span className={styles.sellStepIcon}>🚚</span>
+    FREE PAN-INDIA PICK-UP<br />NATIONWIDE SERVICE
+  </div>
+
+  <div className={styles.sellStep}>
+    <span className={styles.sellStepIcon}>✔️</span>
+    AUTHENTICATION<br />&amp; LISTING
+  </div>
+
+  <div className={styles.sellStep}>
+    <span className={styles.sellStepIcon}>📄</span>
+    DIGITAL CONTRACT<br />ASSURANCE CERTIFICATE
+  </div>
+
+  <div className={styles.sellStep}>
+    <span className={styles.sellStepIcon}>💰</span>
+    PAYMENT IN 24 HOURS<br />NO PAYMENT DELAYS
+  </div>
+
+  <div className={styles.sellStep}>
+    <span className={styles.sellStepIcon}>📞</span>
+    CONTACT US<br />704 203 9009
+  </div>
+</div>
+
+      </div>
+
+      {/* RIGHT SIDE IMAGE */}
+      <div className={styles.sellWithUsImageWrapper}>
+        <div
+          className={styles.sellWithUsImage}
+          style={{
+            backgroundImage:
+              'url("https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=900&h=900&fit=crop&q=80")',
+          }}
+        />
+      </div>
+    </div>
+
+    {/* READY TO SELL (NEW) */}
+    <div className={styles.readyToSellSection}>
+      <h3 className={styles.readyToSellTitle}>
+        Ready to Start Selling?
+      </h3>
+
+      <p className={styles.readyToSellSubtitle}>
+        Join thousands of successful sellers on our platform and turn your luxury
+        items into profit. We're here to help you every step of the way.
+      </p>
+
+      <Link href="/sell-with-us" className={styles.readyToSellButton}>
+        Create Seller Account
+      </Link>
+    </div>
+  </div>
+</section>
 
         {/* OUR SERVICES */}
         <section className={styles.servicesSection}>
@@ -463,93 +508,107 @@ export default function HomeClient({ newArrivals, saleProducts }: HomeClientProp
 
         {/* MIX, MATCH & SHOP THE COMBO */}
         <section className={styles.comboSection}>
-          <div className="container">
-            <div className={styles.comboGrid}>
-              <div className={styles.comboImages}>
-                <div
-                  className={styles.comboImageLarge}
-                  style={{
-                    backgroundImage:
-                      'url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=1000&fit=crop&q=80")'
-                  }}
-                >
-                  <div className={styles.comboImageText}>SHOP</div>
-                </div>
-                <div className={styles.comboImagesSmall}>
-                  <div
-                    className={styles.comboImageSmall}
-                    style={{
-                      backgroundImage:
-                        'url("https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&h=800&fit=crop&q=80")'
-                    }}
-                  >
-                    <div className={styles.comboImageText}>THE</div>
-                  </div>
-                  <div
-                    className={styles.comboImageSmall}
-                    style={{
-                      backgroundImage:
-                        'url("https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=800&fit=crop&q=80")'
-                    }}
-                  >
-                    <div className={styles.comboImageText}>LOOK</div>
-                  </div>
-                </div>
-              </div>
-              <div className={styles.comboContent}>
-                <h2 className={styles.comboTitle}>MIX, MATCH & SHOP THE COMBO</h2>
-                <p className={styles.comboDescription}>
-                  Enteger neque felis, egestas a euismod in, pulvinar et nisl. Aliquam ullam. Nulla tincidunt convallis
-                  bibendum. Duis sed risus suscipit justo maximus pulvinar.
-                </p>
-                <div className={styles.comboProducts}>
-                  <div className={styles.comboProduct}>
-                    <div
-                      className={styles.comboProductImage}
-                      style={{
-                        backgroundImage:
-                          'url("https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200&h=200&fit=crop&q=80")'
-                      }}
-                    />
-                    <div className={styles.comboProductInfo}>
-                      <div className={styles.comboProductName}>Women Casual Sweater</div>
-                      <div className={styles.comboProductPrice}>₹800</div>
-                    </div>
-                  </div>
-                  <div className={styles.comboProduct}>
-                    <div
-                      className={styles.comboProductImage}
-                      style={{
-                        backgroundImage:
-                          'url("https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=200&h=200&fit=crop&q=80")'
-                      }}
-                    />
-                    <div className={styles.comboProductInfo}>
-                      <div className={styles.comboProductName}>White Shorts</div>
-                      <div className={styles.comboProductPrice}>₹20</div>
-                    </div>
-                  </div>
-                  <div className={styles.comboProduct}>
-                    <div
-                      className={styles.comboProductImage}
-                      style={{
-                        backgroundImage:
-                          'url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop&q=80")'
-                      }}
-                    />
-                    <div className={styles.comboProductInfo}>
-                      <div className={styles.comboProductName}>Sneakers</div>
-                      <div className={styles.comboProductPrice}>₹120</div>
-                    </div>
-                  </div>
-                </div>
-                <Link href="/collections" className={styles.comboButton}>
-                  Shop Collection →
-                </Link>
-              </div>
+  <div className="container">
+    <div className={styles.comboGridExact}>
+      
+      {/* LEFT — SHOP THE LOOK CARDS */}
+      <div className={styles.comboImagesExact}>
+        <div
+          className={styles.comboImageMain}
+          style={{
+            backgroundImage:
+              'url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1000&h=700&fit=crop&q=80")'
+          }}
+        >
+          <span className={styles.comboOverlayText}>SHOP</span>
+        </div>
+
+        <div className={styles.comboImageRow}>
+          <div
+            className={styles.comboImageSmallExact}
+            style={{
+              backgroundImage:
+                'url("https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&h=600&fit=crop&q=80")'
+            }}
+          >
+            <span className={styles.comboOverlayText}>THE</span>
+          </div>
+
+          <div
+            className={styles.comboImageSmallExact}
+            style={{
+              backgroundImage:
+                'url("https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=600&fit=crop&q=80")'
+            }}
+          >
+            <span className={styles.comboOverlayText}>LOOK</span>
+          </div>
+        </div>
+      </div>
+
+      {/* RIGHT — CONTENT */}
+      <div className={styles.comboContentExact}>
+        <h2 className={styles.comboTitle}>
+          MIX, MATCH & SHOP THE COMBO
+        </h2>
+
+        <p className={styles.comboDescription}>
+          Enteger neque felis, egestas a euismod in, pulvinar et nisl. Aliquam ullam.
+          Nulla tincidunt convallis bibendum. Duis sed risus suscipit justo maximus pulvinar.
+        </p>
+
+        <div className={styles.comboProducts}>
+          <div className={styles.comboProduct}>
+            <div
+              className={styles.comboProductImage}
+              style={{
+                backgroundImage:
+                  'url("https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200&h=200&fit=crop&q=80")'
+              }}
+            />
+            <div>
+              <div className={styles.comboProductName}>Women Casual Sweater</div>
+              <div className={styles.comboProductPrice}>₹800</div>
             </div>
           </div>
-        </section>
+
+          <div className={styles.comboProduct}>
+            <div
+              className={styles.comboProductImage}
+              style={{
+                backgroundImage:
+                  'url("https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=200&h=200&fit=crop&q=80")'
+              }}
+            />
+            <div>
+              <div className={styles.comboProductName}>White Shorts</div>
+              <div className={styles.comboProductPrice}>₹20</div>
+            </div>
+          </div>
+
+          <div className={styles.comboProduct}>
+            <div
+              className={styles.comboProductImage}
+              style={{
+                backgroundImage:
+                  'url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop&q=80")'
+              }}
+            />
+            <div>
+              <div className={styles.comboProductName}>Sneakers</div>
+              <div className={styles.comboProductPrice}>₹120</div>
+            </div>
+          </div>
+        </div>
+
+        <Link href="/collections" className={styles.comboButton}>
+          Shop Collection →
+        </Link>
+      </div>
+
+    </div>
+  </div>
+</section>
 
         {/* BRAND STORY / USP STRIP */}
         <section className={styles.brandStorySection}>

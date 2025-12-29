@@ -4,124 +4,77 @@
     top: 0;
     z-index: 1000;
     background-color: var(--color-white);
-    transition: transform 0.4s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-    /* Custom easing for natural feel */
-}
-
-.header.scrolled {
+    transition: transform 0.4s cubic-bezier(0.215, 0.610, 0.355, 1.000),
+                background-color 0.35s ease,
+                backdrop-filter 0.35s ease;
+  }
+  
+  .header.scrolled {
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-}
-
-.header.hideTop {
+  }
+  
+  .header.hideTop {
     transform: translateY(-44px);
-    /* Approximate height of TopBar */
-}
-
-/* Wrapper to maintain structure */
-.topBarWrapper {
+  }
+  
+  /* ---------------- TOP BAR ---------------- */
+  
+  .topBarWrapper {
     background: #0D131E;
-    overflow: hidden;
-}
-
-/* New top bar layout for currency / message / social links */
-.topBar {
+  }
+  
+  .topBar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 6px 40px;
     background: #0D131E;
-    /* updated background color requested */
     color: #ffffff;
-    /* ensure text in top bar is readable on dark bg */
     gap: 16px;
-}
-
-.topBarLeft {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    min-width: 140px;
-    /* prevents left content from collapsing and keeps center centered */
-}
-
-.topBarCenter {
-    flex: 1 1 auto;
-    text-align: center;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #ffffff;
-    /* ensure message is visible on dark background */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.topBarRight {
+  }
+  
+  .topBarLeft,
+  .topBarRight {
     display: flex;
     align-items: center;
     gap: 10px;
     min-width: 140px;
-    justify-content: flex-end;
-}
-
-.socialLink {
+  }
+  
+  .topBarCenter {
+    flex: 1;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* ---------------- SOCIAL ---------------- */
+  
+  .socialLink {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 6px;
     border-radius: 4px;
     color: rgba(255, 255, 255, 0.9);
-    /* light icon color for dark bg */
     transition: color 0.15s ease, background 0.15s ease, transform 0.15s ease;
-}
-
-.socialLink:hover {
+  }
+  
+  .socialLink:hover {
     color: var(--color-primary);
     background: rgba(255, 255, 255, 0.04);
     transform: translateY(-2px);
-}
-
-.socialIcon {
-    pointer-events: none;
-    /* icon shouldn't capture clicks separately */
-}
-
-/* Ensure currency dropdown stays correctly positioned within topBarLeft */
-.currencySelector {
-    position: relative;
-}
-
-/* Make currency button text/border visible on dark bg */
-.topBar .currencyButton {
-    color: #ffffff;
-    background-color: #333;
-    border-color: rgba(255, 255, 255, 0.12);
-    border-radius: 0.5rem;
-}
-
-.topBar .currencyButton:hover {
-    border-color: rgba(255, 255, 255, 0.22);
-}
-
-/* Responsive: collapse social icons on narrow screens */
-@media (max-width: 800px) {
-    .topBar {
-        padding: 6px 16px;
-    }
-
-    .topBarCenter {
-        font-size: 0.85rem;
-    }
-
-    .topBarRight {
-        gap: 6px;
-    }
-}
-
-.mainBar {
+  }
+  
+  /* ---------------- MAIN BAR ---------------- */
+  
+  .mainBar {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -129,141 +82,59 @@
     height: var(--header-height);
     max-width: var(--max-width);
     margin: 0 auto;
-}
-
-.logoSection {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.currencySelector {
-    position: relative;
-}
-
-.currencyButton {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 8px 12px;
-    background: none;
-    border: 1px solid var(--color-border);
-    cursor: pointer;
-    font-size: 0.85rem;
-    color: var(--color-text-main);
-    transition: all 0.2s;
-}
-
-.currencyButton:hover {
-    border-color: var(--color-primary);
-}
-
-.currencyDropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    margin-top: 5px;
-    background: var(--color-white);
-    border: 1px solid var(--color-border);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    min-width: 120px;
-}
-
-.currencyDropdown button {
-    display: block;
-    width: 100%;
-    padding: 10px 12px;
-    text-align: left;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 0.85rem;
-    color: var(--color-text-main);
-    transition: background 0.2s;
-}
-
-.currencyDropdown button:hover {
-    background: var(--color-bg-light);
-}
-
-.currencyDropdown button.active {
-    background: var(--color-bg-light);
-    color: var(--color-primary);
-    font-weight: 600;
-}
-
-.logo {
+  }
+  
+  .logo {
     font-family: var(--font-serif);
     font-size: 1.8rem;
     font-weight: 700;
-    text-transform: uppercase;
-    color: var(--color-text-main);
     letter-spacing: 2px;
-}
-
-.searchContainer {
+  }
+  
+  /* ---------------- SEARCH ---------------- */
+  
+  .searchContainer {
     flex: 1;
-    max-width: 520px; /* increased and unified width */
-    width: 520px;
+    max-width: 400px;
     margin: 0 40px;
     position: relative;
-    /* new border around the search box to match design */
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    background-color: var(--color-white);
-    padding: 6px 12px;
-    display: flex;
-    align-items: center;
-}
-
-.searchParams {
+  }
+  
+  .searchParams {
     width: 100%;
-    padding: 10px 12px; /* reduced to fit new container padding */
-    border-radius: 6px;
-    border: none; /* remove inner border - container provides border */
-    background-color: transparent;
-    font-family: var(--font-sans);
-    font-size: 0.95rem;
-    transition: border-color 0.3s;
-}
-
-.searchParams:focus {
+    padding: 12px 20px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: transparent;
+  }
+  
+  .searchParams:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(242,133,0,0.08);
-}
-
-.searchIcon {
-    position: absolute;
-    right: 18px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #333;
-}
-
-.nav {
+    border-bottom-color: var(--color-primary);
+  }
+  
+  /* ---------------- NAV ---------------- */
+  
+  .nav {
     display: flex;
     gap: 30px;
-}
-
-.navItem {
+  }
+  
+  .navItem {
     position: relative;
     padding: 30px 0;
-    /* Increase hit area */
-}
-
-.navLink {
+  }
+  
+  .navLink {
     text-transform: uppercase;
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--color-text-main);
     letter-spacing: 1.5px;
     position: relative;
-    padding-bottom: 4px;
-}
-
-.navLink::after {
-    content: '';
+  }
+  
+  .navLink::after {
+    content: "";
     position: absolute;
     width: 0;
     height: 2px;
@@ -271,104 +142,44 @@
     left: 0;
     background-color: var(--color-primary);
     transition: width 0.3s ease;
-}
-
-.navLinkRed::after {
-    background-color: #D32F2F;
-}
-
-.navLink:hover::after,
-.navItem:hover .navLink::after {
+  }
+  
+  .navItem:hover .navLink::after {
     width: 100%;
-}
-
-.navLinkRed {
-    color: #D32F2F;
-}
-
-/* Mega Menu Styles */
-.megaMenu {
+  }
+  
+  /* ---------------- MEGA MENU ---------------- */
+  
+  .megaMenu {
     position: absolute;
     top: 100%;
     left: 50%;
     transform: translateX(-50%) translateY(10px);
     width: 90vw;
     max-width: 1200px;
-    background-color: white;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    /* Softer shadow */
+    background: white;
     padding: 50px;
-    display: grid;
-    grid-template-columns: 300px repeat(4, 1fr);
-    gap: 40px;
-    z-index: 1000;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    border-top: 2px solid var(--color-primary);
-}
-
-.navItem:hover .megaMenu {
+    z-index: 1000;
+  }
+  
+  .navItem:hover .megaMenu {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
-}
-
-.menuImage {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    filter: brightness(0.95);
-}
-
-.menuColumn h4 {
-    font-family: var(--font-serif);
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    color: var(--color-text-main);
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-}
-
-.menuColumn ul li {
-    margin-bottom: 12px;
-}
-
-.menuColumn ul li a {
-    font-size: 0.9rem;
-    color: #666;
-    transition: color 0.2s;
-}
-
-.menuColumn ul li a:hover {
-    color: var(--color-primary);
-}
-
-.actions {
-    display: flex;
-    gap: 25px;
-    align-items: center;
-    margin-left: 40px; /* increased left spacing from nav */
-}
-
-.actionIcon {
-    cursor: pointer;
-    transition: transform 0.2s, color 0.2s;
-}
-
-.actionIcon:hover {
-    color: var(--color-primary);
-    transform: translateY(-2px);
-}
-
-.rotatingBanner {
-    background-color: var(--color-secondary);
-    color: white;
-    text-align: center;
-    padding: 8px 0;
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
+  }
+  
+  /* ---------------- RESPONSIVE ---------------- */
+  
+  @media (max-width: 800px) {
+    .topBar {
+      padding: 6px 16px;
+    }
+  
+    .topBarCenter {
+      font-size: 0.85rem;
+    }
+  }
+  

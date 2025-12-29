@@ -477,101 +477,187 @@
 /* -------------- */
 /* SELL WITH US   */
 /* -------------- */
-
+/* 
+/* ================= SELL WITH US SECTION ================= */
 .sellWithUsSection {
-  padding: 80px 20px;
-  background-color: var(--color-bg-light);
+  padding: 80px 0 60px;
+  background: #fff;
 }
 
+/* MAIN TITLE */
 .sellWithUsTitle {
   text-align: center;
-  font-family: var(--font-serif);
-  font-size: 2.4rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 40px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 50px;
+  position: relative;
 }
 
+.sellWithUsTitle::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #000;
+  margin: 14px auto 0;
+}
+
+/* GRID */
 .sellWithUsGrid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 32px;
-  max-width: var(--max-width);
-  margin: 0 auto 32px;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
 }
 
+/* INTRO TEXT */
+.sellWithUsIntroTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.sellWithUsIntroSubtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 28px;
+}
+
+/* STEPS GRID */
 .sellWithUsSteps {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
+/* INDIVIDUAL CARD */
 .sellStep {
-  background-color: #fff;
+  background: #f6f6f6;
   border-radius: 12px;
-  padding: 18px 20px;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.06);
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.45;
+  padding: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.sellWithUsImageWrapper {
+.sellStep:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* 🔥 ICON STYLE (NEW – MATCHES SCREENSHOT) */
+.sellStepIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
   display: flex;
+  align-items: center;
   justify-content: center;
-  position: relative;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* IMAGE SIDE */
+.sellWithUsImageWrapper {
+  border-radius: 18px;
+  overflow: hidden;
+  height: 100%;
+  min-height: 420px;
 }
 
 .sellWithUsImage {
   width: 100%;
-  max-width: 500px;
-  border-radius: 18px;
+  height: 100%;
   background-size: cover;
   background-position: center;
-  aspect-ratio: 3/4;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
-  position: relative;
 }
 
-.sellWithUsImageOverlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-  padding: 30px 20px 20px;
-  border-radius: 0 0 18px 18px;
-  color: white;
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .sellWithUsGrid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.sellWithUsImageTitle {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
+@media (max-width: 640px) {
+  .sellWithUsSteps {
+    grid-template-columns: 1fr;
+  }
+
+  .sellStep {
+    height: 110px;
+  }
+}
+
+/* ================= READY TO SELL ================= */
+
+.readyToSellSection {
+  margin-top: 70px;
+  text-align: center;
+}
+
+.readyToSellTitle {
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 8px;
-  color: white;
+  margin-bottom: 12px;
 }
 
-.sellWithUsImageSubtitle {
-  font-size: 0.9rem;
-  opacity: 0.95;
-  color: white;
+.readyToSellSubtitle {
+  max-width: 640px;
+  margin: 0 auto 26px;
+  color: #666;
+  font-size: 0.95rem;
 }
 
-.sellWithUsCtaWrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.sellWithUsButton {
-  padding: 14px 40px;
-  border-radius: 4px;
-  background-color: #000;
+.readyToSellButton {
+  display: inline-block;
+  background: #000;
   color: #fff;
+  padding: 14px 36px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 0.9rem;
 }
+
+.readyToSellButton:hover {
+  background: #222;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+  .sellWithUsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sellWithUsImageWrapper {
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 640px) {
+  .sellWithUsSteps {
+    grid-template-columns: 1fr;
+  }
+
+  .sellStep {
+    height: 110px;
+  }
+}
+
 
 /* -------------- */
 /* OUR SERVICES   */
@@ -713,143 +799,202 @@
 /* MIX & MATCH    */
 /* -------------- */
 
-.comboSection {
-  padding: 80px 20px;
-  background-color: var(--color-white);
-}
+/* ================= EXACT COMBO LAYOUT ================= */
+/* ===============================
+   COMBO GRID (EXACT 50 / 50)
+================================ */
 
-.comboGrid {
+.comboGridExact {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  max-width: var(--max-width);
-  margin: 0 auto;
+  gap: 60px;
+  align-items: center;
 }
 
-.comboImages {
+/* ===============================
+   LEFT IMAGE SECTION
+================================ */
+
+.comboImagesExact {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
 }
 
-.comboImageLarge {
-  width: 100%;
-  aspect-ratio: 1;
-  /* Reduced from 3/4 */
+/* BIG IMAGE */
+.comboImageMain {
+  height: 360px;
+  border-radius: 16px;
   background-size: cover;
   background-position: center;
-  border-radius: 12px;
   position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  padding: 30px;
+  overflow: hidden;
+  transition: transform 0.6s ease;
 }
 
-.comboImagesSmall {
+/* SMALL IMAGE ROW */
+.comboImageRow {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 18px;
 }
 
-.comboImageSmall {
-  width: 100%;
-  aspect-ratio: 1;
-  /* Reduced from 3/4 */
+/* SMALL IMAGES */
+.comboImageSmallExact {
+  height: 220px;
+  border-radius: 16px;
   background-size: cover;
   background-position: center;
-  border-radius: 12px;
   position: relative;
-  display: flex;
-  align-items: flex-end;
-  padding: 20px;
+  overflow: hidden;
+  transition: transform 0.6s ease;
 }
 
-.comboImageText {
+/* HOVER ZOOM */
+.comboImageMain:hover,
+.comboImageSmallExact:hover {
+  transform: scale(1.06);
+}
+
+/* ===============================
+   OVERLAY TEXT
+================================ */
+
+.comboOverlayText {
+  position: absolute;
   font-family: var(--font-serif);
-  font-size: 3rem;
+  font-size: 2.4rem;
   font-weight: 700;
-  color: white;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
+  color: #fff;
+  text-transform: uppercase;
+  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
 }
 
-.comboContent {
+/* SHOP — CENTER */
+.comboImageMain .comboOverlayText {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* THE — BOTTOM LEFT */
+.comboImageSmallExact:first-child .comboOverlayText {
+  bottom: 18px;
+  left: 18px;
+}
+
+/* LOOK — BOTTOM RIGHT */
+.comboImageSmallExact:last-child .comboOverlayText {
+  bottom: 18px;
+  right: 18px;
+}
+
+/* ===============================
+   RIGHT CONTENT
+================================ */
+
+.comboContentExact {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 20px;
 }
 
 .comboTitle {
   font-family: var(--font-serif);
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-size: 2.4rem;
+  margin-bottom: 14px;
 }
 
 .comboDescription {
   font-size: 0.95rem;
-  color: var(--color-text-light);
+  color: #555;
+  max-width: 480px;
   line-height: 1.6;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
+
+/* ===============================
+   PRODUCT LIST
+================================ */
 
 .comboProducts {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
   margin-bottom: 30px;
 }
 
 .comboProduct {
   display: flex;
-  gap: 16px;
   align-items: center;
+  gap: 14px;
 }
 
 .comboProductImage {
-  width: 80px;
-  height: 80px;
-  border-radius: 8px;
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
   background-size: cover;
   background-position: center;
   flex-shrink: 0;
 }
 
-.comboProductInfo {
-  flex: 1;
-}
-
 .comboProductName {
-  font-size: 0.9rem;
   font-weight: 600;
-  margin-bottom: 4px;
+  font-size: 0.9rem;
 }
 
 .comboProductPrice {
   font-size: 0.85rem;
-  color: var(--color-text-light);
+  color: #666;
 }
 
+/* ===============================
+   BUTTON (FULL WIDTH)
+================================ */
+
 .comboButton {
-  padding: 12px 32px;
-  background-color: var(--color-secondary);
-  color: white;
-  text-align: center;
-  border-radius: 4px;
+  width: 100%;
+  padding: 14px 0;
+  background: #000;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 0.9rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  width: fit-content;
-  transition: background-color 0.3s;
+  letter-spacing: 0.08em;
+  text-align: center;
+  transition: background 0.25s ease;
 }
 
 .comboButton:hover {
-  background-color: #003d5c;
+  background: #222;
 }
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1024px) {
+  .comboGridExact {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .comboImageMain {
+    height: 300px;
+  }
+
+  .comboImageSmallExact {
+    height: 200px;
+  }
+
+  .comboDescription {
+    max-width: 100%;
+  }
+}
+
 
 /* -------------- */
 /* BRAND STORY    */
