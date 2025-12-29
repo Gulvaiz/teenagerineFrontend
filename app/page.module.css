@@ -204,6 +204,700 @@
   background-color: rgba(255, 255, 255, 0.15);
 }
 
+/* ---------------------- */
+/* SALE IS LIVE SECTION   */
+/* ---------------------- */
+
+.saleSection {
+  padding: 80px 0 40px;
+  background-color: var(--color-white);
+}
+
+.showMoreContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.showMoreButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 40px;
+  border-radius: 999px;
+  background-color: #000;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  gap: 8px;
+}
+
+.showMoreButton:hover {
+  background-color: #222;
+}
+
+/* ------------------------- */
+/* SHOP BY CATEGORY SECTION  */
+/* ------------------------- */
+
+.shopByCategorySection {
+  padding: 80px 20px 40px;
+  background-color: #faf8f4;
+}
+
+.shopByCategoryTitle {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.shopByCategorySubtitle {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 40px;
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+}
+
+.shopByCategoryGrid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1000px;
+  /* Constrain width to make cards smaller */
+  margin: 0 auto;
+}
+
+.shopByCategoryCard {
+  flex: 1;
+  max-width: 300px;
+  /* explicit max width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.shopByCategoryImage {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+.shopByCategoryLabel {
+  margin-top: 16px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ------------------------------ */
+/* DEPARTMENT COLLECTIONS (W/M/K) */
+/* ------------------------------ */
+
+.deptCollectionsSection {
+  padding: 40px 20px 80px;
+  background-color: var(--color-white);
+}
+
+.deptTabs {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.deptTab {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  padding-bottom: 4px;
+  position: relative;
+}
+
+.deptTab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-text-main);
+  transition: width 0.25s ease;
+}
+
+.deptTabActive {
+  color: var(--color-text-main);
+}
+
+.deptTabActive::after {
+  width: 100%;
+}
+
+.deptCardsRow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.deptCard {
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+.deptCardImage {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background-size: cover;
+  background-position: center;
+}
+
+.deptCardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent 55%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  color: #fff;
+}
+
+.deptCardTitle {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.deptCardCta {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ----------------- */
+/* BRANDS SECTION    */
+/* ----------------- */
+
+.brandsSection {
+  padding: 80px 20px;
+  background-color: var(--color-white);
+}
+
+.brandsTitle {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.brandsCarouselWrapper {
+  position: relative;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brandsTrack {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 4px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.brandsTrack::-webkit-scrollbar {
+  display: none;
+}
+
+.brandCard {
+  min-width: 220px;
+  height: 140px;
+  border-radius: 18px;
+  background-color: #fff;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.brandsNavButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.brandsExploreWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.brandsExploreButton {
+  padding: 12px 32px;
+  border-radius: 999px;
+  background-color: #000;
+  color: #fff;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* -------------- */
+/* SELL WITH US   */
+/* -------------- */
+
+.sellWithUsSection {
+  padding: 80px 20px;
+  background-color: var(--color-bg-light);
+}
+
+.sellWithUsTitle {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.sellWithUsGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+  max-width: var(--max-width);
+  margin: 0 auto 32px;
+}
+
+.sellWithUsSteps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.sellStep {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 18px 20px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.06);
+}
+
+.sellWithUsImageWrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.sellWithUsImage {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  aspect-ratio: 3/4;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  position: relative;
+}
+
+.sellWithUsImageOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 30px 20px 20px;
+  border-radius: 0 0 18px 18px;
+  color: white;
+}
+
+.sellWithUsImageTitle {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.sellWithUsImageSubtitle {
+  font-size: 0.9rem;
+  opacity: 0.95;
+  color: white;
+}
+
+.sellWithUsCtaWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.sellWithUsButton {
+  padding: 14px 40px;
+  border-radius: 4px;
+  background-color: #000;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.9rem;
+}
+
+/* -------------- */
+/* OUR SERVICES   */
+/* -------------- */
+
+.servicesSection {
+  padding: 80px 20px;
+  background-color: #fff8f4;
+}
+
+.servicesTitle {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.servicesGrid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.serviceCard {
+  border-radius: 18px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  color: inherit;
+}
+
+.serviceImage {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background-size: cover;
+  background-position: center;
+}
+
+.serviceLabel {
+  text-align: center;
+  padding: 14px 12px 18px;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ------------------------- */
+/* INFLUENCER STYLE GUIDES   */
+/* ------------------------- */
+
+.influencerSection {
+  padding: 80px 20px;
+  background-color: var(--color-white);
+}
+
+.influencerTitle {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 2.3rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.influencerSubtitle {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 32px;
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+}
+
+.influencerCarouselWrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.influencerTrack {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 30px 4px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  align-items: center;
+}
+
+.influencerTrack::-webkit-scrollbar {
+  display: none;
+}
+
+.influencerCard {
+  min-width: 200px;
+  max-width: 240px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
+  transition: all 0.5s ease;
+  transform: scale(0.9);
+  opacity: 0.7;
+}
+
+.influencerCardActive {
+  transform: scale(1.1);
+  opacity: 1;
+  z-index: 10;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+.influencerImage {
+  width: 100%;
+  aspect-ratio: 9/16;
+  background-size: cover;
+  background-position: center;
+}
+
+.influencerNavButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* -------------- */
+/* MIX & MATCH    */
+/* -------------- */
+
+.comboSection {
+  padding: 80px 20px;
+  background-color: var(--color-white);
+}
+
+.comboGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.comboImages {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.comboImageLarge {
+  width: 100%;
+  aspect-ratio: 1;
+  /* Reduced from 3/4 */
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 30px;
+}
+
+.comboImagesSmall {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.comboImageSmall {
+  width: 100%;
+  aspect-ratio: 1;
+  /* Reduced from 3/4 */
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.comboImageText {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.1em;
+}
+
+.comboContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+.comboTitle {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.comboDescription {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.comboProducts {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.comboProduct {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.comboProductImage {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
+}
+
+.comboProductInfo {
+  flex: 1;
+}
+
+.comboProductName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.comboProductPrice {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
+.comboButton {
+  padding: 12px 32px;
+  background-color: var(--color-secondary);
+  color: white;
+  text-align: center;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: fit-content;
+  transition: background-color 0.3s;
+}
+
+.comboButton:hover {
+  background-color: #003d5c;
+}
+
+/* -------------- */
+/* BRAND STORY    */
+/* -------------- */
+
+.brandStorySection {
+  padding: 80px 20px;
+  background-color: #faf4eb;
+  text-align: center;
+}
+
+.brandStoryLogo {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.brandStoryText {
+  max-width: 760px;
+  margin: 0 auto 16px;
+  color: var(--color-text-main);
+  font-size: 0.95rem;
+}
+
+.brandUspRow {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.brandUspItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .productsGrid {
@@ -269,6 +963,35 @@
 
   .newsletterInput {
     width: 100%;
+  }
+
+  .shopByCategoryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .deptCardsRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .comboGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .comboImageText {
+    font-size: 2rem;
+  }
+
+  .servicesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sellWithUsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .brandsCarouselWrapper,
+  .influencerCarouselWrapper {
+    gap: 8px;
   }
 }
 

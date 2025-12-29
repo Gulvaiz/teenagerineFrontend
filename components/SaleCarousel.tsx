@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import ProductCard from './ProductCard';
 import styles from './SaleCarousel.module.css';
@@ -45,12 +46,10 @@ export default function SaleCarousel({ products, onQuickView, currency = 'INR' }
         );
     };
 
-    const visibleProducts = products.slice(currentIndex, currentIndex + itemsPerView);
-
     return (
-        <div className={styles.carouselContainer}>
+        <section className={styles.carouselContainer}>
             <div className={styles.header}>
-                <h2 className={styles.title}>Sale is Live</h2>
+                <h2 className={styles.title}>SALE IS LIVE</h2>
                 <div className={styles.navigation}>
                     <button 
                         className={styles.navButton} 
@@ -70,6 +69,7 @@ export default function SaleCarousel({ products, onQuickView, currency = 'INR' }
                     </button>
                 </div>
             </div>
+
             <div className={styles.carousel}>
                 <div 
                     className={styles.productsWrapper}
@@ -86,8 +86,12 @@ export default function SaleCarousel({ products, onQuickView, currency = 'INR' }
                     ))}
                 </div>
             </div>
-        </div>
+
+            <div className={styles.showMoreContainer}>
+                <Link href="/sale" className={styles.showMoreButton}>
+                    Show more <span className={styles.showMoreArrow}>→</span>
+                </Link>
+            </div>
+        </section>
     );
 }
-
-

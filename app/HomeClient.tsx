@@ -1,151 +1,600 @@
 "use client";
 
-import { useState } from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import HeroCarousel from '@/components/HeroCarousel';
-import SaleCarousel from '@/components/SaleCarousel';
-import QuickViewModal from '@/components/QuickViewModal';
-import ProductCard from '@/components/ProductCard';
-import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
-import styles from './page.module.css';
+import { useState, useRef } from "react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import HeroCarousel from "@/components/HeroCarousel";
+import SaleCarousel from "@/components/SaleCarousel";
+import QuickViewModal from "@/components/QuickViewModal";
+import ProductCard from "@/components/ProductCard";
+import { ArrowRight, Truck, ShieldCheck, Tag, RotateCcw } from "lucide-react";
+import Link from "next/link";
+import styles from "./page.module.css";
 
 interface HomeClientProps {
-    newArrivals: any[];
-    saleProducts: any[];
+  newArrivals: any[];
+  saleProducts: any[];
 }
 
 export default function HomeClient({ newArrivals, saleProducts }: HomeClientProps) {
-    const [quickViewProduct, setQuickViewProduct] = useState<any>(null);
-    const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
+  const [quickViewProduct, setQuickViewProduct] = useState<any>(null);
+  const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
+  const [activeDept, setActiveDept] = useState<"women" | "men" | "kids">("women");
+  const [influencerIndex, setInfluencerIndex] = useState(0);
 
-    const handleQuickView = (product: any) => {
-        setQuickViewProduct(product);
-        setIsQuickViewOpen(true);
-    };
+  const brandsTrackRef = useRef<HTMLDivElement | null>(null);
+  const influencersTrackRef = useRef<HTMLDivElement | null>(null);
 
-    const handleCloseQuickView = () => {
-        setIsQuickViewOpen(false);
-        setTimeout(() => setQuickViewProduct(null), 300);
-    };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setInfluencerIndex((prev) => (prev + 1) % 5); // 5 influencers hardcoded below
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
-    const handleAddToWishlist = (productId: string) => {
-        // Add to wishlist logic here
-        console.log('Added to wishlist:', productId);
-    };
+  useEffect(() => {
+    if (influencersTrackRef.current) {
+      const track = influencersTrackRef.current;
+      const cardWidth = 240; // Approx card width + gap reduced for center calc
+      const gap = 24;
+      const totalCardWidth = cardWidth + gap;
+      const containerWidth = track.offsetWidth;
 
-    return (
-        <>
-            <Header />
+      // Calculate position to center the current item
+      // Center of container = containerWidth / 2
+      // Center of item i = i * totalCardWidth + cardWidth / 2
+      // ScrollLeft = (Center of item i) - (Center of container)
 
-            <main>
-                {/* HERO CAROUSEL */}
-                <HeroCarousel />
+      const scrollPos = (influencerIndex * totalCardWidth + cardWidth / 2) - (containerWidth / 2);
 
-                {/* FEATURED SECTION */}
-                <section className={styles.featuredSection}>
-                    <div className="container">
-                        <h2 className="section-title">New Arrivals</h2>
-                        <div className={styles.productsGrid}>
-                            {newArrivals.slice(0, 4).map(p => (
-                                <ProductCard
-                                    key={p.id}
-                                    {...p}
-                                    onQuickView={handleQuickView}
-                                />
-                            ))}
-                        </div>
-                        <div className={styles.viewAllContainer}>
-                            <Link href="/new-arrivals" className="btn btn-outline">
-                                View All <ArrowRight size={16} style={{ marginLeft: 8 }} />
-                            </Link>
-                        </div>
-                    </div>
-                </section>
+      track.scrollTo({
+        left: scrollPos,
+        behavior: 'smooth'
+      });
+    }
+  }, [influencerIndex]);
 
-                {/* CATEGORIES BANNER */}
-                <section className={styles.categoriesSection}>
-                    <div className="container">
-                        <div className={styles.categoriesGrid}>
-                            <Link href="/women" className={styles.categoryCard}>
-                                <div className={styles.categoryImage} style={{
-                                    backgroundImage: 'url("https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=600&fit=crop&q=80")'
-                                }}>
-                                    <div className={styles.categoryOverlay}>
-                                        <h3 className={styles.categoryTitle}>Shop Women</h3>
-                                        <p className={styles.categorySubtitle}>Explore Collection</p>
-                                    </div>
-                                </div>
-                            </Link>
-                            <Link href="/men" className={styles.categoryCard}>
-                                <div className={styles.categoryImage} style={{
-                                    backgroundImage: 'url("https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&h=600&fit=crop&q=80")'
-                                }}>
-                                    <div className={styles.categoryOverlay}>
-                                        <h3 className={styles.categoryTitle}>Shop Men</h3>
-                                        <p className={styles.categorySubtitle}>Explore Collection</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                    </div>
-                </section>
+  const handleQuickView = (product: any) => {
+    setQuickViewProduct(product);
+    setIsQuickViewOpen(true);
+  };
 
-                {/* SALE IS LIVE SECTION */}
-                {saleProducts.length > 0 && (
-                    <SaleCarousel
-                        products={saleProducts}
-                        onQuickView={handleQuickView}
+  const handleCloseQuickView = () => {
+    setIsQuickViewOpen(false);
+    setTimeout(() => setQuickViewProduct(null), 300);
+  };
+
+  const handleAddToWishlist = (productId: string) => {
+    // Add to wishlist logic here
+    console.log("Added to wishlist:", productId);
+  };
+
+  const scrollTrack = (ref: React.RefObject<HTMLDivElement>, direction: "left" | "right") => {
+    if (!ref.current) return;
+    const amount = direction === "left" ? -320 : 320;
+    ref.current.scrollBy({ left: amount, behavior: "smooth" });
+  };
+
+  const deptCollections: Record<"women" | "men" | "kids", { title: string; image: string; href: string }[]> = {
+    women: [
+      {
+        title: "Bags",
+        image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&h=900&fit=crop&q=80",
+        href: "/women/bags"
+      },
+      {
+        title: "Clothing",
+        image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&h=900&fit=crop&q=80",
+        href: "/women/clothing"
+      },
+      {
+        title: "Footwear",
+        image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=800&h=900&fit=crop&q=80",
+        href: "/women/footwear"
+      },
+      {
+        title: "Accessories",
+        image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&h=900&fit=crop&q=80",
+        href: "/women/accessories"
+      }
+    ],
+    men: [
+      {
+        title: "Bags",
+        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&h=900&fit=crop&q=80",
+        href: "/men/bags"
+      },
+      {
+        title: "Clothing",
+        image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=800&h=900&fit=crop&q=80",
+        href: "/men/clothing"
+      },
+      {
+        title: "Footwear",
+        image: "https://images.unsplash.com/photo-1507238795180-2c02b0eb3f2d?w=800&h=900&fit=crop&q=80",
+        href: "/men/footwear"
+      },
+      {
+        title: "Accessories",
+        image: "https://images.unsplash.com/photo-1605812860427-4024433a70fd?w=800&h=900&fit=crop&q=80",
+        href: "/men/accessories"
+      }
+    ],
+    kids: [
+      {
+        title: "Bags",
+        image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&h=900&fit=crop&q=80",
+        href: "/kids/bags"
+      },
+      {
+        title: "Clothing",
+        image: "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?w=800&h=900&fit=crop&q=80",
+        href: "/kids/clothing"
+      },
+      {
+        title: "Footwear",
+        image: "https://images.unsplash.com/photo-1526413232641-2c726c4b2a48?w=800&h=900&fit=crop&q=80",
+        href: "/kids/footwear"
+      },
+      {
+        title: "Accessories",
+        image: "https://images.unsplash.com/photo-1514986888952-8cd320577b68?w=800&h=900&fit=crop&q=80",
+        href: "/kids/accessories"
+      }
+    ]
+  };
+
+  const brands = [
+    "CORNELIANI",
+    "DSQUARED2",
+    "DITA",
+    "FENDI",
+    "EMILIO PUCCI",
+    "GUCCI",
+    "PRADA",
+    "SAINT LAURENT"
+  ];
+
+  const influencers = [
+    {
+      image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&h=600&fit=crop&q=80",
+      url: "https://www.instagram.com/tangerineluxury"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=600&fit=crop&q=80",
+      url: "https://www.instagram.com/tangerineluxury"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=400&h=600&fit=crop&q=80",
+      url: "https://www.instagram.com/tangerineluxury"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?w=400&h=600&fit=crop&q=80",
+      url: "https://www.instagram.com/tangerineluxury"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=600&fit=crop&q=80",
+      url: "https://www.instagram.com/tangerineluxury"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=600&fit=crop&q=80",
+      url: "https://www.instagram.com/tangerineluxury"
+    }
+  ];
+
+  // Duplicate for loop effect logic if needed, but for now simple array
+  // We use the same array but ensure we handle index well.
+
+  return (
+    <>
+      <Header />
+
+      <main>
+        {/* HERO CAROUSEL */}
+        <HeroCarousel />
+
+        {/* SALE IS LIVE SECTION */}
+        {saleProducts.length > 0 && (
+          <section className={styles.saleSection}>
+            <SaleCarousel products={saleProducts} onQuickView={handleQuickView} />
+            <div className={styles.showMoreContainer}>
+              <Link href="/sale" className={styles.showMoreButton}>
+                Show more <ArrowRight size={16} />
+              </Link>
+            </div>
+          </section>
+        )}
+
+        {/* SHOP BY CATEGORY (Women / Men / Kids) */}
+        <section className={styles.shopByCategorySection}>
+          <div className="container">
+            <h2 className={styles.shopByCategoryTitle}>SHOP BY CATEGORY</h2>
+            <p className={styles.shopByCategorySubtitle}>
+              Discover our carefully curated collections designed for every style and age.
+            </p>
+            <div className={styles.shopByCategoryGrid}>
+              <Link href="/women" className={styles.shopByCategoryCard}>
+                <div
+                  className={styles.shopByCategoryImage}
+                  style={{
+                    backgroundImage:
+                      'url("https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&h=600&fit=crop&q=80")'
+                  }}
+                />
+                <div className={styles.shopByCategoryLabel}>WOMEN</div>
+              </Link>
+              <Link href="/men" className={styles.shopByCategoryCard}>
+                <div
+                  className={styles.shopByCategoryImage}
+                  style={{
+                    backgroundImage:
+                      'url("https://images.unsplash.com/photo-1617137968427-85924c800a22?w=800&h=600&fit=crop&q=80")'
+                  }}
+                />
+                <div className={styles.shopByCategoryLabel}>MEN</div>
+              </Link>
+              <Link href="/kids" className={styles.shopByCategoryCard}>
+                <div
+                  className={styles.shopByCategoryImage}
+                  style={{
+                    backgroundImage:
+                      'url("https://images.unsplash.com/photo-1518002171953-a080ee817e1f?w=800&h=600&fit=crop&q=80")'
+                  }}
+                />
+                <div className={styles.shopByCategoryLabel}>KIDS</div>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* WOMEN / MEN / KIDS COLLECTION GRID */}
+        <section className={styles.deptCollectionsSection}>
+          <div className="container">
+            <div className={styles.deptTabs}>
+              {(["women", "men", "kids"] as const).map((dept) => (
+                <button
+                  key={dept}
+                  className={`${styles.deptTab} ${activeDept === dept ? styles.deptTabActive : ""}`}
+                  onClick={() => setActiveDept(dept)}
+                >
+                  {dept.toUpperCase()}
+                </button>
+              ))}
+            </div>
+            <div className={styles.deptCardsRow}>
+              {deptCollections[activeDept].map((item) => (
+                <Link href={item.href} key={item.title} className={styles.deptCard}>
+                  <div
+                    className={styles.deptCardImage}
+                    style={{ backgroundImage: `url("${item.image}")` }}
+                  />
+                  <div className={styles.deptCardOverlay}>
+                    <div className={styles.deptCardTitle}>{item.title}</div>
+                    <div className={styles.deptCardCta}>SHOP NOW</div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* NEW ARRIVALS (small strip using API data) */}
+        {newArrivals.length > 0 && (
+          <section className={styles.featuredSection}>
+            <div className="container">
+              <h2 className="section-title">New Arrivals</h2>
+              <div className={styles.productsGrid}>
+                {newArrivals.slice(0, 4).map((p) => (
+                  <ProductCard key={p.id} {...p} onQuickView={handleQuickView} />
+                ))}
+              </div>
+              <div className={styles.viewAllContainer}>
+                <Link href="/new-arrivals" className="btn btn-outline">
+                  View All <ArrowRight size={16} style={{ marginLeft: 8 }} />
+                </Link>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* SHOP BY BRANDS */}
+        <section className={styles.brandsSection}>
+          <div className="container">
+            <h2 className={styles.brandsTitle}>SHOP BY BRANDS</h2>
+            <div className={styles.brandsCarouselWrapper}>
+              <button
+                className={styles.brandsNavButton}
+                onClick={() => scrollTrack(brandsTrackRef, "left")}
+                aria-label="Previous brands"
+              >
+                ‹
+              </button>
+              <div className={styles.brandsTrack} ref={brandsTrackRef}>
+                {brands.map((brand) => (
+                  <Link href="/brands" key={brand} className={styles.brandCard}>
+                    <span>{brand}</span>
+                  </Link>
+                ))}
+              </div>
+              <button
+                className={styles.brandsNavButton}
+                onClick={() => scrollTrack(brandsTrackRef, "right")}
+                aria-label="Next brands"
+              >
+                ›
+              </button>
+            </div>
+            <div className={styles.brandsExploreWrapper}>
+              <Link href="/brands" className={styles.brandsExploreButton}>
+                Explore All Brands
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* SELL WITH US */}
+        <section className={styles.sellWithUsSection}>
+          <div className="container">
+            <h2 className={styles.sellWithUsTitle}>SELL WITH US</h2>
+            <div className={styles.sellWithUsGrid}>
+              <div className={styles.sellWithUsSteps}>
+                <div className={styles.sellStep}>SHARE IMAGE<br />OF YOUR PRODUCTS</div>
+                <div className={styles.sellStep}>FREE PAN-INDIA PICK-UP<br />NATIONWIDE SERVICE</div>
+                <div className={styles.sellStep}>AUTHENTICATION<br />&amp; LISTING</div>
+                <div className={styles.sellStep}>DIGITAL CONTRACT<br />ASSURANCE CERTIFICATE</div>
+                <div className={styles.sellStep}>PAYMENT IN 24 HOURS<br />NO PAYMENT DELAYS</div>
+                <div className={styles.sellStep}>CONTACT US<br />704 203 9009</div>
+              </div>
+              <div className={styles.sellWithUsImageWrapper}>
+                <div
+                  className={styles.sellWithUsImage}
+                  style={{
+                    backgroundImage:
+                      'url("https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=900&h=900&fit=crop&q=80")'
+                  }}
+                />
+                <div className={styles.sellWithUsImageOverlay}>
+                  {/* Overlay content removed per request to match updated design or kept minimal */}
+                </div>
+              </div>
+            </div>
+            <div className={styles.sellWithUsCtaWrapper} style={{ flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+              <p style={{ textAlign: 'center', maxWidth: '600px', margin: '0 0 10px', color: '#666' }}>
+                Join the circular fashion revolution. Sell your pre-loved luxury items with us and earn while you declutter.
+              </p>
+              <Link href="/sell-with-us" className={styles.sellWithUsButton}>
+                Sell With Us
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* OUR SERVICES */}
+        <section className={styles.servicesSection}>
+          <div className="container">
+            <h2 className={styles.servicesTitle}>OUR SERVICES</h2>
+            <div className={styles.servicesGrid}>
+              <Link href="/services/bio-cleaning" className={styles.serviceCard}>
+                <div
+                  className={styles.serviceImage}
+                  style={{
+                    backgroundImage:
+                      'url("https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&h=600&fit=crop&q=80")'
+                  }}
+                />
+                <div className={styles.serviceLabel}>BIO CLEANING</div>
+              </Link>
+              <Link href="/services/authentication" className={styles.serviceCard}>
+                <div
+                  className={styles.serviceImage}
+                  style={{
+                    backgroundImage:
+                      'url("https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&h=600&fit=crop&q=80")'
+                  }}
+                />
+                <div className={styles.serviceLabel}>AUTHENTICATION</div>
+              </Link>
+              <Link href="/services/private-viewing" className={styles.serviceCard}>
+                <div
+                  className={styles.serviceImage}
+                  style={{
+                    backgroundImage:
+                      'url("https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800&h=600&fit=crop&q=80")'
+                  }}
+                />
+                <div className={styles.serviceLabel}>PRIVATE VIEWING</div>
+              </Link>
+              <Link href="/services/request-product" className={styles.serviceCard}>
+                <div
+                  className={styles.serviceImage}
+                  style={{
+                    backgroundImage:
+                      'url("https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=800&h=600&fit=crop&q=80")'
+                  }}
+                />
+                <div className={styles.serviceLabel}>REQUEST A PRODUCT</div>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* INFLUENCER STYLE GUIDES */}
+        <section className={styles.influencerSection}>
+          <div className="container">
+            <h2 className={styles.influencerTitle}>INFLUENCER STYLE GUIDES</h2>
+            <p className={styles.influencerSubtitle}>
+              Get inspired by our fashion influencers as they showcase the latest trends and styling tips
+              from Tangerine Luxury.
+            </p>
+            <div className={styles.influencerCarouselWrapper}>
+              <button
+                className={styles.influencerNavButton}
+                onClick={() => scrollTrack(influencersTrackRef, "left")}
+                aria-label="Previous reels"
+              >
+                ‹
+              </button>
+              <div className={styles.influencerTrack} ref={influencersTrackRef}>
+                {influencers.map((item, index) => (
+                  <a
+                    key={index}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${styles.influencerCard} ${index === influencerIndex ? styles.influencerCardActive : ''}`}
+                  >
+                    <div
+                      className={styles.influencerImage}
+                      style={{ backgroundImage: `url("${item.image}")` }}
                     />
-                )}
+                  </a>
+                ))}
+              </div>
+              <button
+                className={styles.influencerNavButton}
+                onClick={() => scrollTrack(influencersTrackRef, "right")}
+                aria-label="Next reels"
+              >
+                ›
+              </button>
+            </div>
+          </div>
+        </section>
 
-                {/* BESTSELLERS SECTION - reusing newArrivals for now as fallback if no dedicated list */}
-                <section className={styles.bestsellersSection}>
-                    <div className="container">
-                        <h2 className="section-title">Bestsellers</h2>
-                        <div className={styles.productsGrid}>
-                            {newArrivals.slice(4, 8).map(p => (
-                                <ProductCard
-                                    key={p.id}
-                                    {...p}
-                                    onQuickView={handleQuickView}
-                                />
-                            ))}
-                        </div>
+        {/* MIX, MATCH & SHOP THE COMBO */}
+        <section className={styles.comboSection}>
+          <div className="container">
+            <div className={styles.comboGrid}>
+              <div className={styles.comboImages}>
+                <div
+                  className={styles.comboImageLarge}
+                  style={{
+                    backgroundImage:
+                      'url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=1000&fit=crop&q=80")'
+                  }}
+                >
+                  <div className={styles.comboImageText}>SHOP</div>
+                </div>
+                <div className={styles.comboImagesSmall}>
+                  <div
+                    className={styles.comboImageSmall}
+                    style={{
+                      backgroundImage:
+                        'url("https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&h=800&fit=crop&q=80")'
+                    }}
+                  >
+                    <div className={styles.comboImageText}>THE</div>
+                  </div>
+                  <div
+                    className={styles.comboImageSmall}
+                    style={{
+                      backgroundImage:
+                        'url("https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=800&fit=crop&q=80")'
+                    }}
+                  >
+                    <div className={styles.comboImageText}>LOOK</div>
+                  </div>
+                </div>
+              </div>
+              <div className={styles.comboContent}>
+                <h2 className={styles.comboTitle}>MIX, MATCH & SHOP THE COMBO</h2>
+                <p className={styles.comboDescription}>
+                  Enteger neque felis, egestas a euismod in, pulvinar et nisl. Aliquam ullam. Nulla tincidunt convallis
+                  bibendum. Duis sed risus suscipit justo maximus pulvinar.
+                </p>
+                <div className={styles.comboProducts}>
+                  <div className={styles.comboProduct}>
+                    <div
+                      className={styles.comboProductImage}
+                      style={{
+                        backgroundImage:
+                          'url("https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200&h=200&fit=crop&q=80")'
+                      }}
+                    />
+                    <div className={styles.comboProductInfo}>
+                      <div className={styles.comboProductName}>Women Casual Sweater</div>
+                      <div className={styles.comboProductPrice}>₹800</div>
                     </div>
-                </section>
-
-                {/* NEWSLETTER SECTION */}
-                <section className={styles.newsletterSection}>
-                    <div className="container">
-                        <div className={styles.newsletterContent}>
-                            <h2 className={styles.newsletterTitle}>Stay in the Loop</h2>
-                            <p className={styles.newsletterSubtitle}>
-                                Subscribe to get updates on new arrivals and exclusive offers
-                            </p>
-                            <form className={styles.newsletterForm}>
-                                <input
-                                    type="email"
-                                    placeholder="Enter your email address"
-                                    className={styles.newsletterInput}
-                                />
-                                <button type="submit" className="btn btn-primary">Subscribe</button>
-                            </form>
-                        </div>
+                  </div>
+                  <div className={styles.comboProduct}>
+                    <div
+                      className={styles.comboProductImage}
+                      style={{
+                        backgroundImage:
+                          'url("https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=200&h=200&fit=crop&q=80")'
+                      }}
+                    />
+                    <div className={styles.comboProductInfo}>
+                      <div className={styles.comboProductName}>White Shorts</div>
+                      <div className={styles.comboProductPrice}>₹20</div>
                     </div>
-                </section>
-            </main>
+                  </div>
+                  <div className={styles.comboProduct}>
+                    <div
+                      className={styles.comboProductImage}
+                      style={{
+                        backgroundImage:
+                          'url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop&q=80")'
+                      }}
+                    />
+                    <div className={styles.comboProductInfo}>
+                      <div className={styles.comboProductName}>Sneakers</div>
+                      <div className={styles.comboProductPrice}>₹120</div>
+                    </div>
+                  </div>
+                </div>
+                <Link href="/collections" className={styles.comboButton}>
+                  Shop Collection →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
 
-            <Footer />
+        {/* BRAND STORY / USP STRIP */}
+        <section className={styles.brandStorySection}>
+          <div className="container">
+            <div className={styles.brandStoryLogo}>TANGERINE LUXURY</div>
+            <p className={styles.brandStoryText}>
+              An online marketplace like &quot;Tangerine Luxury&quot; allows users to buy and sell pre-loved women&apos;s,
+              men&apos;s, and children&apos;s clothing and accessories.
+            </p>
+            <p className={styles.brandStoryText}>
+              Every single item in our collection was carefully chosen. You won&apos;t need to worry about anything
+              when you shop with us because each and every product meets the highest standards for both quality and
+              style.
+            </p>
+            <div className={styles.brandUspRow}>
+              <div className={styles.brandUspItem}>
+                <RotateCcw size={28} strokeWidth={1.5} />
+                <span>HASSLE FREE RETURNS</span>
+              </div>
+              <div className={styles.brandUspItem}>
+                <Tag size={28} strokeWidth={1.5} />
+                <span>AFFORDABLE LUXURY</span>
+              </div>
+              <div className={styles.brandUspItem}>
+                <ShieldCheck size={28} strokeWidth={1.5} />
+                <span>100% GUARANTEED AUTHENTIC</span>
+              </div>
+              <div className={styles.brandUspItem}>
+                <Truck size={28} strokeWidth={1.5} />
+                <span>WORLDWIDE SHIPPING</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
 
-            {/* Quick View Modal */}
-            <QuickViewModal
-                product={quickViewProduct}
-                isOpen={isQuickViewOpen}
-                onClose={handleCloseQuickView}
-                onAddToWishlist={handleAddToWishlist}
-            />
-        </>
-    );
+      <Footer />
+
+      {/* Quick View Modal */}
+      <QuickViewModal
+        product={quickViewProduct}
+        isOpen={isQuickViewOpen}
+        onClose={handleCloseQuickView}
+        onAddToWishlist={handleAddToWishlist}
+      />
+    </>
+  );
 }

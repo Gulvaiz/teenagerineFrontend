@@ -16,9 +16,15 @@
 
 .title {
     font-family: var(--font-serif);
-    font-size: 2.5rem;
-    color: var(--color-text-main);
+    font-size: 3rem;
+    color: transparent;
+    -webkit-text-stroke: 1px #ff6600;
+    /* Tangerine orange outline */
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    width: 100%;
 }
 
 .navigation {
@@ -95,4 +101,36 @@
     }
 }
 
+.showMoreContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
 
+.showMoreButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 40px;
+    border-radius: 999px;
+    background-color: #000;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.showMoreButton:hover {
+    background-color: #111;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.showMoreArrow {
+    margin-left: 8px;
+    font-size: 1.1rem;
+}
