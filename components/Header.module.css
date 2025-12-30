@@ -1,185 +1,227 @@
 .header {
-    border-bottom: 1px solid var(--color-border);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: var(--color-white);
-    transition: transform 0.4s cubic-bezier(0.215, 0.610, 0.355, 1.000),
-                background-color 0.35s ease,
-                backdrop-filter 0.35s ease;
-  }
-  
-  .header.scrolled {
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  }
-  
-  .header.hideTop {
-    transform: translateY(-44px);
-  }
-  
-  /* ---------------- TOP BAR ---------------- */
-  
-  .topBarWrapper {
-    background: #0D131E;
-  }
-  
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--color-white);
+  transition: transform 0.4s cubic-bezier(0.215, 0.610, 0.355, 1.000),
+    background-color 0.35s ease,
+    backdrop-filter 0.35s ease;
+}
+
+.header.scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.header.hideTop {
+  transform: translateY(-44px);
+}
+
+/* ---------------- TOP BAR ---------------- */
+
+.topBarWrapper {
+  background: #0D131E;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 40px;
+  background: #0D131E;
+  color: #ffffff;
+  gap: 16px;
+}
+
+.topBarLeft,
+.topBarRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 140px;
+}
+
+.topBarCenter {
+  flex: 1;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---------------- SOCIAL ---------------- */
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.9);
+  transition: color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.socialLink:hover {
+  color: var(--color-primary);
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-2px);
+}
+
+/* ---------------- MAIN BAR ---------------- */
+
+.mainBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: var(--header-height);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* ---------------- SEARCH ---------------- */
+
+.searchContainer {
+  flex: 1;
+  max-width: 400px;
+  margin: 0 40px;
+  position: relative;
+}
+
+.searchParams {
+  width: 100%;
+  padding: 12px 20px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: transparent;
+}
+
+.searchParams:focus {
+  outline: none;
+  border-bottom-color: var(--color-primary);
+}
+
+/* ---------------- NAV ---------------- */
+
+.nav {
+  display: flex;
+  gap: 30px;
+}
+
+.navItem {
+  position: relative;
+  padding: 30px 0;
+}
+
+.navLink {
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  position: relative;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.navItem:hover .navLink::after {
+  width: 100%;
+}
+
+/* ---------------- MEGA MENU ---------------- */
+
+.megaMenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  width: 90vw;
+  max-width: 1200px;
+  background: white;
+  padding: 40px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  gap: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.navItem:hover .megaMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.menuImage {
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.menuColumn {
+  flex: 1;
+}
+
+.menuColumn h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  color: #000;
+}
+
+.menuColumn ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menuColumn li {
+  margin-bottom: 12px;
+}
+
+.menuColumn a {
+  text-decoration: none;
+  color: #555;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.menuColumn a:hover {
+  color: #000;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width: 800px) {
   .topBar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 6px 40px;
-    background: #0D131E;
-    color: #ffffff;
-    gap: 16px;
+    padding: 6px 16px;
   }
-  
-  .topBarLeft,
-  .topBarRight {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    min-width: 140px;
-  }
-  
+
   .topBarCenter {
-    flex: 1;
-    text-align: center;
-    font-size: 0.9rem;
-    font-weight: 600;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  /* ---------------- SOCIAL ---------------- */
-  
-  .socialLink {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6px;
-    border-radius: 4px;
-    color: rgba(255, 255, 255, 0.9);
-    transition: color 0.15s ease, background 0.15s ease, transform 0.15s ease;
-  }
-  
-  .socialLink:hover {
-    color: var(--color-primary);
-    background: rgba(255, 255, 255, 0.04);
-    transform: translateY(-2px);
-  }
-  
-  /* ---------------- MAIN BAR ---------------- */
-  
-  .mainBar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-    height: var(--header-height);
-    max-width: var(--max-width);
-    margin: 0 auto;
-  }
-  
-  .logo {
-    font-family: var(--font-serif);
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-  }
-  
-  /* ---------------- SEARCH ---------------- */
-  
-  .searchContainer {
-    flex: 1;
-    max-width: 400px;
-    margin: 0 40px;
-    position: relative;
-  }
-  
-  .searchParams {
-    width: 100%;
-    padding: 12px 20px;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    background: transparent;
-  }
-  
-  .searchParams:focus {
-    outline: none;
-    border-bottom-color: var(--color-primary);
-  }
-  
-  /* ---------------- NAV ---------------- */
-  
-  .nav {
-    display: flex;
-    gap: 30px;
-  }
-  
-  .navItem {
-    position: relative;
-    padding: 30px 0;
-  }
-  
-  .navLink {
-    text-transform: uppercase;
     font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    position: relative;
   }
-  
-  .navLink::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--color-primary);
-    transition: width 0.3s ease;
-  }
-  
-  .navItem:hover .navLink::after {
-    width: 100%;
-  }
-  
-  /* ---------------- MEGA MENU ---------------- */
-  
-  .megaMenu {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    width: 90vw;
-    max-width: 1200px;
-    background: white;
-    padding: 50px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 1000;
-  }
-  
-  .navItem:hover .megaMenu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-  }
-  
-  /* ---------------- RESPONSIVE ---------------- */
-  
-  @media (max-width: 800px) {
-    .topBar {
-      padding: 6px 16px;
-    }
-  
-    .topBarCenter {
-      font-size: 0.85rem;
-    }
-  }
-  
+}

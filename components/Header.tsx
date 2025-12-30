@@ -233,11 +233,16 @@ export default function Header() {
                                 </div>
                             </div>
                             <div className={styles.menuColumn}>
-                                <h4>Bags & Accessories</h4>
+                                <h4>Bags</h4>
                                 <ul>
                                     <li><Link href="/men/bags/messenger">Messenger Bags</Link></li>
                                     <li><Link href="/men/bags/backpacks">Backpacks</Link></li>
                                     <li><Link href="/men/bags/wallets">Wallets</Link></li>
+                                </ul>
+                            </div>
+                            <div className={styles.menuColumn}>
+                                <h4>Accessories</h4>
+                                <ul>
                                     <li><Link href="/men/accessories/belts">Belts</Link></li>
                                     <li><Link href="/men/accessories/sunglasses">Sunglasses</Link></li>
                                 </ul>
@@ -277,7 +282,6 @@ export default function Header() {
                                 <ul>
                                     <li><Link href="/kids/girls/dresses">Dresses</Link></li>
                                     <li><Link href="/kids/girls/clothing">Clothing Sets</Link></li>
-                                    <li><Link href="/kids/girls/shoes">Shoes</Link></li>
                                     <li><Link href="/kids/girls/accessories">Accessories</Link></li>
                                 </ul>
                             </div>
@@ -287,15 +291,21 @@ export default function Header() {
                                     <li><Link href="/kids/boys/clothing">Clothing Sets</Link></li>
                                     <li><Link href="/kids/boys/shirts">Shirts & T-Shirts</Link></li>
                                     <li><Link href="/kids/boys/pants">Pants & Shorts</Link></li>
-                                    <li><Link href="/kids/boys/shoes">Shoes</Link></li>
                                 </ul>
                             </div>
                             <div className={styles.menuColumn}>
                                 <h4>Baby</h4>
                                 <ul>
                                     <li><Link href="/kids/baby/clothing">Clothing</Link></li>
-                                    <li><Link href="/kids/baby/shoes">Shoes</Link></li>
                                     <li><Link href="/kids/baby/accessories">Accessories</Link></li>
+                                </ul>
+                            </div>
+                            <div className={styles.menuColumn}>
+                                <h4>Footwear</h4>
+                                <ul>
+                                    <li><Link href="/kids/girls/shoes">Girls Shoes</Link></li>
+                                    <li><Link href="/kids/boys/shoes">Boys Shoes</Link></li>
+                                    <li><Link href="/kids/baby/shoes">Baby Shoes</Link></li>
                                 </ul>
                             </div>
                         </div>
