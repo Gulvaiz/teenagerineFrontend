@@ -2,8 +2,9 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Heart } from 'lucide-react';
+import { Heart, Maximize2 } from 'lucide-react';
 import styles from './ProductCard.module.css';
+import { useWishlist } from '@/context/WishlistContext';
 
 interface ProductCardProps {
     id: string;
@@ -23,15 +24,15 @@ interface ProductCardProps {
     currency?: string;
 }
 
-export default function ProductCard({ 
-    id, 
-    name, 
-    brand, 
-    price, 
+export default function ProductCard({
+    id,
+    name,
+    brand,
+    price,
     originalPrice,
     salePrice,
     discount,
-    image, 
+    image,
     images,
     soldOut = false,
     tags = [],
@@ -41,6 +42,8 @@ export default function ProductCard({
     currency = 'INR'
 }: ProductCardProps) {
     const [isHovered, setIsHovered] = useState(false);
+    const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+    const isWishlisted = isInWishlist(id);
 
     const formatPrice = (price: number) => {
         const symbol = currency === 'INR' ? '₹' : '$';
@@ -49,6 +52,7 @@ export default function ProductCard({
 
     const handleQuickView = (e: React.MouseEvent) => {
         e.preventDefault();
+        e.stopPropagation();
         if (onQuickView) {
             onQuickView({
                 id,
@@ -66,27 +70,33 @@ export default function ProductCard({
         }
     };
 
+    // Determine effective tags to show
+    const displayTags = [...tags];
+    if (salePrice && !displayTags.includes('SALE')) {
+        // displayTags.push('SALE'); // Logic might be redundant if data already has it, but safe to leave to data
+    }
+
     return (
-        <div 
+        <div
             className={styles.card}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
             <div className={styles.imageContainer}>
-                <img src={image} alt={name} className={styles.image} style={soldOut ? { opacity: 0.6 } : {}} />
+                <Link href={`/product/${id}`}>
+                    <img src={image} alt={name} className={styles.image} style={soldOut ? { opacity: 0.6 } : {}} />
+                </Link>
 
-                {tags.length > 0 && (
-                    <div className={styles.tags}>
-                        {tags.map((tag, index) => (
-                            <span 
-                                key={index} 
-                                className={tag === 'SALE' ? styles.saleTag : styles.tag}
-                            >
-                                {tag}
-                            </span>
-                        ))}
-                    </div>
-                )}
+                <div className={styles.tags}>
+                    {displayTags.map((tag, index) => (
+                        <span
+                            key={index}
+                            className={tag === 'SALE' ? styles.saleTag : styles.tag}
+                        >
+                            {tag}
+                        </span>
+                    ))}
+                </div>
 
                 {soldOut && (
                     <div className={styles.soldOut}>
@@ -94,42 +104,56 @@ export default function ProductCard({
                     </div>
                 )}
 
-                {isHovered && !soldOut && onQuickView && (
-                    <button 
-                        className={styles.quickViewBtn}
-                        onClick={handleQuickView}
-                    >
-                        Quick View
-                    </button>
-                )}
+                {/* Quick View Button - Only visible on hover and if enabled */}
+                <div className={`${styles.quickViewOverlay} ${isHovered && !soldOut && onQuickView ? styles.visible : ''}`}>
+                    {onQuickView && (
+                        <button
+                            className={styles.quickViewBtn}
+                            onClick={handleQuickView}
+                        >
+                            Quick View
+                        </button>
+                    )}
+                </div>
 
-                <button className={styles.wishlistBtn}>
-                    <Heart size={18} />
+                {/* Wishlist Button - Always visible or enhanced on hover */}
+                <button
+                    className={styles.wishlistBtn}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        if (isWishlisted) {
+                            removeFromWishlist(id);
+                        } else {
+                            addToWishlist({ id, name, brand, price, originalPrice, salePrice, discount, image, images, category, sku, tags });
+                        }
+                    }}
+                >
+                    <Heart size={18} fill={isWishlisted ? "currentColor" : "none"} color={isWishlisted ? "#ff4d4f" : "currentColor"} />
                 </button>
             </div>
+
             <Link href={`/product/${id}`} className={styles.info}>
                 <div className={styles.brand}>{brand}</div>
                 <div className={styles.name}>{name}</div>
                 <div className={styles.pricing}>
-                    {originalPrice && salePrice && (
+                    {originalPrice && salePrice ? (
                         <>
-                            <div className={styles.estRetail}>
-                                Est. Retail: {formatPrice(originalPrice)}
+                            <div className={styles.priceRow}>
+                                <span className={styles.estRetailLabel}>Est. Retail:</span>
+                                <span className={styles.estRetailValue}>{formatPrice(originalPrice)}</span>
                             </div>
-                            <div className={styles.ourPrice}>
-                                Our Price: {formatPrice(salePrice)}
-                            </div>
-                            <div className={styles.originalPrice}>
-                                {formatPrice(originalPrice)}
+                            <div className={styles.priceRow}>
+                                <span className={styles.ourPriceLabel}>Our Price:</span>
+                                <span className={styles.ourPriceValue}>{formatPrice(salePrice)}</span>
+                                <span className={styles.originalPriceStruck}>{formatPrice(originalPrice)}</span>
                             </div>
                             {discount && (
-                                <div className={styles.discountPrice}>
-                                    {formatPrice(salePrice)}
+                                <div className={styles.priceRow}>
+                                    <span className={styles.discountHighlight}>{formatPrice(salePrice)}</span>
                                 </div>
                             )}
                         </>
-                    )}
-                    {!originalPrice && (
+                    ) : (
                         <div className={styles.price}>{formatPrice(price)}</div>
                     )}
                 </div>

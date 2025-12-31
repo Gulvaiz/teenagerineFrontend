@@ -1,0 +1,613 @@
+.pageContainer {
+    padding: 60px 0;
+    min-height: 60vh;
+}
+
+.title {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.servicesGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.serviceCard {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.3s ease;
+}
+
+.serviceCard:hover {
+    transform: translateY(-5px);
+}
+
+.serviceImage {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+}
+
+.serviceLabel {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #333;
+    text-align: center;
+}
+
+/* Individual Service Page Styles */
+.heroSection {
+    height: 400px;
+    background-color: #999;
+    /* Fallback */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.heroOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.heroTitle {
+    color: white;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    z-index: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+}
+
+.contentContainer {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px 80px;
+}
+
+.mainHeading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.description {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.subHeading {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #222;
+    margin: 50px 0 20px;
+    text-transform: uppercase;
+}
+
+.bookBtn {
+    display: inline-block;
+    background-color: #f77f00;
+    /* Orange color from screenshot */
+    color: white;
+    padding: 15px 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin-top: 30px;
+}
+
+.bookBtn:hover {
+    background-color: #e67500;
+}
+
+/* Form Styles for Request Product / Private Viewing */
+.formContainer {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.formGroup {
+    margin-bottom: 20px;
+}
+
+.label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+.input,
+.textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+@media (max-width: 1024px) {
+    .servicesGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .servicesGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .heroTitle {
+        font-size: 2rem;
+    }
+}
+
+/* --- Bio Cleaning Refinements --- */
+.splitSection {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin: 80px 0;
+    text-align: left;
+}
+
+.splitImage {
+    flex: 1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.splitContent {
+    flex: 1;
+}
+
+.splitHeading {
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #000;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+.splitText {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.termsContainer {
+    text-align: left;
+    margin-top: 80px;
+}
+
+.termsTitle {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+.termsList {
+    list-style: disc;
+    padding-left: 20px;
+    color: #555;
+    line-height: 2;
+}
+
+/* --- Authentication Refinements --- */
+.authContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+}
+
+.authHeroBox {
+    background: white;
+    padding: 60px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    /* Soft shadow like screenshot */
+    margin: -100px auto 60px;
+    /* Overlap hero */
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    border-radius: 8px;
+}
+
+.authQuestion {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.authSubQuestion {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.authSecondThought {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #e67e22;
+    /* Orange */
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+.authBtnContainer {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.authSectionTitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    color: #222;
+}
+
+.processGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 100px;
+}
+
+.processItem {
+    text-align: center;
+    padding: 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.processIcon {
+    color: #e67e22;
+    margin-bottom: 20px;
+}
+
+.processTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.processText {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.offeringsSection {
+    margin-bottom: 100px;
+}
+
+.offeringsList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 60px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.offeringItem {
+    padding: 15px 0;
+    font-size: 1rem;
+    color: #444;
+    border-bottom: 1px solid #eee;
+    text-transform: uppercase;
+}
+
+.authTerms {
+    background-color: #f8f9fa;
+    padding: 60px 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.authTermsList {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .splitSection {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .processGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .offeringsList {
+        grid-template-columns: 1fr;
+    }
+
+    .splitHeading {
+        font-size: 1.2rem;
+    }
+
+    .authHeroBox {
+        padding: 30px;
+        margin-top: -50px;
+    }
+
+    .authQuestion {
+        font-size: 1.5rem;
+    }
+}
+
+/* --- Private Viewing Refinements --- */
+.pvIntro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.pvSectionContainer {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    padding: 40px;
+    margin-bottom: 60px;
+}
+
+.pvHeading {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 30px;
+}
+
+.pvTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.pvTable th,
+.pvTable td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.pvTable th {
+    background-color: #e9ecef;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #444;
+    text-transform: uppercase;
+}
+
+.pvTable td {
+    font-size: 0.95rem;
+    color: #555;
+    vertical-align: top;
+}
+
+/* Specific column widths based on visual check */
+.pvTable th:nth-child(1) {
+    width: 10%;
+}
+
+.pvTable th:nth-child(2) {
+    width: 40%;
+}
+
+.pvTable th:nth-child(3) {
+    width: 50%;
+}
+
+.pvTermsBox {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    padding: 40px;
+    margin-bottom: 60px;
+}
+
+.pvTermsList {
+    list-style: decimal;
+    padding-left: 20px;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 2;
+}
+
+.pvCtaSection {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.pvLimitedSlots {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+/* --- Request Product Refinements --- */
+.requestHeroBox {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px 60px;
+    text-align: center;
+    max-width: 600px;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.requestHeroTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.requestHeroText {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+.formTitle {
+    font-size: 1.8rem;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #222;
+}
+
+.reqFormContainer {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+
+.reqLabel {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.reqLabelRequired {
+    color: #f1c40f;
+    /* Yellow/Gold for (required) */
+    margin-left: 4px;
+    font-weight: 400;
+}
+
+.reqLabelOptional {
+    color: #999;
+    margin-left: 4px;
+    font-weight: 400;
+}
+
+.reqInput {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    background-color: #fff;
+    margin-bottom: 25px;
+}
+
+.reqFormRow {
+    display: flex;
+    gap: 20px;
+}
+
+.reqFormCol {
+    flex: 1;
+}
+
+.fileUploadBox {
+    border: 2px dashed #ddd;
+    border-radius: 4px;
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #fafafa;
+    transition: all 0.3s;
+    margin-bottom: 40px;
+}
+
+.fileUploadBox:hover {
+    border-color: #aaa;
+    background-color: #f0f0f0;
+}
+
+.uploadText {
+    margin-top: 15px;
+    font-weight: 500;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.uploadSubText {
+    margin-top: 5px;
+    color: #999;
+    font-size: 0.8rem;
+}
+
+.submitBtnBlack {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 16px 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 0 auto;
+}
+
+.submitBtnBlack:hover {
+    background-color: #333;
+}

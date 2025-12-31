@@ -4,6 +4,9 @@ import { Playfair_Display, Lato } from "next/font/google";
 import "./globals.css";
 import DiscountModal from "@/components/DiscountModal";
 import { CartProvider } from "@/context/CartContext";
+import { WishlistProvider } from "@/context/WishlistContext";
+import CartDrawer from "@/components/CartDrawer";
+import { AuthProvider } from "@/context/AuthContext";
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -31,10 +34,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${playfair.variable} ${lato.variable}`}>
-        <CartProvider>
-          {children}
-          <DiscountModal />
-        </CartProvider>
+        <AuthProvider>
+          <CartProvider>
+            <WishlistProvider>
+              {children}
+              <DiscountModal />
+              <CartDrawer />
+            </WishlistProvider>
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );

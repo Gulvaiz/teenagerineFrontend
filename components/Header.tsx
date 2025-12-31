@@ -80,7 +80,7 @@ export default function Header() {
         setShowCurrencyDropdown(false);
     };
 
-    const { cartCount } = useCart();
+    const { cartCount, setIsCartOpen } = useCart();
 
     return (
         <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''} ${!showTopBar ? styles.hideTop : ''}`}>
@@ -325,8 +325,12 @@ export default function Header() {
                 </nav>
 
                 <div className={styles.actions}>
+
                     <Link href="/wishlist"><Heart size={20} className={styles.actionIcon} /></Link>
-                    <Link href="/cart" style={{ position: 'relative' }}>
+                    <button
+                        onClick={() => setIsCartOpen(true)}
+                        style={{ border: 'none', background: 'none', padding: 0, cursor: 'pointer', position: 'relative' }}
+                    >
                         <ShoppingBag size={20} className={styles.actionIcon} />
                         {cartCount > 0 && (
                             <span style={{
@@ -346,8 +350,8 @@ export default function Header() {
                                 {cartCount}
                             </span>
                         )}
-                    </Link>
-                    <Link href="/account"><User size={20} className={styles.actionIcon} /></Link>
+                    </button>
+                    <Link href="/dashboard"><User size={20} className={styles.actionIcon} /></Link>
                 </div>
             </div>
         </header>

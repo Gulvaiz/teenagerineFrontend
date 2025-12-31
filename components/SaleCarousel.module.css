@@ -17,15 +17,16 @@
 .title {
     font-family: var(--font-serif);
     font-size: 3rem;
-    color: transparent;
-    -webkit-text-stroke: 1px #ff6600;
-    /* Tangerine orange outline */
+    color: #ff6600;
+    /* Solid orange */
+    /* -webkit-text-stroke: 1px #ff6600; */
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
     text-align: center;
     width: 100%;
 }
+
 
 .navigation {
     display: flex;
