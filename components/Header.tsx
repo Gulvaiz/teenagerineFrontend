@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Search, Heart, ShoppingBag, User, ChevronDown, Facebook, Instagram, Youtube } from 'lucide-react';
+import { Search, Heart, ShoppingBag, User, ChevronDown, Facebook, Instagram, Youtube, Percent } from 'lucide-react';
 import styles from './Header.module.css';
 import { useCart } from '@/context/CartContext';
 
@@ -136,12 +136,15 @@ export default function Header() {
 
             <div className={styles.mainBar}>
                 <div className={styles.logoSection}>
-
                     <Link href="/" className={styles.logo}>
-                        <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1, marginLeft: '10px' }}>
-                            <span style={{ fontSize: '1.2rem', letterSpacing: '1px', fontWeight: 'bold' }}>TANGERINE</span>
-                            <span style={{ fontSize: '0.8rem', letterSpacing: '3px', fontWeight: 'bold' }}>LUXURY</span>
-                        </div>
+                        <Image
+                            src="/Tangerine-Logo-200px.png"
+                            alt="Tangerine Luxury"
+                            width={200}
+                            height={70}
+                            className={styles.logoImage}
+                            priority
+                        />
                     </Link>
                 </div>
 
@@ -168,7 +171,9 @@ export default function Header() {
 
                     {/* Women Mega Menu */}
                     <div className={styles.navItem}>
-                        <Link href="/women" className={styles.navLink}>Women</Link>
+                        <Link href="/women" className={styles.navLink}>
+                            Women <ChevronDown size={14} className={styles.navIcon} />
+                        </Link>
                         <div className={styles.megaMenu}>
                             <div>
                                 <Image src="https://via.placeholder.com/300x400" alt="Women New Collection" className={styles.menuImage} width={300} height={400} />
@@ -224,7 +229,9 @@ export default function Header() {
                     </div>
 
                     <div className={styles.navItem}>
-                        <Link href="/men" className={styles.navLink}>Men</Link>
+                        <Link href="/men" className={styles.navLink}>
+                            Men <ChevronDown size={14} className={styles.navIcon} />
+                        </Link>
                         <div className={styles.megaMenu}>
                             <div>
                                 <Image src="https://via.placeholder.com/300x400" alt="Men New Collection" className={styles.menuImage} width={300} height={400} />
@@ -233,16 +240,11 @@ export default function Header() {
                                 </div>
                             </div>
                             <div className={styles.menuColumn}>
-                                <h4>Bags</h4>
+                                <h4>Bags & Accessories</h4>
                                 <ul>
                                     <li><Link href="/men/bags/messenger">Messenger Bags</Link></li>
                                     <li><Link href="/men/bags/backpacks">Backpacks</Link></li>
                                     <li><Link href="/men/bags/wallets">Wallets</Link></li>
-                                </ul>
-                            </div>
-                            <div className={styles.menuColumn}>
-                                <h4>Accessories</h4>
-                                <ul>
                                     <li><Link href="/men/accessories/belts">Belts</Link></li>
                                     <li><Link href="/men/accessories/sunglasses">Sunglasses</Link></li>
                                 </ul>
@@ -269,7 +271,9 @@ export default function Header() {
                         </div>
                     </div>
                     <div className={styles.navItem}>
-                        <Link href="/kids" className={styles.navLink}>Kids</Link>
+                        <Link href="/kids" className={styles.navLink}>
+                            Kids <ChevronDown size={14} className={styles.navIcon} />
+                        </Link>
                         <div className={styles.megaMenu}>
                             <div>
                                 <Image src="https://via.placeholder.com/300x400" alt="Kids New Collection" className={styles.menuImage} width={300} height={400} />
@@ -283,6 +287,7 @@ export default function Header() {
                                     <li><Link href="/kids/girls/dresses">Dresses</Link></li>
                                     <li><Link href="/kids/girls/clothing">Clothing Sets</Link></li>
                                     <li><Link href="/kids/girls/accessories">Accessories</Link></li>
+                                    <li><Link href="/kids/girls/shoes">Shoes</Link></li>
                                 </ul>
                             </div>
                             <div className={styles.menuColumn}>
@@ -291,6 +296,7 @@ export default function Header() {
                                     <li><Link href="/kids/boys/clothing">Clothing Sets</Link></li>
                                     <li><Link href="/kids/boys/shirts">Shirts & T-Shirts</Link></li>
                                     <li><Link href="/kids/boys/pants">Pants & Shorts</Link></li>
+                                    <li><Link href="/kids/boys/shoes">Shoes</Link></li>
                                 </ul>
                             </div>
                             <div className={styles.menuColumn}>
@@ -298,23 +304,38 @@ export default function Header() {
                                 <ul>
                                     <li><Link href="/kids/baby/clothing">Clothing</Link></li>
                                     <li><Link href="/kids/baby/accessories">Accessories</Link></li>
-                                </ul>
-                            </div>
-                            <div className={styles.menuColumn}>
-                                <h4>Footwear</h4>
-                                <ul>
-                                    <li><Link href="/kids/girls/shoes">Girls Shoes</Link></li>
-                                    <li><Link href="/kids/boys/shoes">Boys Shoes</Link></li>
-                                    <li><Link href="/kids/baby/shoes">Baby Shoes</Link></li>
+                                    <li><Link href="/kids/baby/shoes">Shoes</Link></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div className={styles.navItem}>
-                        <Link href="/services" className={styles.navLink}>Services</Link>
+                        <Link href="/services" className={styles.navLink}>
+                            Services <ChevronDown size={14} className={styles.navIcon} />
+                        </Link>
+                        <div className={styles.servicesDropdown}>
+                            <Link href="/services/bio-cleaning" className={styles.dropdownItem}>
+                                <div className={styles.dropdownImage} style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&h=600&fit=crop&q=80")' }} />
+                                <span className={styles.dropdownLabel}>BIO CLEANING</span>
+                            </Link>
+                            <Link href="/services/authentication" className={styles.dropdownItem}>
+                                <div className={styles.dropdownImage} style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&h=600&fit=crop&q=80")' }} />
+                                <span className={styles.dropdownLabel}>AUTHENTICATION</span>
+                            </Link>
+                            <Link href="/services/private-viewing" className={styles.dropdownItem}>
+                                <div className={styles.dropdownImage} style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800&h=600&fit=crop&q=80")' }} />
+                                <span className={styles.dropdownLabel}>PRIVATE VIEWING</span>
+                            </Link>
+                            <Link href="/services/request-product" className={styles.dropdownItem}>
+                                <div className={styles.dropdownImage} style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=800&h=600&fit=crop&q=80")' }} />
+                                <span className={styles.dropdownLabel}>REQUEST A PRODUCT</span>
+                            </Link>
+                        </div>
                     </div>
                     <div className={styles.navItem}>
-                        <Link href="/sale" className={`${styles.navLink} ${styles.navLinkRed}`}>Sale</Link>
+                        <Link href="/sale" className={`${styles.navLink} ${styles.navLinkRed}`}>
+                            Sale <Percent size={14} className={styles.navIcon} />
+                        </Link>
                     </div>
                     <div className={styles.navItem}>
                         <Link href="/sell-with-us" className={styles.navLink}>Sell With Us</Link>
@@ -354,6 +375,6 @@ export default function Header() {
                     <Link href="/dashboard"><User size={20} className={styles.actionIcon} /></Link>
                 </div>
             </div>
-        </header>
+        </header >
     );
 }

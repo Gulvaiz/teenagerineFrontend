@@ -34,6 +34,8 @@
   background: #0D131E;
   color: #ffffff;
   gap: 16px;
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
 .topBarLeft,
@@ -48,10 +50,14 @@
   flex: 1;
   text-align: center;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.topBarCenter:hover{
+      color: #ec8508;
 }
 
 /* ---------------- SOCIAL ---------------- */
@@ -77,47 +83,60 @@
 .mainBar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
+  justify-content: space-around;
+  padding: 0 3px;
   height: var(--header-height);
   max-width: var(--max-width);
   margin: 0 auto;
 }
 
 .logo {
-  font-family: var(--font-serif);
-  font-size: 1.8rem;
-  font-weight: 700;
-  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  max-height: 50px;
+  width: auto;
+  object-fit: contain;
 }
 
 /* ---------------- SEARCH ---------------- */
 
 .searchContainer {
   flex: 1;
-  max-width: 400px;
+  max-width: 250px;
+  /* Increased from 400px */
   margin: 0 40px;
   position: relative;
 }
 
 .searchParams {
   width: 100%;
-  padding: 12px 20px;
-  border: none;
-  border-bottom: 1px solid #ccc;
+  padding: 12px 50px 12px 20px;
+  /* Added right padding for icon */
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
   background: transparent;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .searchParams:focus {
   outline: none;
-  border-bottom-color: var(--color-primary);
+  border-color: #e67e22;
+}
+
+.searchContainer:hover .searchParams {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  /* Bottom shadow on hover */
+  border-color: #d0d0d0;
 }
 
 /* ---------------- NAV ---------------- */
 
 .nav {
   display: flex;
-  gap: 30px;
+  gap: 20px;
 }
 
 .navItem {
@@ -127,7 +146,7 @@
 
 .navLink {
   text-transform: uppercase;
-  font-size: 0.85rem;
+  font-size: 0.80rem;
   font-weight: 600;
   letter-spacing: 1.5px;
   position: relative;
@@ -146,6 +165,44 @@
 
 .navItem:hover .navLink::after {
   width: 100%;
+  color: #e67e22;
+}
+
+.searchIcon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+  z-index: 1;
+}
+
+.searchIcon:hover {
+  color: var(--color-primary);
+}
+
+.navIcon {
+  margin-left: 4px;
+  position: relative;
+  top: 2px;
+  transition: transform 0.2s ease;
+}
+
+.navItem:hover .navIcon {
+  transform: rotate(180deg);
+  color: #e67e22;
+}
+
+.navLinkRed {
+  color: #e74c3c;
+}
+
+.navLinkRed:hover {
+  color: #c0392b;
 }
 
 /* ---------------- MEGA MENU ---------------- */
@@ -253,7 +310,7 @@
 }
 
 /* Show dropdown on hover */
-.navItemContainer:hover .servicesDropdown {
+.navItem:hover .servicesDropdown {
   display: grid;
   animation: fadeIn 0.2s ease-out;
 }
@@ -304,4 +361,10 @@
 .navLinkServices {
   color: #e67e22;
   /* Orange */
+}
+
+
+
+.actionIcon{
+   margin: 15px;
 }
