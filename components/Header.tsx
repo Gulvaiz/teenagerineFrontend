@@ -175,14 +175,13 @@ export default function Header() {
                             Women <ChevronDown size={14} className={styles.navIcon} />
                         </Link>
                         <div className={styles.megaMenu}>
-                        <Link href="/women/new">
+                        <Link href="/women">
     <Image
       src="/women_menu-01.png"
-      alt="Women New Collection"
+      alt="women New Collection"
       className={styles.menuImage}
       width={300}
       height={400}
-      style={{ cursor: 'pointer' }}
     />
   </Link>
                             <div className={styles.menuColumn}>
@@ -237,12 +236,17 @@ export default function Header() {
                             Men <ChevronDown size={14} className={styles.navIcon} />
                         </Link>
                         <div className={styles.megaMenu}>
-                            <div>
-                                <Image src="/man-menu-01.png" alt="Men New Collection" className={styles.menuImage} width={300} height={400} />
-                                <div style={{ marginTop: '10px', textAlign: 'center' }}>
-                                    <Link href="/men/new" style={{ textDecoration: 'underline' }}>Shop New Arrivals</Link>
-                                </div>
-                            </div>
+                        <div>
+  <Link href="/men">
+    <Image
+      src="/man-menu-01.png"
+      alt="Men New Collection"
+      className={styles.menuImage}
+      width={300}
+      height={400}
+    />
+  </Link>
+</div>
                             <div className={styles.menuColumn}>
                                 <h4>Bags & Accessories</h4>
                                 <ul>
@@ -279,12 +283,15 @@ export default function Header() {
                             Kids <ChevronDown size={14} className={styles.navIcon} />
                         </Link>
                         <div className={styles.megaMenu}>
-                            <div>
-                                <Image src="/kids-menu-1.png" alt="Kids New Collection" className={styles.menuImage} width={300} height={400} />
-                                <div style={{ marginTop: '10px', textAlign: 'center' }}>
-                                    <Link href="/kids/new" style={{ textDecoration: 'underline' }}>Shop New Arrivals</Link>
-                                </div>
-                            </div>
+                        <Link href="/kid">
+    <Image
+      src="/kids-menu-1.png"
+      alt="kid New Collection"
+      className={styles.menuImage}
+      width={300}
+      height={400}
+    />
+  </Link>
                             <div className={styles.menuColumn}>
                                 <h4>Girls</h4>
                                 <ul>
