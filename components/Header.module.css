@@ -42,12 +42,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6px 40px;
+  padding: 10px 40px;
+  /* Slight increase in vertical padding for better balance */
   background: #0D131E;
   color: #ffffff;
   gap: 16px;
-  max-width: var(--max-width);
-  margin: 0 auto;
+  width: 100%;
+  /* Full width */
 }
 
 .topBarLeft,
@@ -56,6 +57,83 @@
   align-items: center;
   gap: 10px;
   min-width: 140px;
+}
+
+/* Currency Selector */
+.currencySelector {
+  position: relative;
+  z-index: 1001;
+  margin-left: 20px;
+  /* Add some spacing from the very edge if needed, or stick to container padding */
+}
+
+.currencyButton {
+  background: #ffffff;
+  /* White background */
+  border: 1px solid #e0e0e0;
+  color: #333333;
+  /* Dark text */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  min-width: 80px;
+  /* Ensure consistent width */
+  justify-content: space-between;
+}
+
+.currencyButton:hover {
+  background: #f8f8f8;
+  border-color: #d0d0d0;
+}
+
+.currencyDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 4px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+  overflow: hidden;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.currencyDropdown button {
+  text-align: left;
+  padding: 10px 16px;
+  border: none;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  width: 100%;
+  transition: all 0.2s;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.currencyDropdown button:last-child {
+  border-bottom: none;
+}
+
+.currencyDropdown button:hover {
+  background: #f9f9f9;
+}
+
+.currencyDropdown button.active {
+  background: #007bff;
+  /* Blue active state */
+  color: #fff;
 }
 
 .topBarCenter {

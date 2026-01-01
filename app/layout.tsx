@@ -6,6 +6,7 @@ import DiscountModal from "@/components/DiscountModal";
 import { CartProvider } from "@/context/CartContext";
 import { WishlistProvider } from "@/context/WishlistContext";
 import CartDrawer from "@/components/CartDrawer";
+import CookieBanner from "@/components/CookieBanner";
 import { AuthProvider } from "@/context/AuthContext";
 
 const playfair = Playfair_Display({
@@ -40,6 +41,7 @@ export default function RootLayout({
               {children}
               <DiscountModal />
               <CartDrawer />
+              <CookieBanner />
             </WishlistProvider>
           </CartProvider>
         </AuthProvider>

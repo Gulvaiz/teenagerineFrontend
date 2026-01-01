@@ -1,0 +1,402 @@
+.bannerOverlay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    padding: 24px 40px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 9999;
+    gap: 40px;
+    font-family: var(--font-sans);
+    animation: slideUp 0.5s ease-out forwards;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.content {
+    flex: 1;
+    max-width: 800px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #111;
+}
+
+.description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 0;
+}
+
+.link {
+    text-decoration: underline;
+    color: #111;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    align-self: center;
+}
+
+.closeBanner {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #999;
+    padding: 4px;
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.btnOutline {
+    background: transparent;
+    border: 1px solid #e5e5e5;
+    color: #333;
+}
+
+.btnOutline:hover {
+    border-color: #ccc;
+    background-color: #f9f9f9;
+}
+
+.btnBlack {
+    background: #000;
+    border: 1px solid #000;
+    color: #fff;
+}
+
+.btnBlack:hover {
+    background: #222;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btnGreen {
+    background: #10B981;
+    /* Green color from screenshot */
+    border: 1px solid #10B981;
+    color: #fff;
+}
+
+.btnGreen:hover {
+    background: #059669;
+    border-color: #059669;
+}
+
+/* Modal */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal {
+    background: #fff;
+    width: 900px;
+    max-width: 95vw;
+    max-height: 90vh;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.modalHeader {
+    padding: 24px 32px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modalTitle {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111;
+}
+
+.closeBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #999;
+}
+
+.modalBody {
+    padding: 32px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.modalDescription {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.preferenceItem {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 20px;
+    transition: border-color 0.2s;
+}
+
+.preferenceItem:hover {
+    border-color: #ddd;
+}
+
+.iconWrapper {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Icons Colors based on screenshot usually */
+.iconNecessary {
+    color: #3B82F6;
+}
+
+.iconAnalytics {
+    color: #3B82F6;
+}
+
+/* Adjust to match screenshot specific shades if needed */
+.iconMarketing {
+    color: #3B82F6;
+}
+
+.iconPersonal {
+    color: #3B82F6;
+}
+
+.iconFunction {
+    color: #3B82F6;
+}
+
+.itemContent {
+    flex: 1;
+}
+
+.itemHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.itemTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.requiredBadge {
+    font-size: 12px;
+    color: #ef4444;
+    font-weight: 500;
+}
+
+.itemDescription {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.examples {
+    font-size: 12px;
+    color: #888;
+}
+
+.modalFooter {
+    padding: 20px 32px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fcfcfc;
+}
+
+.footerLeft {
+    font-size: 13px;
+}
+
+.footerLink {
+    color: #666;
+    text-decoration: underline;
+}
+
+.footerActions {
+    display: flex;
+    gap: 12px;
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e5e5e5;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:checked+.slider {
+    background-color: #3B82F6;
+    /* Blue toggle like IOS */
+}
+
+input:disabled+.slider {
+    background-color: #93c5fd;
+    cursor: not-allowed;
+}
+
+input:checked+.slider:before {
+    transform: translateX(20px);
+}
+
+/* Scrollbar for modal */
+.modalBody::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modalBody::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.modalBody::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+.modalBody::-webkit-scrollbar-thumb:hover {
+    background: #bbb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .bannerOverlay {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .actions {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        flex: 1;
+        text-align: center;
+    }
+
+    .modal {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        max-height: 100vh;
+    }
+
+    .preferenceItem {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .itemHeader {
+        justify-content: space-between;
+        width: 100%;
+    }
+}
