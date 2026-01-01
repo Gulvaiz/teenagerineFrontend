@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -79,22 +79,22 @@ export default function HomeClient({ newArrivals, saleProducts }: HomeClientProp
     women: [
       {
         title: "Bags",
-        image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&h=900&fit=crop&q=80",
+        image: "/SELL WITH US.jpeg",
         href: "/women/bags"
       },
       {
         title: "Clothing",
-        image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&h=900&fit=crop&q=80",
+        image: "CLOTHING.jfif",
         href: "/women/clothing"
       },
       {
         title: "Footwear",
-        image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=800&h=900&fit=crop&q=80",
+        image: "FOOTWEAR.jfif",
         href: "/women/footwear"
       },
       {
         title: "Accessories",
-        image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&h=900&fit=crop&q=80",
+        image: "ACCESSORIES.jfif",
         href: "/women/accessories"
       }
     ],
@@ -145,39 +145,34 @@ export default function HomeClient({ newArrivals, saleProducts }: HomeClientProp
   };
 
   const brands = [
-    "CORNELIANI",
-    "DSQUARED2",
-    "DITA",
-    "FENDI",
-    "EMILIO PUCCI",
-    "GUCCI",
-    "PRADA",
-    "SAINT LAURENT"
+    { name: "Just Cavalli", image: "/brandsLogo/just-cavalli-logo-BEEC205E42-seeklogo.com.png" },
+    { name: "Moschino", image: "/brandsLogo/moschino-logo-png_seeklogo-289345.png" },
+    { name: "Salvatore Ferragamo", image: "/brandsLogo/sa3605feb3-salvatore-ferragamo-logo-ferragamo-symbol-svg-download-ferragamo-symbol-vector-file.png" },
+    { name: "Tiffany & Co", image: "/brandsLogo/tiffany-co-logo-png-transparent.png" },
+    { name: "Tods", image: "/brandsLogo/tods-logo-png_seeklogo-357522.png" },
+    { name: "Tom Ford", image: "/brandsLogo/tom-ford-logo-png_seeklogo-383930.png" },
+    // Reusing some for demo if needed to fill space, or just rely on duplication loop
   ];
 
   const influencers = [
     {
-      image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&h=600&fit=crop&q=80",
+      image: "/influencers/img1-f229cc41.jpg",
       url: "https://www.instagram.com/tangerineluxury"
     },
     {
-      image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=600&fit=crop&q=80",
+      image: "/influencers/img2-17de399e.jpg",
       url: "https://www.instagram.com/tangerineluxury"
     },
     {
-      image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=400&h=600&fit=crop&q=80",
+      image: "/influencers/img3-572a1817.jpg",
       url: "https://www.instagram.com/tangerineluxury"
     },
     {
-      image: "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?w=400&h=600&fit=crop&q=80",
+      image: "/influencers/img4-4578214a.jpg",
       url: "https://www.instagram.com/tangerineluxury"
     },
     {
-      image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=600&fit=crop&q=80",
-      url: "https://www.instagram.com/tangerineluxury"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=600&fit=crop&q=80",
+      image: "/influencers/img5-e2841ec6.jpg",
       url: "https://www.instagram.com/tangerineluxury"
     }
   ];
@@ -218,7 +213,7 @@ export default function HomeClient({ newArrivals, saleProducts }: HomeClientProp
                   className={styles.shopByCategoryImage}
                   style={{
                     backgroundImage:
-                      'url("https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&h=600&fit=crop&q=80")'
+                      "url(/prestig-2.jpg)"
                   }}
                 />
                 <div className={styles.shopByCategoryLabel}>WOMEN</div>
@@ -228,7 +223,7 @@ export default function HomeClient({ newArrivals, saleProducts }: HomeClientProp
                   className={styles.shopByCategoryImage}
                   style={{
                     backgroundImage:
-                      'url("https://images.unsplash.com/photo-1617137968427-85924c800a22?w=800&h=600&fit=crop&q=80")'
+                      'url(/MEN.jpeg)'
                   }}
                 />
                 <div className={styles.shopByCategoryLabel}>MEN</div>
@@ -238,7 +233,7 @@ export default function HomeClient({ newArrivals, saleProducts }: HomeClientProp
                   className={styles.shopByCategoryImage}
                   style={{
                     backgroundImage:
-                      'url("https://images.unsplash.com/photo-1518002171953-a080ee817e1f?w=800&h=600&fit=crop&q=80")'
+                      'url(/KIDS.jpg)'
                   }}
                 />
                 <div className={styles.shopByCategoryLabel}>KIDS</div>
@@ -301,28 +296,18 @@ export default function HomeClient({ newArrivals, saleProducts }: HomeClientProp
         <section className={styles.brandsSection}>
           <div className="container">
             <h2 className={styles.brandsTitle}>SHOP BY BRANDS</h2>
-            <div className={styles.brandsCarouselWrapper}>
-              <button
-                className={styles.brandsNavButton}
-                onClick={() => scrollTrack(brandsTrackRef, "left")}
-                aria-label="Previous brands"
-              >
-                ‹
-              </button>
-              <div className={styles.brandsTrack} ref={brandsTrackRef}>
-                {brands.map((brand) => (
-                  <Link href="/brands" key={brand} className={styles.brandCard}>
-                    <span>{brand}</span>
-                  </Link>
+            <div className={styles.brandsMarquee}>
+              <div className={styles.brandsTrack}>
+                {[...brands, ...brands].map((brand, index) => (
+                  <div key={`${brand.name}-${index}`} className={styles.brandLogoCard}>
+                    <div
+                      className={styles.brandLogoImage}
+                      style={{ backgroundImage: `url("${brand.image}")` }}
+                      title={brand.name}
+                    />
+                  </div>
                 ))}
               </div>
-              <button
-                className={styles.brandsNavButton}
-                onClick={() => scrollTrack(brandsTrackRef, "right")}
-                aria-label="Next brands"
-              >
-                ›
-              </button>
             </div>
             <div className={styles.brandsExploreWrapper}>
               <Link href="/brands" className={styles.brandsExploreButton}>
@@ -334,85 +319,85 @@ export default function HomeClient({ newArrivals, saleProducts }: HomeClientProp
 
         {/* SELL WITH US */}
         <section className={styles.sellWithUsSection}>
-  <div className="container">
-    {/* MAIN TITLE */}
-    <h2 className={styles.sellWithUsTitle}>SELL WITH US</h2>
+          <div className="container">
+            {/* MAIN TITLE */}
+            <h2 className={styles.sellWithUsTitle}>SELL WITH US</h2>
 
-    <div className={styles.sellWithUsGrid}>
-      {/* LEFT SIDE */}
-      <div>
-        {/* INTRO TEXT (NEW) */}
-        <h3 className={styles.sellWithUsIntroTitle}>
-          From Closet to Cash –
-        </h3>
-        <p className={styles.sellWithUsIntroSubtitle}>
-          Give Your Luxury a Second Life
-        </p>
+            <div className={styles.sellWithUsGrid}>
+              {/* LEFT SIDE */}
+              <div>
+                {/* INTRO TEXT (NEW) */}
+                <h3 className={styles.sellWithUsIntroTitle}>
+                  From Closet to Cash –
+                </h3>
+                <p className={styles.sellWithUsIntroSubtitle}>
+                  Give Your Luxury a Second Life
+                </p>
 
-        {/* STEPS */}
-        <div className={styles.sellWithUsSteps}>
-  <div className={styles.sellStep}>
-    <span className={styles.sellStepIcon}>🖼️</span>
-    SHARE IMAGE<br />OF YOUR PRODUCTS
-  </div>
+                {/* STEPS */}
+                <div className={styles.sellWithUsSteps}>
+                  <div className={styles.sellStep}>
+                    <span className={styles.sellStepIcon}>🖼️</span>
+                    SHARE IMAGE<br />OF YOUR PRODUCTS
+                  </div>
 
-  <div className={styles.sellStep}>
-    <span className={styles.sellStepIcon}>🚚</span>
-    FREE PAN-INDIA PICK-UP<br />NATIONWIDE SERVICE
-  </div>
+                  <div className={styles.sellStep}>
+                    <span className={styles.sellStepIcon}>🚚</span>
+                    FREE PAN-INDIA PICK-UP<br />NATIONWIDE SERVICE
+                  </div>
 
-  <div className={styles.sellStep}>
-    <span className={styles.sellStepIcon}>✔️</span>
-    AUTHENTICATION<br />&amp; LISTING
-  </div>
+                  <div className={styles.sellStep}>
+                    <span className={styles.sellStepIcon}>✔️</span>
+                    AUTHENTICATION<br />&amp; LISTING
+                  </div>
 
-  <div className={styles.sellStep}>
-    <span className={styles.sellStepIcon}>📄</span>
-    DIGITAL CONTRACT<br />ASSURANCE CERTIFICATE
-  </div>
+                  <div className={styles.sellStep}>
+                    <span className={styles.sellStepIcon}>📄</span>
+                    DIGITAL CONTRACT<br />ASSURANCE CERTIFICATE
+                  </div>
 
-  <div className={styles.sellStep}>
-    <span className={styles.sellStepIcon}>💰</span>
-    PAYMENT IN 24 HOURS<br />NO PAYMENT DELAYS
-  </div>
+                  <div className={styles.sellStep}>
+                    <span className={styles.sellStepIcon}>💰</span>
+                    PAYMENT IN 24 HOURS<br />NO PAYMENT DELAYS
+                  </div>
 
-  <div className={styles.sellStep}>
-    <span className={styles.sellStepIcon}>📞</span>
-    CONTACT US<br />704 203 9009
-  </div>
-</div>
+                  <div className={styles.sellStep}>
+                    <span className={styles.sellStepIcon}>📞</span>
+                    CONTACT US<br />704 203 9009
+                  </div>
+                </div>
 
-      </div>
+              </div>
 
-      {/* RIGHT SIDE IMAGE */}
-      <div className={styles.sellWithUsImageWrapper}>
-        <div
-          className={styles.sellWithUsImage}
-          style={{
-            backgroundImage:
-              'url("https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=900&h=900&fit=crop&q=80")',
-          }}
-        />
-      </div>
-    </div>
+              {/* RIGHT SIDE IMAGE */}
+              <div className={styles.sellWithUsImageWrapper}>
+                <div
+                  className={styles.sellWithUsImage}
+                  style={{
+                    backgroundImage:
+                      'url("/SELL WITH US.jpeg")',
+                  }}
+                />
+              </div>
+            </div>
 
-    {/* READY TO SELL (NEW) */}
-    <div className={styles.readyToSellSection}>
-      <h3 className={styles.readyToSellTitle}>
-        Ready to Start Selling?
-      </h3>
+            {/* READY TO SELL (NEW) */}
+            <div className={styles.readyToSellSection}>
+              <h3 className={styles.readyToSellTitle}>
+                Ready to Start Selling?
+              </h3>
 
-      <p className={styles.readyToSellSubtitle}>
-        Join thousands of successful sellers on our platform and turn your luxury
-        items into profit. We're here to help you every step of the way.
-      </p>
+              <p className={styles.readyToSellSubtitle}>
+                Join thousands of successful sellers on our platform and turn your luxury
+                items into profit. We're here to help you every step of the way.
+              </p>
 
-      <Link href="/sell-with-us" className={styles.readyToSellButton}>
-        Create Seller Account
-      </Link>
-    </div>
-  </div>
-</section>
+              <Link href="/sell-with-us" className={styles.readyToSellButton}>
+                Create Seller Account
+              </Link>
+            </div>
+          </div>
+        </section>
 
         {/* OUR SERVICES */}
         <section className={styles.servicesSection}>
@@ -420,43 +405,51 @@ export default function HomeClient({ newArrivals, saleProducts }: HomeClientProp
             <h2 className={styles.servicesTitle}>OUR SERVICES</h2>
             <div className={styles.servicesGrid}>
               <Link href="/services/bio-cleaning" className={styles.serviceCard}>
-                <div
-                  className={styles.serviceImage}
-                  style={{
-                    backgroundImage:
-                      'url("https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&h=600&fit=crop&q=80")'
-                  }}
-                />
+                <div className={styles.serviceImageWrapper}>
+                  <div
+                    className={styles.serviceImage}
+                    style={{
+                      backgroundImage:
+                        'url("https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&h=600&fit=crop&q=80")'
+                    }}
+                  />
+                </div>
                 <div className={styles.serviceLabel}>BIO CLEANING</div>
               </Link>
               <Link href="/services/authentication" className={styles.serviceCard}>
-                <div
-                  className={styles.serviceImage}
-                  style={{
-                    backgroundImage:
-                      'url("https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&h=600&fit=crop&q=80")'
-                  }}
-                />
+                <div className={styles.serviceImageWrapper}>
+                  <div
+                    className={styles.serviceImage}
+                    style={{
+                      backgroundImage:
+                        'url("/AUTHENTICATION.jpeg")'
+                    }}
+                  />
+                </div>
                 <div className={styles.serviceLabel}>AUTHENTICATION</div>
               </Link>
               <Link href="/services/private-viewing" className={styles.serviceCard}>
-                <div
-                  className={styles.serviceImage}
-                  style={{
-                    backgroundImage:
-                      'url("https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800&h=600&fit=crop&q=80")'
-                  }}
-                />
+                <div className={styles.serviceImageWrapper}>
+                  <div
+                    className={styles.serviceImage}
+                    style={{
+                      backgroundImage:
+                        'url("/PRIVATE VIEW.jpg")'
+                    }}
+                  />
+                </div>
                 <div className={styles.serviceLabel}>PRIVATE VIEWING</div>
               </Link>
               <Link href="/services/request-product" className={styles.serviceCard}>
-                <div
-                  className={styles.serviceImage}
-                  style={{
-                    backgroundImage:
-                      'url("https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=800&h=600&fit=crop&q=80")'
-                  }}
-                />
+                <div className={styles.serviceImageWrapper}>
+                  <div
+                    className={styles.serviceImage}
+                    style={{
+                      backgroundImage:
+                        'url("/REQUEST A PRODUCT.jpg")'
+                    }}
+                  />
+                </div>
                 <div className={styles.serviceLabel}>REQUEST A PRODUCT</div>
               </Link>
             </div>
@@ -508,141 +501,157 @@ export default function HomeClient({ newArrivals, saleProducts }: HomeClientProp
 
         {/* MIX, MATCH & SHOP THE COMBO */}
         <section className={styles.comboSection}>
-  <div className="container">
-    <div className={styles.comboGridExact}>
-      
-      {/* LEFT — SHOP THE LOOK CARDS */}
-      <div className={styles.comboImagesExact}>
-        <div
-          className={styles.comboImageMain}
-          style={{
-            backgroundImage:
-              'url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1000&h=700&fit=crop&q=80")'
-          }}
-        >
-          <span className={styles.comboOverlayText}>SHOP</span>
-        </div>
-
-        <div className={styles.comboImageRow}>
-          <div
-            className={styles.comboImageSmallExact}
-            style={{
-              backgroundImage:
-                'url("https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&h=600&fit=crop&q=80")'
-            }}
-          >
-            <span className={styles.comboOverlayText}>THE</span>
-          </div>
-
-          <div
-            className={styles.comboImageSmallExact}
-            style={{
-              backgroundImage:
-                'url("https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=600&fit=crop&q=80")'
-            }}
-          >
-            <span className={styles.comboOverlayText}>LOOK</span>
-          </div>
-        </div>
-      </div>
-
-      {/* RIGHT — CONTENT */}
-      <div className={styles.comboContentExact}>
-        <h2 className={styles.comboTitle}>
-          MIX, MATCH & SHOP THE COMBO
-        </h2>
-
-        <p className={styles.comboDescription}>
-          Enteger neque felis, egestas a euismod in, pulvinar et nisl. Aliquam ullam.
-          Nulla tincidunt convallis bibendum. Duis sed risus suscipit justo maximus pulvinar.
-        </p>
-
-        <div className={styles.comboProducts}>
-          <div className={styles.comboProduct}>
-            <div
-              className={styles.comboProductImage}
-              style={{
-                backgroundImage:
-                  'url("https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200&h=200&fit=crop&q=80")'
-              }}
-            />
-            <div>
-              <div className={styles.comboProductName}>Women Casual Sweater</div>
-              <div className={styles.comboProductPrice}>₹800</div>
-            </div>
-          </div>
-
-          <div className={styles.comboProduct}>
-            <div
-              className={styles.comboProductImage}
-              style={{
-                backgroundImage:
-                  'url("https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=200&h=200&fit=crop&q=80")'
-              }}
-            />
-            <div>
-              <div className={styles.comboProductName}>White Shorts</div>
-              <div className={styles.comboProductPrice}>₹20</div>
-            </div>
-          </div>
-
-          <div className={styles.comboProduct}>
-            <div
-              className={styles.comboProductImage}
-              style={{
-                backgroundImage:
-                  'url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop&q=80")'
-              }}
-            />
-            <div>
-              <div className={styles.comboProductName}>Sneakers</div>
-              <div className={styles.comboProductPrice}>₹120</div>
-            </div>
-          </div>
-        </div>
-
-        <Link href="/collections" className={styles.comboButton}>
-          Shop Collection →
-        </Link>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-        {/* BRAND STORY / USP STRIP */}
-        <section className={styles.brandStorySection}>
           <div className="container">
-            <div className={styles.brandStoryLogo}>TANGERINE LUXURY</div>
-            <p className={styles.brandStoryText}>
-              An online marketplace like &quot;Tangerine Luxury&quot; allows users to buy and sell pre-loved women&apos;s,
-              men&apos;s, and children&apos;s clothing and accessories.
-            </p>
-            <p className={styles.brandStoryText}>
-              Every single item in our collection was carefully chosen. You won&apos;t need to worry about anything
-              when you shop with us because each and every product meets the highest standards for both quality and
-              style.
-            </p>
-            <div className={styles.brandUspRow}>
-              <div className={styles.brandUspItem}>
-                <RotateCcw size={28} strokeWidth={1.5} />
-                <span>HASSLE FREE RETURNS</span>
+            <div className={styles.comboGridExact}>
+
+              {/* LEFT — SHOP THE LOOK CARDS */}
+              <div className={styles.comboImagesExact}>
+                <div
+                  className={styles.comboImageMain}
+                  style={{
+                   backgroundImage: 'url("/prestig-1.jpg")'
+                  }}
+                >
+                  <span className={styles.comboOverlayText}>SHOP</span>
+                </div>
+
+                <div className={styles.comboImageRow}>
+                  <div
+                    className={styles.comboImageSmallExact}
+                    style={{
+                     backgroundImage: 'url("/prestig-2.jpg")'
+                    }}
+                  >
+                    <span className={styles.comboOverlayText}>THE</span>
+                  </div>
+
+                  <div
+                    className={styles.comboImageSmallExact}
+                    style={{
+                     backgroundImage: 'url("/prestig-3.jpg")'
+                    }}
+                  >
+                    <span className={styles.comboOverlayText}>LOOK</span>
+                  </div>
+                </div>
               </div>
-              <div className={styles.brandUspItem}>
-                <Tag size={28} strokeWidth={1.5} />
-                <span>AFFORDABLE LUXURY</span>
+
+              {/* RIGHT — CONTENT */}
+              <div className={styles.comboContentExact}>
+                <h2 className={styles.comboTitle}>
+                  MIX, MATCH & SHOP THE COMBO
+                </h2>
+
+                <p className={styles.comboDescription}>
+                  Enteger neque felis, egestas a euismod in, pulvinar et nisl. Aliquam ullam.
+                  Nulla tincidunt convallis bibendum. Duis sed risus suscipit justo maximus pulvinar.
+                </p>
+
+                <div className={styles.comboProducts}>
+                  <div className={styles.comboProduct}>
+                    <div
+                      className={styles.comboProductImage}
+                      style={{
+                        backgroundImage:
+                          'url("/img-box01-1.jpg")'
+                      }}
+                    />
+                    <div>
+                      <div className={styles.comboProductName}>Women Casual Sweater</div>
+                      <div className={styles.comboProductPrice}>₹800</div>
+                    </div>
+                  </div>
+
+                  <div className={styles.comboProduct}>
+                    <div
+                      className={styles.comboProductImage}
+                      style={{
+                        backgroundImage:
+                          'url("/img-box02-1.jpg")'
+                      }}
+                    />
+                    <div>
+                      <div className={styles.comboProductName}>White Shorts</div>
+                      <div className={styles.comboProductPrice}>₹20</div>
+                    </div>
+                  </div>
+
+                  <div className={styles.comboProduct}>
+                    <div
+                      className={styles.comboProductImage}
+                      style={{
+                        backgroundImage:
+                          'url("/img-box03-1.jpg")'
+                      }}
+                    />
+                    <div>
+                      <div className={styles.comboProductName}>Sneakers</div>
+                      <div className={styles.comboProductPrice}>₹120</div>
+                    </div>
+                  </div>
+                </div>
+
+                <Link href="/collections" className={styles.comboButton}>
+                  Shop Collection →
+                </Link>
               </div>
-              <div className={styles.brandUspItem}>
-                <ShieldCheck size={28} strokeWidth={1.5} />
-                <span>100% GUARANTEED AUTHENTIC</span>
-              </div>
-              <div className={styles.brandUspItem}>
-                <Truck size={28} strokeWidth={1.5} />
-                <span>WORLDWIDE SHIPPING</span>
-              </div>
+
             </div>
           </div>
         </section>
+
+       
+      {/* BRAND STORY / USP STRIP */}
+<section className={styles.brandStorySection}>
+  <div className={styles.brandStoryContainer}>
+
+    {/* LOGO (instead of heading text) */}
+    <div className={styles.brandStoryLogo}>
+      <Image
+        src="/Tangerine-Logo-200px.png"
+        alt="Tangerine Luxury"
+        width={280}
+        height={120}
+        priority
+      />
+    </div>
+
+    <p className={styles.brandStoryText}>
+      An online marketplace like &quot;Tangerine Luxury&quot; allows users to buy and sell pre-loved women&apos;s,
+      men&apos;s, and children&apos;s clothing and accessories.
+    </p>
+
+    <p className={styles.brandStoryText}>
+      Every single item in our collection was carefully chosen. You won&apos;t need to worry about anything
+      when you shop with us because each and every product meets the highest standards for both quality and
+      style.
+    </p>
+
+    <div className={styles.brandUspRow}>
+      <div className={styles.brandUspItem}>
+        <RotateCcw size={28} strokeWidth={1.5} />
+        <span>HASSLE FREE RETURNS</span>
+      </div>
+
+      <div className={styles.brandUspItem}>
+        <Tag size={28} strokeWidth={1.5} />
+        <span>AFFORDABLE LUXURY</span>
+      </div>
+
+      <div className={styles.brandUspItem}>
+        <ShieldCheck size={28} strokeWidth={1.5} />
+        <span>100% GUARANTEED AUTHENTIC</span>
+      </div>
+
+      <div className={styles.brandUspItem}>
+        <Truck size={28} strokeWidth={1.5} />
+        <span>WORLDWIDE SHIPPING</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
       </main>
 
       <Footer />

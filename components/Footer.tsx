@@ -1,12 +1,15 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Facebook,
   Instagram,
   Youtube,
   Phone,
   Mail,
-  Clock
+  Clock,
+  MessageCircle
 } from "lucide-react";
+
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -18,14 +21,27 @@ export default function Footer() {
           {/* 1️⃣ BRAND */}
           <div className={styles.brand}>
             <div className={styles.logoRow}>
-              <span className={styles.logoIcon}>🍊</span>
-              <h2>TANGERINE LUXURY</h2>
+              <Image
+                src="/Tangerine-Logo-200px.png"
+                alt="Tangerine Luxury"
+                width={200}
+                height={100}
+                priority
+              />
             </div>
 
-            <div className={styles.contactItem}><Phone size={16} /> +91 7042039009</div>
-            <div className={styles.contactItem}><Phone size={16} /> +91 7042029009</div>
-            <div className={styles.contactItem}><Mail size={16} /> sales@tangerineluxury.com</div>
-            <div className={styles.contactItem}><Clock size={16} /> Open Time: 11:00 AM – 7:00 PM</div>
+            <div className={styles.contactItem}>
+              <Phone size={16} /> +91 7042039009
+            </div>
+            <div className={styles.contactItem}>
+              <Phone size={16} /> +91 7042029009
+            </div>
+            <div className={styles.contactItem}>
+              <Mail size={16} /> sales@tangerineluxury.com
+            </div>
+            <div className={styles.contactItem}>
+              <Clock size={16} /> Open Time: 11:00 AM – 7:00 PM
+            </div>
           </div>
 
           {/* 2️⃣ ABOUT */}
@@ -71,10 +87,10 @@ export default function Footer() {
           {/* 5️⃣ SUBSCRIBE */}
           <div className={styles.subscribe}>
             <div className={styles.socials}>
-              <span className={styles.whatsapp}></span>
-              <Instagram size={18} />
-              <Facebook size={18} />
-              <Youtube size={18} />
+              <MessageCircle size={18} className={styles.whatsappIcon} />
+              <Instagram size={18} className={styles.instaIcon}  />
+              <Facebook size={18}className={styles.facebookIcon}  />
+              <Youtube size={18}className={styles.youtubeIcon}  />
             </div>
 
             <input

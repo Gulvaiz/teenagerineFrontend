@@ -1,21 +1,33 @@
 .header {
   border-bottom: 1px solid var(--color-border);
   position: sticky;
+  width: 100%;
   top: 0;
   z-index: 1000;
-  background-color: var(--color-white);
-  transition: transform 0.4s cubic-bezier(0.215, 0.610, 0.355, 1.000),
-    background-color 0.35s ease,
-    backdrop-filter 0.35s ease;
+  background-color: #fff;
+  /* White initially */
+  transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 
 .header.scrolled {
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.75);
+  /* Opacity changes on scroll */
+  backdrop-filter: blur(25px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
+/* Ensure TopBar hides nicely or style it */
+.header:not(.scrolled) .topBarWrapper {
+  background: transparent;
+  /* Or keep dark if desired, but request implies header opacity */
+}
+
+/* If the user wants the WHOLE header transparent, including top bar background might need adjustment. 
+   Assuming they meant the white main bar part mostly. 
+   But "touches top" implies default state. 
+*/
+/* Restoring hideTop functionality */
 .header.hideTop {
   transform: translateY(-44px);
 }
@@ -56,8 +68,8 @@
   text-overflow: ellipsis;
 }
 
-.topBarCenter:hover{
-      color: #ec8508;
+.topBarCenter:hover {
+  color: #ec8508;
 }
 
 /* ---------------- SOCIAL ---------------- */
@@ -365,6 +377,6 @@
 
 
 
-.actionIcon{
-   margin: 15px;
+.actionIcon {
+  margin: 15px;
 }

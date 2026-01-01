@@ -175,12 +175,16 @@ export default function Header() {
                             Women <ChevronDown size={14} className={styles.navIcon} />
                         </Link>
                         <div className={styles.megaMenu}>
-                            <div>
-                                <Image src="https://via.placeholder.com/300x400" alt="Women New Collection" className={styles.menuImage} width={300} height={400} />
-                                <div style={{ marginTop: '10px', textAlign: 'center' }}>
-                                    <Link href="/women/new" style={{ textDecoration: 'underline' }}>Shop New Arrivals</Link>
-                                </div>
-                            </div>
+                        <Link href="/women/new">
+    <Image
+      src="/women_menu-01.png"
+      alt="Women New Collection"
+      className={styles.menuImage}
+      width={300}
+      height={400}
+      style={{ cursor: 'pointer' }}
+    />
+  </Link>
                             <div className={styles.menuColumn}>
                                 <h4>Bags</h4>
                                 <ul>
@@ -234,7 +238,7 @@ export default function Header() {
                         </Link>
                         <div className={styles.megaMenu}>
                             <div>
-                                <Image src="https://via.placeholder.com/300x400" alt="Men New Collection" className={styles.menuImage} width={300} height={400} />
+                                <Image src="/man-menu-01.png" alt="Men New Collection" className={styles.menuImage} width={300} height={400} />
                                 <div style={{ marginTop: '10px', textAlign: 'center' }}>
                                     <Link href="/men/new" style={{ textDecoration: 'underline' }}>Shop New Arrivals</Link>
                                 </div>
@@ -276,7 +280,7 @@ export default function Header() {
                         </Link>
                         <div className={styles.megaMenu}>
                             <div>
-                                <Image src="https://via.placeholder.com/300x400" alt="Kids New Collection" className={styles.menuImage} width={300} height={400} />
+                                <Image src="/kids-menu-1.png" alt="Kids New Collection" className={styles.menuImage} width={300} height={400} />
                                 <div style={{ marginTop: '10px', textAlign: 'center' }}>
                                     <Link href="/kids/new" style={{ textDecoration: 'underline' }}>Shop New Arrivals</Link>
                                 </div>

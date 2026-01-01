@@ -244,7 +244,6 @@
 
 .shopByCategorySection {
   padding: 80px 20px 40px;
-  background-color: #faf8f4;
 }
 
 .shopByCategoryTitle {
@@ -394,85 +393,121 @@
 /* ----------------- */
 /* BRANDS SECTION    */
 /* ----------------- */
-
 .brandsSection {
-  padding: 80px 20px;
-  background-color: var(--color-white);
+  padding: 90px 0;
+  background-color: #ffffff;
+  overflow: hidden;
 }
 
+/* TITLE */
 .brandsTitle {
   text-align: center;
   font-family: var(--font-serif);
-  font-size: 2.4rem;
-  letter-spacing: 0.08em;
+  font-size: 2.3rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
-.brandsCarouselWrapper {
+/* MARQUEE WRAPPER */
+.brandsMarquee {
+  width: 100%;
+  overflow: hidden;
   position: relative;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 16px;
 }
 
+/* TRACK */
 .brandsTrack {
   display: flex;
-  gap: 24px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 10px 4px;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  gap: 70px;
+  width: max-content;
+  animation: scroll 35s linear infinite;
 }
 
-.brandsTrack::-webkit-scrollbar {
-  display: none;
+.brandsTrack:hover {
+  animation-play-state: paused;
 }
 
-.brandCard {
-  min-width: 220px;
-  height: 140px;
-  border-radius: 18px;
-  background-color: #fff;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+/* ANIMATION */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* BRAND CARD */
+.brandLogoCard {
+  flex-shrink: 0;
+  width: 190px;
+  height: 105px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  opacity: 0.75;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.brandsNavButton {
-  width: 40px;
-  height: 40px;
-  border-radius: 999px;
-  border: 1px solid var(--color-border);
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+.brandLogoCard:hover {
+  opacity: 1;
+  transform: scale(1.08);
 }
 
+/* LOGO IMAGE */
+.brandLogoImage {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.brandLogoCard:hover .brandLogoImage {
+  filter: grayscale(0%);
+}
+
+/* CTA */
 .brandsExploreWrapper {
   display: flex;
   justify-content: center;
-  margin-top: 32px;
+  margin-top: 60px;
 }
 
 .brandsExploreButton {
-  padding: 12px 32px;
+  padding: 14px 36px;
   border-radius: 999px;
   background-color: #000;
   color: #fff;
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  transition: background-color 0.3s ease;
 }
+
+.brandsExploreButton:hover {
+  background-color: #333;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .brandsTitle {
+    font-size: 1.9rem;
+  }
+
+  .brandLogoCard {
+    width: 150px;
+    height: 85px;
+  }
+
+  .brandsTrack {
+    gap: 40px;
+  }
+}
+
 
 /* -------------- */
 /* SELL WITH US   */
@@ -482,6 +517,7 @@
 .sellWithUsSection {
   padding: 80px 0 60px;
   background: #fff;
+  justify-items: center;
 }
 
 /* MAIN TITLE */
@@ -509,6 +545,7 @@
   grid-template-columns: 1.1fr 1fr;
   gap: 60px;
   align-items: center;
+  width: 80vw;
 }
 
 /* INTRO TEXT */
@@ -545,7 +582,7 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   line-height: 1.45;
-  padding: 14px;
+  padding: 10px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -567,15 +604,19 @@
   font-size: 1.1rem;
   margin-bottom: 10px;
 }
+/* ================= SELL WITH US – IMAGE SIDE ================= */
 
-/* IMAGE SIDE */
+/* IMAGE CARD WRAPPER (WHOLE CARD FLOATS) */
 .sellWithUsImageWrapper {
   border-radius: 18px;
   overflow: hidden;
   height: 100%;
   min-height: 420px;
+  animation: float 6s ease-in-out infinite;
+  will-change: transform;
 }
 
+/* IMAGE INSIDE CARD (STATIC) */
 .sellWithUsImage {
   width: 100%;
   height: 100%;
@@ -583,10 +624,30 @@
   background-position: center;
 }
 
-/* RESPONSIVE */
+/* FLOAT ANIMATION */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
 @media (max-width: 1024px) {
   .sellWithUsGrid {
     grid-template-columns: 1fr;
+  }
+
+  .sellWithUsImageWrapper {
+    min-height: 360px;
   }
 }
 
@@ -636,28 +697,6 @@
   background: #222;
 }
 
-/* ================= RESPONSIVE ================= */
-
-@media (max-width: 1024px) {
-  .sellWithUsGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .sellWithUsImageWrapper {
-    min-height: 360px;
-  }
-}
-
-@media (max-width: 640px) {
-  .sellWithUsSteps {
-    grid-template-columns: 1fr;
-  }
-
-  .sellStep {
-    height: 110px;
-  }
-}
-
 
 /* -------------- */
 /* OUR SERVICES   */
@@ -665,7 +704,8 @@
 
 .servicesSection {
   padding: 80px 20px;
-  background-color: #fff8f4;
+  background-color: #fff;
+  /* Changed from #fff8f4 to match clean look usually associated with "screenshot 2" */
 }
 
 .servicesTitle {
@@ -674,7 +714,9 @@
   font-size: 2.4rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
+  color: #F28500;
+  /* Orange Heading */
 }
 
 .servicesGrid {
@@ -682,31 +724,67 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 24px;
+  gap: 30px;
 }
 
 .serviceCard {
-  border-radius: 18px;
-  overflow: hidden;
-  background-color: #fff;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+  /* Removed border-radius/overflow from container to separate image and button */
+  background-color: transparent;
+  box-shadow: none;
   text-decoration: none;
   color: inherit;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  /* Margin between image and button */
+}
+
+.serviceCard:hover {
+  transform: none;
+  /* No movement of the whole card */
+  box-shadow: none;
+}
+
+/* New wrapper for image to handle overflow for zoom */
+.serviceImageWrapper {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.11);
 }
 
 .serviceImage {
   width: 100%;
-  aspect-ratio: 4/3;
+  height: 100%;
   background-size: cover;
   background-position: center;
+  transition: transform 0.5s ease;
+}
+
+.serviceCard:hover .serviceImage {
+  transform: scale(1.1);
+  /* Zoom effect */
 }
 
 .serviceLabel {
   text-align: center;
-  padding: 14px 12px 18px;
+  padding: 12px 30px;
   font-size: 0.85rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  font-weight: 600;
+  color: #080303;
+  background-color: #FCDED4;
+  border-radius: 99px;
+  /* Pill shape */
+  transition: background-color 0.3s;
+}
+
+.serviceCard:hover .serviceLabel {
+  background-color: #c58383;
 }
 
 /* ------------------------- */
@@ -759,21 +837,26 @@
 }
 
 .influencerCard {
-  min-width: 200px;
-  max-width: 240px;
+  min-width: 220px;
+  /* Slightly wider */
+  max-width: 260px;
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
-  transition: all 0.5s ease;
-  transform: scale(0.9);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(0.85);
+  /* Default smaller */
   opacity: 0.7;
 }
 
 .influencerCardActive {
   transform: scale(1.1);
+  /* Active larger */
   opacity: 1;
   z-index: 10;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+  border: 4px solid #fff;
+  /* Optional highlight */
 }
 
 .influencerImage {
@@ -809,6 +892,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
+  margin: 70px;
 }
 
 /* ===============================
@@ -1001,7 +1085,7 @@
 /* -------------- */
 
 .brandStorySection {
-  padding: 80px 20px;
+  padding: 90px 20px;
   background-color: #faf4eb;
   text-align: center;
 }
@@ -1012,13 +1096,14 @@
   letter-spacing: 0.24em;
   text-transform: uppercase;
   margin-bottom: 24px;
+ 
 }
 
 .brandStoryText {
   max-width: 760px;
   margin: 0 auto 16px;
   color: var(--color-text-main);
-  font-size: 0.95rem;
+  font-size: 1.1rem;
 }
 
 .brandUspRow {
@@ -1034,13 +1119,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 6px;
   text-align: center;
   font-size: 0.9rem;
   letter-spacing: 0.08em;
   font-weight: 600;
   text-transform: uppercase;
   color: var(--color-text-light);
+  margin-top: 20px;
 }
 
 /* Responsive Design */
