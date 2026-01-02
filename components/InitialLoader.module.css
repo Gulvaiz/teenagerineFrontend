@@ -1,0 +1,46 @@
+.loaderContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    /* Highest z-index to cover everything */
+    transition: opacity 0.5s ease-out;
+}
+
+.wavyText {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-weight: 700;
+    color: #000000;
+    position: relative;
+}
+
+.wavyText span {
+    display: inline-block;
+    animation: wave 1.5s infinite ease-in-out;
+    transform-origin: bottom;
+}
+
+@keyframes wave {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .wavyText {
+        font-size: 2rem;
+    }
+}

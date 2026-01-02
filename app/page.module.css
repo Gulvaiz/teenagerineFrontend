@@ -41,7 +41,7 @@
 }
 
 .heroTitle {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 4.5rem;
   font-weight: 700;
   margin-bottom: 20px;
@@ -131,7 +131,7 @@
 }
 
 .categoryTitle {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 2.5rem;
   margin-bottom: 10px;
   color: var(--color-white);
@@ -164,7 +164,7 @@
 }
 
 .newsletterTitle {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 2.5rem;
   margin-bottom: 15px;
   color: var(--color-white);
@@ -248,7 +248,7 @@
 
 .shopByCategoryTitle {
   text-align: center;
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 2.5rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -402,7 +402,7 @@
 /* TITLE */
 .brandsTitle {
   text-align: center;
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 2.3rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -433,6 +433,7 @@
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-50%);
   }
@@ -604,6 +605,7 @@
   font-size: 1.1rem;
   margin-bottom: 10px;
 }
+
 /* ================= SELL WITH US – IMAGE SIDE ================= */
 
 /* IMAGE CARD WRAPPER (WHOLE CARD FLOATS) */
@@ -710,7 +712,7 @@
 
 .servicesTitle {
   text-align: center;
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 2.4rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -798,7 +800,7 @@
 
 .influencerTitle {
   text-align: center;
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 2.3rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -946,7 +948,7 @@
 
 .comboOverlayText {
   position: absolute;
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 2.4rem;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -985,7 +987,7 @@
 }
 
 .comboTitle {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 2.4rem;
   margin-bottom: 14px;
 }
@@ -1091,12 +1093,12 @@
 }
 
 .brandStoryLogo {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 1.4rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   margin-bottom: 24px;
- 
+
 }
 
 .brandStoryText {

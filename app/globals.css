@@ -310,7 +310,7 @@
   /* Taupe */
   --color-accent-2: #8BA3A8;
   /* Blue-gray */
-  --color-text-main: #222222;
+  --color-text-main: #1A1A1A;
   /* Charcoal for text */
   --color-text-light: #555555;
   /* Medium grey */
@@ -324,8 +324,9 @@
   --header-height: 90px;
 
   /* Fonts */
-  --font-serif: 'Playfair Display', serif;
-  --font-sans: 'Jost', 'Lato', sans-serif;
+  --font-serif: var(--font-serif), 'Playfair Display', serif;
+  --font-sans: var(--font-sans), 'DM Sans', sans-serif;
+  --font-script: 'Dancing Script', cursive;
 }
 
 * {
@@ -347,8 +348,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-serif);
-  font-weight: 600;
+  font-family: var(--font-sans);
+  font-weight: 700;
   line-height: 1.2;
 }
 

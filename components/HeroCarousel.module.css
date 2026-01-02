@@ -75,6 +75,7 @@
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -86,6 +87,7 @@
         opacity: 1;
         transform: translateY(0);
     }
+
     to {
         opacity: 0;
         transform: translateY(-10px);
@@ -94,21 +96,30 @@
 
 /* Text */
 .heroSubtitle {
-    font-size: 0.9rem;
-    font-weight: 300;
-    letter-spacing: 3.5px;
-    text-transform: uppercase;
-    margin-bottom: 18px;
-    opacity: 0.85;
+    font-family: var(--font-sans);
+    /* Matching reference: DM Sans Bold */
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: normal;
+    text-transform: capitalize;
+    /* Reference uses title case */
+    margin-bottom: 0px;
+    opacity: 1;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .heroTitle {
     font-family: var(--font-serif);
+    /* Matching reference visual: Serif */
     font-size: clamp(2.6rem, 5vw, 4.2rem);
-    font-weight: 400;
-    line-height: 1.15;
-    letter-spacing: 0.5px;
+    font-weight: 500;
+    /* Standard weight for Serif */
+    line-height: 1.1;
+    letter-spacing: -1px;
     margin-bottom: 32px;
+    text-transform: capitalize;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Buttons */
@@ -117,7 +128,7 @@
     gap: 18px;
     justify-content: center;
     flex-wrap: wrap;
-  
+
 }
 
 /* Dots */
@@ -182,4 +193,3 @@
         height: 40px;
     }
 }
-

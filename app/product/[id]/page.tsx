@@ -56,7 +56,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
                         <div style={{ fontSize: '1.1rem', color: '#666', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '10px' }}>
                             {product.brand?.name || product.brand || 'Brand'}
                         </div>
-                        <h1 style={{ fontSize: '2rem', fontFamily: 'var(--font-serif)', marginBottom: '20px' }}>{product.name}</h1>
+                        <h1 style={{ fontSize: '2rem', fontFamily: 'var(--font-sans)', marginBottom: '20px' }}>{product.name}</h1>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
                             <span style={{ fontSize: '1.5rem', fontWeight: 700 }}>
                                 {product.salePrice ? `₹ ${product.salePrice.toLocaleString()}` : `₹ ${product.price?.toLocaleString()}`}

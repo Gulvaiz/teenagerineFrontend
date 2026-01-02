@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Playfair_Display, Lato } from "next/font/google";
+import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
 import DiscountModal from "@/components/DiscountModal";
 import { CartProvider } from "@/context/CartContext";
 import { WishlistProvider } from "@/context/WishlistContext";
 import CartDrawer from "@/components/CartDrawer";
 import CookieBanner from "@/components/CookieBanner";
+
 import { AuthProvider } from "@/context/AuthContext";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import InitialLoader from "@/components/InitialLoader";
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -15,9 +18,9 @@ const playfair = Playfair_Display({
   display: 'swap',
 });
 
-const lato = Lato({
+const dmSans = DM_Sans({
   subsets: ['latin'],
-  weight: ['300', '400', '700'],
+  weight: ['400', '500', '700'],
   variable: '--font-sans',
   display: 'swap',
 });
@@ -34,13 +37,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${playfair.variable} ${lato.variable}`}>
+      <body className={`${playfair.variable} ${dmSans.variable}`}>
         <AuthProvider>
           <CartProvider>
             <WishlistProvider>
+              <InitialLoader />
               {children}
               <DiscountModal />
               <CartDrawer />
+              <WhatsAppButton />
               <CookieBanner />
             </WishlistProvider>
           </CartProvider>
