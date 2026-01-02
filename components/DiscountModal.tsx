@@ -18,7 +18,7 @@ export default function DiscountModal() {
         const timer = setTimeout(() => {
             setIsVisible(true);
         }, 1000);
-        
+
         return () => clearTimeout(timer);
     }, []);
 
@@ -36,7 +36,8 @@ export default function DiscountModal() {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         // Handle form submission here
-        console.log('Form submitted:', formData);
+        // Handle form submission here
+        // console.log('Form submitted:', formData);
         handleClose();
     };
 
@@ -48,7 +49,7 @@ export default function DiscountModal() {
                 <button className={styles.closeButton} onClick={handleClose} aria-label="Close">
                     <X size={24} />
                 </button>
-                
+
                 <div className={styles.content}>
                     {/* Header with stars */}
                     <div className={styles.header}>
@@ -56,24 +57,24 @@ export default function DiscountModal() {
                         <h2 className={styles.title}>Exclusive Offer!</h2>
                         <span className={styles.star}>✨</span>
                     </div>
-                    
+
                     <p className={styles.subtitle}>Get ₹2000 off on your first order above ₹15000</p>
-                    
+
                     <div className={styles.modalBody}>
                         {/* Left side - Coupon section */}
                         <div className={styles.leftSection}>
                             <div className={styles.couponBox}>
                                 <p className={styles.couponLabel}>Use coupon code:</p>
-                                <input 
-                                    type="text" 
-                                    value="MYFIRST" 
+                                <input
+                                    type="text"
+                                    value="MYFIRST"
                                     readOnly
                                     className={styles.couponInput}
                                 />
                                 <p className={styles.couponNote}>Applied automatically at checkout</p>
                             </div>
                         </div>
-                        
+
                         {/* Right side - Form */}
                         <div className={styles.rightSection}>
                             <form onSubmit={handleSubmit} className={styles.form}>
@@ -89,7 +90,7 @@ export default function DiscountModal() {
                                         required
                                     />
                                 </div>
-                                
+
                                 <div className={styles.inputGroup}>
                                     <User size={18} className={styles.inputIcon} />
                                     <input
@@ -102,7 +103,7 @@ export default function DiscountModal() {
                                         required
                                     />
                                 </div>
-                                
+
                                 <div className={styles.inputGroup}>
                                     <Mail size={18} className={styles.inputIcon} />
                                     <input
@@ -115,7 +116,7 @@ export default function DiscountModal() {
                                         required
                                     />
                                 </div>
-                                
+
                                 <div className={styles.inputGroup}>
                                     <Lock size={18} className={styles.inputIcon} />
                                     <input
@@ -128,7 +129,7 @@ export default function DiscountModal() {
                                         required
                                     />
                                 </div>
-                                
+
                                 <button type="submit" className={styles.claimButton}>
                                     <Gift size={18} />
                                     Claim My 2000 OFF
@@ -136,7 +137,7 @@ export default function DiscountModal() {
                             </form>
                         </div>
                     </div>
-                    
+
                     <p className={styles.terms}>
                         By signing up, you agree to our terms and conditions. Limited time offer • New customers only
                     </p>

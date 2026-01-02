@@ -19,6 +19,7 @@ export default function Header() {
     const [currency, setCurrency] = useState('INR');
     const [showCurrencyDropdown, setShowCurrencyDropdown] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
+    const [showMobileMenu, setShowMobileMenu] = useState(false);
 
     // Scroll State
     const [showTopBar, setShowTopBar] = useState(true);
@@ -161,6 +162,41 @@ export default function Header() {
                     </button>
                 </form>
 
+                <div className={styles.mobileLeft}>
+                    <button className={styles.hamburger} onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                        {showMobileMenu ? <span style={{ fontSize: '24px' }}>✕</span> : <span style={{ fontSize: '24px' }}>☰</span>}
+                    </button>
+                    <button className={styles.mobileSearchIcon} onClick={() => (document.querySelector(`.${styles.mobileMenu} input`) as HTMLInputElement)?.focus()}>
+                        <Search size={22} color="#333" />
+                    </button>
+                </div>
+
+                <div className={`${styles.mobileMenu} ${showMobileMenu ? styles.open : ''}`}>
+                    {/* Mobile Search */}
+                    <form onSubmit={handleSearch} style={{ position: 'relative', marginBottom: '20px' }}>
+                        <input
+                            type="text"
+                            placeholder="Search..."
+                            style={{ width: '100%', padding: '10px', border: '1px solid #ddd', borderRadius: '4px' }}
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                        <button type="submit" style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none' }}>
+                            <Search size={18} />
+                        </button>
+                    </form>
+
+                    <Link href="/" className={styles.mobileNavLink} onClick={() => setShowMobileMenu(false)}>Home</Link>
+                    <Link href="/new-arrivals" className={styles.mobileNavLink} onClick={() => setShowMobileMenu(false)}>Just In</Link>
+                    <Link href="/women" className={styles.mobileNavLink} onClick={() => setShowMobileMenu(false)}>Women</Link>
+                    <Link href="/men" className={styles.mobileNavLink} onClick={() => setShowMobileMenu(false)}>Men</Link>
+                    <Link href="/kids" className={styles.mobileNavLink} onClick={() => setShowMobileMenu(false)}>Kids</Link>
+                    <Link href="/services" className={styles.mobileNavLink} onClick={() => setShowMobileMenu(false)}>Services</Link>
+                    <Link href="/sale" className={`${styles.mobileNavLink} ${styles.navLinkRed}`} onClick={() => setShowMobileMenu(false)}>Sale</Link>
+                    <Link href="/sell-with-us" className={styles.mobileNavLink} onClick={() => setShowMobileMenu(false)}>Sell With Us</Link>
+                    <Link href="/blog" className={styles.mobileNavLink} onClick={() => setShowMobileMenu(false)}>Blog</Link>
+                </div>
+
                 <nav className={styles.nav}>
                     <div className={styles.navItem}>
                         <Link href="/" className={styles.navLink}>Home</Link>
@@ -175,15 +211,15 @@ export default function Header() {
                             Women <ChevronDown size={14} className={styles.navIcon} />
                         </Link>
                         <div className={styles.megaMenu}>
-                        <Link href="/women">
-    <Image
-      src="/women_menu-01.png"
-      alt="women New Collection"
-      className={styles.menuImage}
-      width={300}
-      height={400}
-    />
-  </Link>
+                            <Link href="/women">
+                                <Image
+                                    src="/women_menu-01.png"
+                                    alt="women New Collection"
+                                    className={styles.menuImage}
+                                    width={300}
+                                    height={400}
+                                />
+                            </Link>
                             <div className={styles.menuColumn}>
                                 <h4>Bags</h4>
                                 <ul>
@@ -236,17 +272,17 @@ export default function Header() {
                             Men <ChevronDown size={14} className={styles.navIcon} />
                         </Link>
                         <div className={styles.megaMenu}>
-                        <div>
-  <Link href="/men">
-    <Image
-      src="/man-menu-01.png"
-      alt="Men New Collection"
-      className={styles.menuImage}
-      width={300}
-      height={400}
-    />
-  </Link>
-</div>
+                            <div>
+                                <Link href="/men">
+                                    <Image
+                                        src="/man-menu-01.png"
+                                        alt="Men New Collection"
+                                        className={styles.menuImage}
+                                        width={300}
+                                        height={400}
+                                    />
+                                </Link>
+                            </div>
                             <div className={styles.menuColumn}>
                                 <h4>Bags & Accessories</h4>
                                 <ul>
@@ -283,15 +319,15 @@ export default function Header() {
                             Kids <ChevronDown size={14} className={styles.navIcon} />
                         </Link>
                         <div className={styles.megaMenu}>
-                        <Link href="/kid">
-    <Image
-      src="/kids-menu-1.png"
-      alt="kid New Collection"
-      className={styles.menuImage}
-      width={300}
-      height={400}
-    />
-  </Link>
+                            <Link href="/kid">
+                                <Image
+                                    src="/kids-menu-1.png"
+                                    alt="kid New Collection"
+                                    className={styles.menuImage}
+                                    width={300}
+                                    height={400}
+                                />
+                            </Link>
                             <div className={styles.menuColumn}>
                                 <h4>Girls</h4>
                                 <ul>

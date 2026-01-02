@@ -363,18 +363,43 @@ ul {
   list-style: none;
 }
 
-/* Utilities */
+/* Utilities & Layout - Mobile First */
 .container {
-  max-width: var(--max-width);
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 16px;
+  /* Mobile padding */
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 24px;
+    /* Tablet padding */
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 40px;
+    /* Desktop padding */
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+  }
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 24px;
+  padding: 10px 20px;
+  /* Mobile button size */
   font-family: var(--font-sans);
   font-weight: 600;
   text-transform: uppercase;
@@ -383,7 +408,15 @@ ul {
   cursor: pointer;
   transition: all 0.3s ease;
   border-radius: 50px;
-  /* Added border-radius as per request */
+  font-size: 0.85rem;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    padding: 12px 24px;
+    /* Desktop button size */
+    font-size: 1rem;
+  }
 }
 
 .btn-primary {
@@ -417,9 +450,18 @@ ul {
 
 .section-title {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  /* Mobile font size */
+  margin-bottom: 1.5rem;
   position: relative;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.5rem;
+    /* Desktop font size */
+    margin-bottom: 2rem;
+  }
 }
 
 /* Header Specifics */
@@ -427,9 +469,17 @@ ul {
   background-color: var(--color-secondary);
   color: var(--color-white);
   text-align: center;
-  padding: 10px 0;
-  font-size: 0.75rem;
-  letter-spacing: 1.5px;
+  padding: 8px 0;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
   font-weight: 500;
   text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .top-bar {
+    padding: 10px 0;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+  }
 }

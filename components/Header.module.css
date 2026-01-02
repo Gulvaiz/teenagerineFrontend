@@ -5,9 +5,405 @@
   top: 0;
   z-index: 1000;
   background-color: #fff;
-  /* White initially */
   transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
+
+.header.scrolled {
+  background-color: rgba(255, 255, 255, 0.85);
+  /* Slightly more opaque for mobile readibility */
+  backdrop-filter: blur(25px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.header.hideTop {
+  transform: translateY(-44px);
+  /* Rough height of topbar */
+}
+
+/* ---------------- TOP BAR ---------------- */
+/* Default Mobile State: Hidden often, or simplified */
+/* ---------------- TOP BAR ---------------- */
+.topBarWrapper {
+  background: #0D131E;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  background: #0D131E;
+  color: #ffffff;
+  width: 100%;
+  position: relative;
+}
+
+.topBarLeft,
+.topBarRight {
+  display: none !important;
+  /* STRICTLY HIDE ON MOBILE */
+}
+
+.topBarCenter {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  flex: 1;
+}
+
+@media (min-width: 1024px) {
+  .topBar {
+    justify-content: space-between;
+    padding: 10px 40px;
+  }
+
+  .topBarLeft,
+  .topBarRight {
+    display: flex !important;
+    align-items: center;
+    gap: 15px;
+    min-width: 140px;
+  }
+
+  .topBarCenter {
+    font-size: 0.9rem;
+    flex: 0 1 auto;
+    /* Don't stretch on desktop */
+  }
+}
+
+/* ---------------- MAIN BAR ---------------- */
+
+.mainBar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  /* 3-column grid for perfect center */
+  align-items: center;
+  padding: 10px 16px;
+  height: 60px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.mobileLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-self: start;
+}
+
+.hamburger {
+  display: flex;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #333;
+}
+
+.mobileSearchIcon {
+  display: flex;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #333;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  /* Center in the middle column */
+}
+
+.logoImage {
+  max-height: 28px;
+  /* Mobile logo size */
+  width: auto;
+  object-fit: contain;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-self: end;
+  /* Align to right */
+}
+
+/* Hide Desktop Elements on Mobile */
+.nav,
+.searchContainer {
+  display: none;
+}
+
+/* ---------------- DESKTOP OVERRIDES ---------------- */
+@media (min-width: 1024px) {
+  .mainBar {
+    display: flex;
+    /* Flex on desktop */
+    justify-content: space-between;
+    padding: 0 40px;
+    height: var(--header-height);
+  }
+
+  .mobileLeft,
+  .mobileSearchIcon {
+    display: none;
+    /* Hide mobile controls */
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .logo {
+    margin-right: 40px;
+  }
+
+  .logoImage {
+    max-height: 50px;
+  }
+
+  .searchContainer {
+    display: flex;
+    flex: 1;
+    max-width: 300px;
+    margin: 0 40px;
+    position: relative;
+    align-items: center;
+  }
+
+  .searchParams {
+    width: 100%;
+    padding: 10px 40px 10px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background: transparent;
+    transition: all 0.3s ease;
+  }
+
+  .searchParams:focus {
+    outline: none;
+    border-color: #e67e22;
+  }
+
+  .searchIcon {
+    position: absolute;
+    right: 12px;
+    color: #888;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav {
+    display: flex;
+    /* Show nav */
+    gap: 25px;
+    align-items: center;
+  }
+}
+
+.navItem {
+  position: relative;
+  padding: 30px 0;
+  /* Vertical padding to create hover area */
+}
+
+.navLink {
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  position: relative;
+  cursor: pointer;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.navItem:hover .navLink::after {
+  width: 100%;
+}
+
+.navLinkRed {
+  color: #e74c3c;
+}
+
+.navIcon {
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+/* Mega Menu Visibility Logic */
+.megaMenu,
+.servicesDropdown {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.navItem:hover .megaMenu,
+.navItem:hover .servicesDropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ---------------- MEGA MENU STYLES (Keep existing structure but ensure they work) ---------------- */
+.megaMenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 90vw;
+  max-width: 1200px;
+  background: white;
+  padding: 40px;
+  z-index: 1000;
+  display: flex;
+  gap: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.menuImage {
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.menuColumn {
+  flex: 1;
+}
+
+.menuColumn h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  color: #000;
+}
+
+.menuColumn ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menuColumn li {
+  margin-bottom: 12px;
+}
+
+.menuColumn a {
+  text-decoration: none;
+  color: #555;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.menuColumn a:hover {
+  color: #000;
+}
+
+
+/* ---------------- SERVICES DROPDOWN ---------------- */
+.servicesDropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  background-color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  width: 600px;
+  z-index: 1000;
+  border-radius: 8px;
+  border-top: 3px solid #e67e22;
+}
+
+.dropdownItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  gap: 10px;
+}
+
+.dropdownImage {
+  width: 100%;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+  transition: transform 0.2s;
+}
+
+.dropdownItem:hover .dropdownImage {
+  transform: scale(1.05);
+}
+
+.dropdownLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+
+/* ---------------- MOBILE SIDE DRAWER ---------------- */
+.mobileMenu {
+  position: fixed;
+  top: 60px;
+  /* Match mobile header height */
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 60px);
+  background: white;
+  padding: 20px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mobileMenu.open {
+  transform: translateX(0);
+}
+
+.mobileNavLink {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+  text-transform: uppercase;
+  width: 100%;
+}
+
 
 .header.scrolled {
   background-color: rgba(255, 255, 255, 0.75);
@@ -455,6 +851,60 @@
 
 
 
-.actionIcon {
-  margin: 15px;
+
+/* ---------------- HAMBURGER MENU ---------------- */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  color: #333;
+}
+
+.mobileMenu {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  width: 100%;
+  height: calc(100vh - var(--header-height));
+  background: white;
+  padding: 20px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mobileMenu.open {
+  transform: translateX(0);
+}
+
+.mobileNavLink {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1024px) {
+  .nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .searchContainer {
+    display: none;
+    /* Hide search bar in header on mobile if needed, or adjust width */
+    margin: 0 10px;
+  }
 }

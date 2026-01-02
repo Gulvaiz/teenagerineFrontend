@@ -66,7 +66,8 @@ export default function HomeClient({ newArrivals, saleProducts }: HomeClientProp
 
   const handleAddToWishlist = (productId: string) => {
     // Add to wishlist logic here
-    console.log("Added to wishlist:", productId);
+    // Add to wishlist logic here
+    // console.log("Added to wishlist:", productId);
   };
 
   const scrollTrack = (ref: React.RefObject<HTMLDivElement | null>, direction: "left" | "right") => {
@@ -509,7 +510,7 @@ export default function HomeClient({ newArrivals, saleProducts }: HomeClientProp
                 <div
                   className={styles.comboImageMain}
                   style={{
-                   backgroundImage: 'url("/prestig-1.jpg")'
+                    backgroundImage: 'url("/prestig-1.jpg")'
                   }}
                 >
                   <span className={styles.comboOverlayText}>SHOP</span>
@@ -519,7 +520,7 @@ export default function HomeClient({ newArrivals, saleProducts }: HomeClientProp
                   <div
                     className={styles.comboImageSmallExact}
                     style={{
-                     backgroundImage: 'url("/prestig-2.jpg")'
+                      backgroundImage: 'url("/prestig-2.jpg")'
                     }}
                   >
                     <span className={styles.comboOverlayText}>THE</span>
@@ -528,7 +529,7 @@ export default function HomeClient({ newArrivals, saleProducts }: HomeClientProp
                   <div
                     className={styles.comboImageSmallExact}
                     style={{
-                     backgroundImage: 'url("/prestig-3.jpg")'
+                      backgroundImage: 'url("/prestig-3.jpg")'
                     }}
                   >
                     <span className={styles.comboOverlayText}>LOOK</span>
@@ -600,57 +601,57 @@ export default function HomeClient({ newArrivals, saleProducts }: HomeClientProp
           </div>
         </section>
 
-       
-      {/* BRAND STORY / USP STRIP */}
-<section className={styles.brandStorySection}>
-  <div className={styles.brandStoryContainer}>
 
-    {/* LOGO (instead of heading text) */}
-    <div className={styles.brandStoryLogo}>
-      <Image
-        src="/Tangerine-Logo-200px.png"
-        alt="Tangerine Luxury"
-        width={280}
-        height={120}
-        priority
-      />
-    </div>
+        {/* BRAND STORY / USP STRIP */}
+        <section className={styles.brandStorySection}>
+          <div className={styles.brandStoryContainer}>
 
-    <p className={styles.brandStoryText}>
-      An online marketplace like &quot;Tangerine Luxury&quot; allows users to buy and sell pre-loved women&apos;s,
-      men&apos;s, and children&apos;s clothing and accessories.
-    </p>
+            {/* LOGO (instead of heading text) */}
+            <div className={styles.brandStoryLogo}>
+              <Image
+                src="/Tangerine-Logo-200px.png"
+                alt="Tangerine Luxury"
+                width={280}
+                height={120}
+                priority
+              />
+            </div>
 
-    <p className={styles.brandStoryText}>
-      Every single item in our collection was carefully chosen. You won&apos;t need to worry about anything
-      when you shop with us because each and every product meets the highest standards for both quality and
-      style.
-    </p>
+            <p className={styles.brandStoryText}>
+              An online marketplace like &quot;Tangerine Luxury&quot; allows users to buy and sell pre-loved women&apos;s,
+              men&apos;s, and children&apos;s clothing and accessories.
+            </p>
 
-    <div className={styles.brandUspRow}>
-      <div className={styles.brandUspItem}>
-        <RotateCcw size={28} strokeWidth={1.5} />
-        <span>HASSLE FREE RETURNS</span>
-      </div>
+            <p className={styles.brandStoryText}>
+              Every single item in our collection was carefully chosen. You won&apos;t need to worry about anything
+              when you shop with us because each and every product meets the highest standards for both quality and
+              style.
+            </p>
 
-      <div className={styles.brandUspItem}>
-        <Tag size={28} strokeWidth={1.5} />
-        <span>AFFORDABLE LUXURY</span>
-      </div>
+            <div className={styles.brandUspRow}>
+              <div className={styles.brandUspItem}>
+                <RotateCcw size={28} strokeWidth={1.5} />
+                <span>HASSLE FREE RETURNS</span>
+              </div>
 
-      <div className={styles.brandUspItem}>
-        <ShieldCheck size={28} strokeWidth={1.5} />
-        <span>100% GUARANTEED AUTHENTIC</span>
-      </div>
+              <div className={styles.brandUspItem}>
+                <Tag size={28} strokeWidth={1.5} />
+                <span>AFFORDABLE LUXURY</span>
+              </div>
 
-      <div className={styles.brandUspItem}>
-        <Truck size={28} strokeWidth={1.5} />
-        <span>WORLDWIDE SHIPPING</span>
-      </div>
-    </div>
+              <div className={styles.brandUspItem}>
+                <ShieldCheck size={28} strokeWidth={1.5} />
+                <span>100% GUARANTEED AUTHENTIC</span>
+              </div>
 
-  </div>
-</section>
+              <div className={styles.brandUspItem}>
+                <Truck size={28} strokeWidth={1.5} />
+                <span>WORLDWIDE SHIPPING</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
 
       </main>
 

@@ -26,7 +26,7 @@ export default function CartDrawer() {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
             document.body.style.overflow = 'unset';
-            console.log("CartDrawer unmounting or closing, restoring overflow");
+            // console.log("CartDrawer unmounting or closing, restoring overflow");
         };
     }, [isCartOpen, setIsCartOpen]);
 
