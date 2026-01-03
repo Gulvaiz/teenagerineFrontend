@@ -1,0 +1,506 @@
+/* Global Settings */
+.aboutContainer {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: var(--color-white);
+    color: var(--color-text-main);
+}
+
+/* HERO SECTION */
+.heroSection {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    /* Increased height to match screenshot mood */
+    min-height: 500px;
+    background-image: url('/black-bag-from-brand-louis-vuitton-scaled.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heroOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Slightly lighter overlay to match screenshot */
+    z-index: 1;
+}
+
+.heroTitle {
+    position: relative;
+    z-index: 2;
+    color: #FFFFFF;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 4rem;
+    /* Larger title */
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    /* More spacing */
+    text-align: center;
+}
+
+/* INTRO SECTION */
+.introSection {
+    padding: 100px 0;
+    /* More padding */
+    background-color: #FFFFFF;
+}
+
+.container {
+    max-width: 1280px;
+    /* Wider container */
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.introGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    /* Increased gap */
+    align-items: center;
+}
+
+.introContent {
+    font-family: var(--font-sans);
+    color: #374151;
+    /* Darker black/gray */
+}
+
+.introContent p {
+    font-size: 1.1rem;
+    /* Larger font */
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.introImageWrapper {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    /* More rounded */
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    /* Softer, larger shadow */
+}
+
+.introImage {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* BRAND STORY SECTION (NEW) */
+.brandStorySection {
+    padding: 80px 0 100px 0;
+    /* Large bottom space before next section */
+    background-color: #F9FAFB;
+    text-align: center;
+}
+
+.brandStoryLogoWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.brandStoryLogo {
+    object-fit: contain;
+}
+
+.brandStoryContent {
+    max-width: 900px;
+    margin: 0 auto;
+    color: #444444;
+    /* Dark gray */
+    font-family: var(--font-sans);
+}
+
+.brandStoryContent p {
+    font-size: 1.1rem;
+    line-height: 2;
+    /* Loose line height */
+    margin-bottom: 30px;
+}
+/* COMMUNITY SECTION */
+.communityContainer {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .communityGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  
+  
+  
+  .communityTitle {
+    text-align: center;
+  }
+  
+  .communitySubtitle {
+    text-align: center;
+  }
+  
+  .communityGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  
+  .communityCard {
+    background-color: #FFFFFF;
+    padding: 32px 32px 28px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    width: 100%;
+  }
+  
+  .cardText {
+    font-family: var(--font-sans);
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 22px;
+  }
+  
+  .cardFooter {
+    font-family: var(--font-sans);
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #1a1a1a;
+  }
+    
+/* WHO WE ARE SECTION */
+.whoWeAreSection {
+    position: relative;
+    width: 100%;
+    padding: 120px 0;
+    background-image: url('/ABOUTUS3.avif');
+    background-size: cover;
+    background-position: center;
+}
+
+.whoOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    /* Dark overlay */
+    z-index: 1;
+}
+
+.whoContainer {
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+    /* CENTER ALIGNMENT MANDATORY */
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.whoTitle {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+.whoText {
+    margin-bottom: 60px;
+    max-width: 900px;
+}
+
+.whoText p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    opacity: 0.95;
+}
+
+.quoteBox {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Semi-transparent */
+    backdrop-filter: blur(10px);
+    /* Blur effect */
+    padding: 40px 60px;
+    border-radius: 12px;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.quoteBox p {
+    font-family: var(--font-serif);
+    /* Serif for quote */
+    font-style: italic;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+
+/* VALUES SECTION */
+.valuesSection {
+    padding: 100px 0;
+    background-color: #FFFFFF;
+}
+
+.valuesTitle {
+    text-align: center;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 2.8rem;
+    margin-bottom: 80px;
+    color: var(--color-text-main);
+}
+
+.valuesGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.valueCard {
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.valueCard.elevated {
+    transform: translateY(-30px);
+    /* More elevation */
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    /* Stronger shadow */
+    padding: 40px 20px;
+}
+
+.valueTitle {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: var(--color-text-main);
+}
+
+.valueDesc {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* CTA SECTION */
+.ctaSection {
+    background-color: #0F172A;
+    /* Dark navy/black */
+    padding: 100px 0;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.ctaTitle {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.ctaSubtitle {
+    font-family: var(--font-sans);
+    font-size: 1.2rem;
+    color: #A0AEC0;
+    margin-bottom: 50px;
+}
+
+.ctaButtons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.btnPrimary {
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 18px 50px;
+    /* Larger buttons */
+    border-radius: 50px;
+    border: 2px solid #FFFFFF;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.btnPrimary:hover {
+    background-color: #f0f0f0;
+    border-color: #f0f0f0;
+}
+
+.btnOutline {
+    background-color: transparent;
+    color: #FFFFFF;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 18px 50px;
+    /* Larger buttons */
+    border-radius: 50px;
+    border: 2px solid #FFFFFF;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.btnOutline:hover {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+
+    .heroTitle {
+        font-size: 3rem;
+    }
+
+    .introGrid {
+        gap: 50px;
+    }
+
+    .communityGrid {
+        gap: 20px;
+    }
+
+    .valuesGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+    }
+
+    .valueCard.elevated {
+        transform: none;
+        box-shadow: none;
+        padding: 20px;
+        background: transparent;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .heroSection {
+        height: 50vh;
+    }
+
+    .heroTitle {
+        font-size: 2.2rem;
+    }
+
+    .introSection,
+    .communitySection,
+    .whoWeAreSection,
+    .valuesSection,
+    .ctaSection {
+        padding: 60px 0;
+    }
+
+    .brandStorySection {
+        padding: 60px 0;
+    }
+
+    .introGrid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .communityGrid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .communityCard {
+        min-height: auto;
+    }
+
+    .valuesGrid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .whoText p {
+        font-size: 1.1rem;
+    }
+
+    .quoteBox {
+        padding: 30px;
+    }
+
+    .quoteBox p {
+        font-size: 1.2rem;
+    }
+
+    .ctaTitle {
+        font-size: 2rem;
+    }
+
+    .ctaButtons {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .btnPrimary,
+    .btnOutline {
+        width: 100%;
+        padding: 16px 0;
+    }
+}

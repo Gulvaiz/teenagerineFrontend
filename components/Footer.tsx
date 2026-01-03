@@ -48,7 +48,7 @@ export default function Footer() {
           <div className={styles.column}>
             <h4>ABOUT TANGERINE LUXURY</h4>
             <ul>
-              <li><Link href="#">About Us</Link></li>
+              <li><Link href="/about">About Us</Link></li>
               <li><Link href="#">Our Founder</Link></li>
               <li><Link href="#">Our Mission</Link></li>
               <li><Link href="#">Why Tangerine Luxury</Link></li>
@@ -88,9 +88,9 @@ export default function Footer() {
           <div className={styles.subscribe}>
             <div className={styles.socials}>
               <MessageCircle size={18} className={styles.whatsappIcon} />
-              <Instagram size={18} className={styles.instaIcon}  />
-              <Facebook size={18}className={styles.facebookIcon}  />
-              <Youtube size={18}className={styles.youtubeIcon}  />
+              <Instagram size={18} className={styles.instaIcon} />
+              <Facebook size={18} className={styles.facebookIcon} />
+              <Youtube size={18} className={styles.youtubeIcon} />
             </div>
 
             <input
