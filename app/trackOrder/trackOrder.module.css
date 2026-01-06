@@ -1,0 +1,134 @@
+.pageWrapper {
+    width: 100%;
+    padding: 60px 20px 120px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* TITLE */
+  .headingWrapper {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .heading {
+    font-size: 36px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+  }
+  
+  .subheading {
+    font-size: 16px;
+    color: #6b7280;
+  }
+  
+  /* CARD */
+  .card {
+    width: 100%;
+    max-width: 820px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 28px 32px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+  }
+  
+  /* CARD HEADER */
+  .cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  
+  .cardHeader h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+  }
+  
+  .icon {
+    font-size: 20px;
+  }
+  
+  /* DESCRIPTION */
+  .cardDesc {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 20px;
+  }
+  
+  /* INPUT ROW */
+  .inputRow {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .input {
+    flex: 1;
+    height: 44px;
+    padding: 0 14px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+  }
+  
+  .input::placeholder {
+    color: #9ca3af;
+  }
+  
+  .button {
+    height: 44px;
+    padding: 0 22px;
+    border-radius: 8px;
+    border: none;
+    background: #f3b289;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .button:hover {
+    background: #ee9f6b;
+  }
+  
+  /* INFO BOX */
+  .infoBox {
+    background: #f9fafb;
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  
+  .infoTitle {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #111827;
+  }
+  
+  .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .list li {
+    font-size: 14px;
+    color: #4b5563;
+    margin-bottom: 6px;
+  }
+  
+  .list span {
+    background: #eef2f7;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #374151;
+  }
+  

@@ -1,14 +1,13 @@
 "use client";
 
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+
 import { Upload } from 'lucide-react';
 import servicesStyles from '../services.module.css';
 
 export default function RequestProductPage() {
     return (
         <>
-            <Header />
+
             <main>
                 {/* Hero Section with White Box */}
                 <div className={servicesStyles.heroSection} style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=1200&h=600&fit=crop&q=80")', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -107,7 +106,7 @@ export default function RequestProductPage() {
                     </div>
                 </div>
             </main>
-            <Footer />
+
         </>
     );
 }

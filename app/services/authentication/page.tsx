@@ -1,5 +1,4 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+
 import Link from 'next/link';
 import servicesStyles from '../services.module.css'; // Shared styles
 import styles from './page.module.css'; // We can reuse the shared module mainly, but let's stick to inline styles or shared classes for simplicity if possible. Or just strictly use services.module.css
@@ -8,7 +7,7 @@ import { Upload, ShieldCheck, CheckCircle } from 'lucide-react';
 export default function AuthenticationPage() {
     return (
         <>
-            <Header />
+
             <main>
                 {/* Hero with Overlay */}
                 <div className={servicesStyles.heroSection} style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=1200&h=600&fit=crop&q=80")' }}>
@@ -91,7 +90,7 @@ export default function AuthenticationPage() {
                     </div>
                 </div>
             </main>
-            <Footer />
+
         </>
     );
 }

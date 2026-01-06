@@ -1,0 +1,163 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px 80px;
+    background-color: #F9FAFB;
+    /* Light background for the whole area */
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* Card Section */
+.topSection {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 50px 40px;
+    text-align: center;
+    flex: 1;
+    min-width: 300px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    /* Soft shadow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.iconWrapper {
+    margin-bottom: 25px;
+    color: #FF5722;
+    /* Orange color */
+}
+
+.card h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    letter-spacing: 0.5px;
+}
+
+.card p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 500px;
+}
+
+/* Key Information Section */
+.infoSection {
+    background: white;
+    border-radius: 12px;
+    padding: 50px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+}
+
+.infoSection h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #1a1a1a;
+}
+
+.infoList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.infoList li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 15px;
+    color: #4a5568;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.infoList li::before {
+    content: "•";
+    position: absolute;
+    left: 5px;
+    color: #FF5722;
+    /* Orange bullet */
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1;
+    top: -2px;
+}
+
+/* Need Help Section */
+.helpSection {
+    background: white;
+    /* Or slightly off-white if needed, standardizing on white cards for now */
+    border-radius: 12px;
+    padding: 60px 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.helpSection h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+.helpSection p {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.contactLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: 500;
+    color: #FF5722;
+    /* Orange Text */
+}
+
+.contactLink {
+    color: #FF5722;
+    text-decoration: none;
+    font-size: 16px;
+    transition: opacity 0.2s;
+}
+
+.contactLink:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 40px 15px 60px;
+    }
+
+    .topSection {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .card,
+    .infoSection {
+        padding: 30px 20px;
+    }
+
+    .card h2 {
+        font-size: 18px;
+    }
+}

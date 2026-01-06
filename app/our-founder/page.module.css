@@ -1,0 +1,212 @@
+/* Container */
+.container {
+    padding: 60px 20px;
+    background-color: #FDFBF7;
+    /* Light beige background */
+    min-height: 80vh;
+    width: 100%;
+   
+    /* Ensure it doesn't hide behind fixed header if any */
+}
+
+.contentWrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Heading */
+.mainHeading {
+    font-family: var(--font-sans);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    width: 100%;
+}
+/* Left Column: Image */
+.imageColumn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Image Card */
+.imageCard {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    margin-top: 40px;
+
+    border-radius: 8px; /* FIXED: matches screenshot softness */
+    overflow: hidden; /* keeps zoom inside */
+
+    background: #f6f6f6;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Image inside card */
+.imageCard img {
+    width: 100%;
+    height: auto;
+    display: block;
+
+    border-radius: inherit;
+    transform: scale(1);
+    transition: transform 0.45s ease-out;
+}
+
+/* Hover Zoom Effect (subtle & clean) */
+.imageCard:hover img {
+    transform: scale(1.04);
+}
+
+/* Floating Badge */
+.badge {
+    position: absolute;
+    bottom: -18px;
+    right: -18px;
+
+    background-color: var(--color-white);
+    padding: 14px 18px;
+    border-radius: 10px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.95rem;
+
+    color: var(--color-primary);
+    z-index: 2;
+}
+
+/* Right Column: Text */
+.textColumn {
+    padding-left: 40px; /* better balance with image */
+    padding-top: 20px;  /* aligns text with image top */
+}
+
+/* Bio Text */
+.bioText {
+    font-family: var(--font-sans);
+    font-size: 1.15rem;
+    line-height: 1.85;
+    color: #3f3f3f;
+    margin-bottom: 22px;
+}
+
+
+.founderNameWrapper {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.founderName {
+    font-family: var(--font-sans);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    /* Dark Navy */
+    margin-bottom: 10px;
+}
+
+.divider {
+    width: 100%;
+    height: 8px;
+    /* Thicker accent line behind text kind of look, or just a line */
+    background-color: #FFDAB9;
+    /* Light orange/brand tone */
+    opacity: 0.6;
+    border-radius: 4px;
+    width: 80%;
+    /* As per screenshot look, often it's a highlights under name */
+}
+
+/* Button */
+.connectBtn {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 14px 40px;
+    border-radius: 30px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.connectBtn:hover {
+    background-color: #d67600;
+    /* Darker orange */
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(242, 133, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .grid {
+        gap: 40px;
+    }
+
+    .mainHeading {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 40px 20px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .imageColumn {
+        order: -1;
+        /* Image first on mobile? "Tablet: stacked layout with image first" - done via grid order or HTML order. */
+        margin-bottom: 20px;
+    }
+
+    .imageCard {
+        margin-top: 0;
+        max-width: 100%;
+    }
+
+    .badge {
+        right: 10px;
+        bottom: 20px;
+    }
+
+    .textColumn {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .founderNameWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .divider {
+        width: 150px;
+    }
+}

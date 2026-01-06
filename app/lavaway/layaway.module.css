@@ -1,0 +1,140 @@
+/* ================= ROOT ================= */
+.layawayPage {
+    width: 100%;
+    background: #ffffff;
+  }
+  
+  /* ================= HERO ================= */
+  .hero {
+    position: relative;
+    height: 70vh;
+    background-image: url('/layaway-hero.jpg'); /* replace if needed */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  
+  .heroTitle {
+    position: relative;
+    z-index: 1;
+    color: #ffffff;
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  
+  /* ================= CARDS ================= */
+  .cardsSection {
+    background: #faf7f3;
+    padding: 80px 6%;
+  }
+  
+  .cardsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  
+  .card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 36px 28px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    text-align: center;
+  }
+  
+  .icon {
+    font-size: 32px;
+    color: #f37021;
+    margin-bottom: 16px;
+  }
+  
+  .card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  
+  .card p {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: #555555;
+  }
+  
+  /* ================= TABLE ================= */
+  .tableSection {
+    background: #ef4a4a;
+    margin: 80px 6%;
+    border-radius: 14px;
+    padding: 40px 32px 48px;
+  }
+  
+  .tableTitle {
+    color: #ffffff;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 28px;
+  }
+  
+  .tableWrapper {
+    background: #ffffff;
+    border-radius: 10px;
+    overflow-x: auto;
+  }
+  
+  /* 🔒 CSS MODULE SAFE TABLE */
+  .layawayTable {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .layawayTable thead th {
+    background: #ef4a4a;
+    color: #ffffff;
+    padding: 16px;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: left;
+  }
+  
+  .layawayTable tbody td {
+    padding: 16px;
+    font-size: 14px;
+    border-bottom: 1px solid #eeeeee;
+    color: #333333;
+  }
+  
+  .layawayTable tbody tr:last-child td {
+    border-bottom: none;
+  }
+  
+  /* ================= RESPONSIVE ================= */
+  @media (max-width: 1024px) {
+    .cardsGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .heroTitle {
+      font-size: 40px;
+    }
+  
+    .cardsGrid {
+      grid-template-columns: 1fr;
+    }
+  
+    .tableSection {
+      margin: 60px 4%;
+    }
+  }
+  

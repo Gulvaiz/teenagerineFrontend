@@ -1,11 +1,10 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+
 import Link from 'next/link';
 
 export default function BlogPage() {
     return (
         <>
-            <Header />
+
             <main className="container" style={{ padding: '40px 20px', minHeight: '60vh' }}>
                 <div style={{ marginBottom: '20px', fontSize: '0.9rem', color: '#666' }}>
                     <Link href="/">Home</Link> / <span>Blog</span>
@@ -29,7 +28,7 @@ export default function BlogPage() {
                     ))}
                 </div>
             </main>
-            <Footer />
+
         </>
     );
 }

@@ -49,16 +49,16 @@ export default function Footer() {
             <h4>ABOUT TANGERINE LUXURY</h4>
             <ul>
               <li><Link href="/about">About Us</Link></li>
-              <li><Link href="#">Our Founder</Link></li>
-              <li><Link href="#">Our Mission</Link></li>
-              <li><Link href="#">Why Tangerine Luxury</Link></li>
-              <li><Link href="#">Authenticity</Link></li>
-              <li><Link href="#">Product Condition Guidelines</Link></li>
-              <li><Link href="#">Terms and Conditions</Link></li>
-              <li><Link href="#">Orders and Returns</Link></li>
-              <li><Link href="#">Privacy Policy</Link></li>
-              <li><Link href="#">Shipping and Delivery</Link></li>
-              <li><Link href="#">Contact Us</Link></li>
+              <li><Link href="/our-founder">Our Founder</Link></li>
+              <li><Link href="/our-mission">Our Mission</Link></li>
+              <li><Link href="/why-tangerine">Why Tangerine Luxury</Link></li>
+              <li><Link href="/authenticity">Authenticity</Link></li>
+              <li><Link href="/product-condition-guidelines">Product Condition Guidelines</Link></li>
+              <li><Link href="/terms-and-conditions">Terms and Conditions</Link></li>
+              <li><Link href="/order-policy">Orders and Returns</Link></li>
+              <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+              <li><Link href="/shipping-and-delivery">Shipping and Delivery</Link></li>
+              <li><Link href="/contact">Contact Us</Link></li>
             </ul>
           </div>
 
@@ -67,8 +67,8 @@ export default function Footer() {
             <h4>MY ACCOUNT</h4>
             <ul>
               <li><Link href="#">Sign In</Link></li>
-              <li><Link href="#">My Wishlist</Link></li>
-              <li><Link href="#">Track My Order</Link></li>
+              <li><Link href="/wishlist">My Wishlist</Link></li>
+              <li><Link href="/trackOrder">Track My Order</Link></li>
             </ul>
           </div>
 
@@ -76,11 +76,11 @@ export default function Footer() {
           <div className={styles.column}>
             <h4>FAQ&apos;s</h4>
             <ul>
-              <li><Link href="#">Buyer&apos;s FAQ</Link></li>
-              <li><Link href="#">Seller&apos;s FAQ</Link></li>
-              <li><Link href="#">Sell With Us</Link></li>
-              <li><Link href="#">Layaway</Link></li>
-              <li><Link href="#">TL Elite</Link></li>
+              <li><Link href="/buyer-faq">Buyer&apos;s FAQ</Link></li>
+              <li><Link href="/seller-faq">Seller&apos;s FAQ</Link></li>
+              <li><Link href="/sell-with-us">Sell With Us</Link></li>
+              <li><Link href="/lavaway">Layaway</Link></li>
+              <li><Link href="/tl-elite">TL Elite</Link></li>
             </ul>
           </div>
 

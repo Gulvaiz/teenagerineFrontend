@@ -1,0 +1,87 @@
+/* ================= ROOT ================= */
+.elitePage {
+    width: 100%;
+    background: #faf8f4;
+  }
+  
+  /* ================= TITLE ================= */
+  .titleSection {
+    padding: 80px 6% 40px;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #1f2937;
+  }
+  
+  /* ================= MODELS ================= */
+  .modelSection {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    padding: 40px 6% 80px;
+  }
+  
+  .modelCard {
+    background: #ffffff;
+    height: 260px;
+    border-radius: 14px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    font-size: 15px;
+  }
+  
+  /* ================= AFFILIATE ================= */
+  .affiliateSection {
+    background: #faf8f4;
+    padding: 80px 6%;
+    text-align: center;
+  }
+  
+  .affiliateTitle {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #1f2937;
+  }
+  
+  .affiliateText {
+    max-width: 780px;
+    margin: 0 auto 32px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #4b5563;
+  }
+  
+  .ctaButton {
+    background: #f37021;
+    color: #ffffff;
+    border: none;
+    padding: 14px 32px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  
+  /* ================= RESPONSIVE ================= */
+  @media (max-width: 768px) {
+    .modelSection {
+      grid-template-columns: 1fr;
+    }
+  
+    .title {
+      font-size: 28px;
+    }
+  
+    .affiliateTitle {
+      font-size: 22px;
+    }
+  }
+  

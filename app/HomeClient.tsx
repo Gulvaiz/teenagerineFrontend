@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+
+
 import HeroCarousel from "@/components/HeroCarousel";
 import SaleCarousel from "@/components/SaleCarousel";
 import QuickViewModal from "@/components/QuickViewModal";
@@ -183,7 +183,7 @@ export default function HomeClient({ newArrivals, saleProducts }: HomeClientProp
 
   return (
     <>
-      <Header />
+
 
       <main>
         {/* HERO CAROUSEL */}
@@ -655,7 +655,7 @@ export default function HomeClient({ newArrivals, saleProducts }: HomeClientProp
 
       </main>
 
-      <Footer />
+
 
       {/* Quick View Modal */}
       <QuickViewModal

@@ -1,13 +1,12 @@
 import Image from 'next/image';
 import styles from './about.module.css';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+
 import Link from 'next/link';
 
 export default function AboutPage() {
     return (
         <main className={styles.aboutContainer}>
-            <Header />
+
 
             {/* HERO BANNER */}
             <section className={styles.heroSection}>
@@ -63,23 +62,26 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* WHAT OUR COMMUNITY SAYS (FMT FIXED) */}
+            {/* WHAT OUR COMMUNITY SAYS */}
             <section className={styles.communitySection}>
-                <div className={styles.container}>
+                <div className={styles.communityContainer}>
                     <h2 className={styles.communityTitle}>What Our Community Says</h2>
-                    <p className={styles.communitySubtitle}>Discover the Tangerine Luxury experience through our community&apos;s stories</p>
+                    <p className={styles.communitySubtitle}>
+                        Discover the Tangerine Luxury experience through our community&apos;s stories
+                    </p>
 
                     <div className={styles.communityGrid}>
-                        {/* Card 1 */}
                         <div className={styles.communityCard}>
                             <div className={styles.cardText}>
                                 Our concept <span className={styles.emoji}>💖 🍃</span>
-                                &quot;At Tangerine Luxury, we&apos;ve reimagined luxury as something accessible to all through an eco-friendly online platform for buying and selling pre-loved luxurious items, because we believe it&apos;s your moment to embrace the luxury you adore.&quot;
+                                &quot;At Tangerine Luxury, we&apos;ve reimagined luxury as something accessible
+                                to all through an eco-friendly online platform for buying and selling
+                                pre-loved luxurious items, because we believe it&apos;s your moment to
+                                embrace the luxury you adore.&quot;
                             </div>
                             <div className={styles.cardFooter}>Company Vision</div>
                         </div>
 
-                        {/* Card 2 */}
                         <div className={styles.communityCard}>
                             <div className={styles.cardText}>
                                 What is &apos;pre-loved&apos; luxury? <span className={styles.emoji}>👜 ♻️</span>
@@ -88,11 +90,12 @@ export default function AboutPage() {
                             <div className={styles.cardFooter}>Our Definition</div>
                         </div>
 
-                        {/* Card 3 */}
                         <div className={styles.communityCard}>
                             <div className={styles.cardText}>
                                 Our concept <span className={styles.emoji}>💖 ♻️</span>
-                                &quot;Prioritizing sustainability in fashion is paramount. We&apos;re all about mindful, earth-friendly, and affordable luxury through pre-loved designer accessories with trusted authenticity.&quot;
+                                &quot;Prioritizing sustainability in fashion is paramount. We&apos;re all about
+                                mindful, earth-friendly, and affordable luxury through pre-loved designer
+                                accessories with trusted authenticity.&quot;
                             </div>
                             <div className={styles.cardFooter}>Sustainability Mission</div>
                         </div>
@@ -171,7 +174,7 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            <Footer />
+
         </main>
     );
 }

@@ -3,8 +3,7 @@
 import { useState } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import styles from './page.module.css';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+
 import Link from 'next/link';
 
 export default function LoginPage() {
@@ -28,7 +27,7 @@ export default function LoginPage() {
 
     return (
         <>
-            <Header />
+
             <main className={styles.main}>
                 <div className={styles.container}>
                     <h1 className={styles.title}>Login</h1>
@@ -67,7 +66,7 @@ export default function LoginPage() {
                     </form>
                 </div>
             </main>
-            <Footer />
+
         </>
     );
 }

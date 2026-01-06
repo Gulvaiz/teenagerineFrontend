@@ -1,14 +1,13 @@
 "use client";
 
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+
 import { Mail, Phone, Clock, Send, MessageSquare, CheckCircle } from 'lucide-react';
 import styles from './contact.module.css';
 
 export default function ContactPage() {
     return (
         <>
-            <Header />
+
             <main>
                 <div className={styles.pageContainer}>
                     <h1 className={styles.title}>Contact Us</h1>
@@ -117,7 +116,7 @@ export default function ContactPage() {
                     </div>
                 </section>
             </main>
-            <Footer />
+
         </>
     );
 }

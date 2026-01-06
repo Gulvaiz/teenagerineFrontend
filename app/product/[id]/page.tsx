@@ -1,5 +1,4 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+
 import { Heart, Truck, ShieldCheck, RefreshCw } from 'lucide-react';
 import Link from 'next/link';
 import { fetchProduct } from '@/lib/api';
@@ -41,7 +40,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
 
     return (
         <>
-            <Header />
+
             <main className="container" style={{ padding: '40px 20px' }}>
                 <div style={{ marginBottom: '20px', fontSize: '0.9rem', color: '#666' }}>
                     <Link href="/">Home</Link> / <Link href="/women">Women</Link> / <span className="uppercase">{product.name}</span>
@@ -103,7 +102,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
                     </div>
                 </div>
             </main>
-            <Footer />
+
         </>
     );
 }

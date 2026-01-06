@@ -1,14 +1,13 @@
 "use client";
 
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+
 import Link from 'next/link';
 import servicesStyles from '../services.module.css';
 
 export default function PrivateViewingPage() {
     return (
         <>
-            <Header />
+
             <main>
                 {/* Hero Section */}
                 <div className={servicesStyles.heroSection} style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1200&h=600&fit=crop&q=80")' }}>
@@ -81,7 +80,7 @@ export default function PrivateViewingPage() {
 
                 </div>
             </main>
-            <Footer />
+
         </>
     );
 }

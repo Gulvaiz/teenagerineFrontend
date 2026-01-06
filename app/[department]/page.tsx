@@ -1,5 +1,4 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+
 import ProductCard from '@/components/ProductCard';
 import FilterSidebar from '@/components/FilterSidebar';
 import { fetchProducts } from '@/lib/api';
@@ -55,7 +54,7 @@ export default async function DepartmentPage({
 
     return (
         <>
-            <Header />
+
             <main className="container" style={{ padding: '40px 20px' }}>
                 <div style={{ marginBottom: '20px', fontSize: '0.9rem', color: '#666', textTransform: 'capitalize' }}>
                     <Link href="/">Home</Link> / <span>{department.replace('-', ' ')}</span>
@@ -104,7 +103,7 @@ export default async function DepartmentPage({
                     </div>
                 </div>
             </main>
-            <Footer />
+
         </>
     );
 }

@@ -1,7 +1,6 @@
 "use client";
 
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+
 import DashboardSidebar from '@/components/DashboardSidebar';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
@@ -26,7 +25,7 @@ export default function DashboardLayout({
 
     return (
         <>
-            <Header />
+
             <main className="container" style={{ padding: '40px 20px', backgroundColor: '#f9f9f9', minHeight: '80vh' }}>
                 <div style={{ display: 'flex', gap: '30px', flexWrap: 'wrap' }}>
                     <div style={{ flexShrink: 0 }}>
@@ -37,7 +36,7 @@ export default function DashboardLayout({
                     </div>
                 </div>
             </main>
-            <Footer />
+
         </>
     );
 }

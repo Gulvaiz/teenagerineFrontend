@@ -1,5 +1,4 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+
 import ProductCard from '@/components/ProductCard';
 import FilterSidebar from '@/components/FilterSidebar';
 import Link from 'next/link';
@@ -23,7 +22,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ depar
 
     return (
         <>
-            <Header />
+
             <main className="container" style={{ padding: '40px 20px' }}>
                 <div style={{ marginBottom: '20px', fontSize: '0.9rem', color: '#666', textTransform: 'capitalize' }}>
                     <Link href="/">Home</Link> / <Link href={`/${department}`}>{department}</Link> / <span>{slug.join(' / ')}</span>
@@ -67,7 +66,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ depar
                     </div>
                 </div>
             </main>
-            <Footer />
+
         </>
     );
 }

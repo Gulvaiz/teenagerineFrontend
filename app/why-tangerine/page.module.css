@@ -1,0 +1,155 @@
+.pageWrapper {
+    width: 100%;
+    background-color: #fff;
+    padding-bottom: 4rem;
+}
+
+.headerSection {
+    text-align: center;
+    padding: 4rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.mainTitle {
+    font-family: var(--font-sans);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.subTitle {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+/* Row Layout */
+.sectionRow {
+    display: flex;
+    align-items: center;
+    background-color: #fcfcfc;
+    /* Very light subtle background for alternate feel if needed, or stick to white/cards */
+    padding: 0;
+    margin: 3rem auto;
+    max-width: 1200px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    background: #fff;
+}
+
+.sectionRow.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Content Column */
+.contentCol {
+    flex: 1;
+    padding: 3rem 4rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.orangeDot {
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-sans);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    line-height: 1.3;
+}
+
+.underline {
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-primary);
+    margin-bottom: 1.5rem;
+}
+
+.sectionText {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.actionBtn {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.actionBtn:hover {
+    background-color: #d67600;
+}
+
+/* Image Column */
+.imageCol {
+    flex: 1;
+    height: 450px;
+    position: relative;
+}
+
+.featureImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+
+    .sectionRow,
+    .sectionRow.reverse {
+        flex-direction: column;
+        margin: 2rem 1rem;
+        width: auto;
+    }
+
+    .contentCol {
+        padding: 2rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .imageCol {
+        width: 100%;
+        height: 300px;
+    }
+
+    .mainTitle {
+        font-size: 2rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.5rem;
+    }
+
+    .underline {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

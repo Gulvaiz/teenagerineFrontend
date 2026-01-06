@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import DiscountModal from "@/components/DiscountModal";
 import { CartProvider } from "@/context/CartContext";
 import { WishlistProvider } from "@/context/WishlistContext";
 import CartDrawer from "@/components/CartDrawer";
 import CookieBanner from "@/components/CookieBanner";
-
 import { AuthProvider } from "@/context/AuthContext";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import InitialLoader from "@/components/InitialLoader";
@@ -42,7 +42,9 @@ export default function RootLayout({
           <CartProvider>
             <WishlistProvider>
               <InitialLoader />
+              <Header />
               {children}
+              <Footer />
               <DiscountModal />
               <CartDrawer />
               <WhatsAppButton />

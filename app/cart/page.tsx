@@ -1,7 +1,6 @@
 "use client";
 
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
 import { Trash2, Plus, Minus } from 'lucide-react';
@@ -12,7 +11,7 @@ export default function Cart() {
 
     return (
         <>
-            <Header />
+
             <main className="container" style={{ padding: '40px 20px', minHeight: '60vh' }}>
                 <h1 className="section-title">Shopping Bag</h1>
 
@@ -100,7 +99,7 @@ export default function Cart() {
                     </div>
                 )}
             </main>
-            <Footer />
+
         </>
     );
 }

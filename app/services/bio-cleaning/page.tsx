@@ -1,14 +1,13 @@
 "use client";
 
 import Link from 'next/link';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+
 import styles from '../services.module.css';
 
 export default function BioCleaningPage() {
     return (
         <>
-            <Header />
+
             <main>
                 {/* Fallback hero background color/image if exact image not available */}
                 <div className={styles.heroSection} style={{ backgroundColor: '#aaa' }}>
@@ -37,7 +36,7 @@ export default function BioCleaningPage() {
                     </Link>
                 </div>
             </main>
-            <Footer />
+
         </>
     );
 }

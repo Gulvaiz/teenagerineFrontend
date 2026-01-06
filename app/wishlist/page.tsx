@@ -1,7 +1,6 @@
 "use client";
 
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+
 import Link from 'next/link';
 import { useWishlist } from '@/context/WishlistContext';
 import ProductCard from '@/components/ProductCard';
@@ -13,7 +12,7 @@ export default function WishlistPage() {
 
     return (
         <>
-            <Header />
+
             <main className={styles.main}>
                 <div className={styles.headerSection}>
                     <h1 className={styles.title}>My Wishlist</h1>
@@ -54,7 +53,7 @@ export default function WishlistPage() {
                     </div>
                 )}
             </main>
-            <Footer />
+
         </>
     );
 }

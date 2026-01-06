@@ -131,73 +131,126 @@
     /* Loose line height */
     margin-bottom: 30px;
 }
-/* COMMUNITY SECTION */
-.communityContainer {
+
+/* ================= COMMUNITY SECTION ================= */
+/* ================= WHAT OUR COMMUNITY SAYS ================= */
+
+.communitySection {
+    padding: 80px 0;
+    background-color: #F8F5F0;
+  }
+  
+  /* Wide container (NOT .container) */
+  .communityContainer {
     width: 100%;
-    max-width: 1600px;
+    max-width: 1712px;      /* exact measured */
     margin: 0 auto;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 12px;     /* closer to viewport like original */
+    padding-right: 12px;
   }
   
-  .communityGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-  
-  
+  /* ---------- Heading ---------- */
   
   .communityTitle {
     text-align: center;
+    font-family: var(--font-sans);
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 30px;
   }
   
   .communitySubtitle {
     text-align: center;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: #6B7280;
+    margin-bottom: 40px;   /* exact spacing before cards */
   }
+  
+  /* ---------- Grid ---------- */
   
   .communityGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    gap: 24px;             /* exact */
   }
+  
+  /* ---------- Card ---------- */
   
   .communityCard {
     background-color: #FFFFFF;
-    padding: 32px 32px 28px;
+    padding: 20px 20px 18px;   /* reduced height, increased width feel */
     border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
   
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  
-    width: 100%;
   }
+  
+  /* ---------- Card Text ---------- */
   
   .cardText {
     font-family: var(--font-sans);
     font-style: italic;
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: #444;
-    margin-bottom: 22px;
+    font-size: 1.03rem;    /* ~16.5px */
+    line-height: 1.52;     /* tighter for shorter cards */
+    color: #444444;
   }
   
+  .emoji {
+    font-style: normal;
+  }
+  
+  /* ---------- Card Footer ---------- */
+  
   .cardFooter {
+    margin-top: 18px;
     font-family: var(--font-sans);
     font-style: italic;
     font-weight: 700;
-    font-size: 1.05rem;
-    color: #1a1a1a;
+    font-size: 1.03rem;
+    color: #111111;
   }
-    
+  
+  /* ================= RESPONSIVE ================= */
+  
+  @media (max-width: 1279px) {
+    .communityContainer {
+      max-width: 1320px;
+    }
+  
+    .communityGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .communityGrid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  
+    .communityTitle {
+      font-size: 2rem;
+    }
+  
+    .communitySubtitle {
+      margin-bottom: 40px;
+    }
+  
+    .communityCard {
+      padding: 22px 28px 20px;
+    }
+  }
+        
 /* WHO WE ARE SECTION */
 .whoWeAreSection {
     position: relative;
     width: 100%;
-    padding: 120px 0;
-    background-image: url('/ABOUTUS3.avif');
+    padding: 80px 0;
+    background-image: url('/about3.avif');
     background-size: cover;
     background-position: center;
 }
@@ -219,7 +272,7 @@
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
-    text-align: center;
+    text-align:left;
     /* CENTER ALIGNMENT MANDATORY */
     color: #FFFFFF;
     display: flex;
@@ -230,21 +283,21 @@
 .whoTitle {
     font-family: var(--font-sans);
     font-weight: 700;
-    font-size: 3rem;
+    font-size: 2.2rem;
     text-transform: uppercase;
-    margin-bottom: 40px;
+    margin-bottom: 45px;
     letter-spacing: 2px;
 }
 
 .whoText {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     max-width: 900px;
 }
 
 .whoText p {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     line-height: 1.8;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     opacity: 0.95;
 }
 
@@ -253,16 +306,16 @@
     /* Semi-transparent */
     backdrop-filter: blur(10px);
     /* Blur effect */
-    padding: 40px 60px;
+    padding: 40px 40px;
     border-radius: 12px;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+   
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .quoteBox p {
-    font-family: var(--font-serif);
+    font-family: var(--font-sans);
     /* Serif for quote */
     font-style: italic;
     font-size: 1.5rem;
@@ -270,6 +323,7 @@
     text-align: center;
     color: #FFFFFF;
     margin: 0;
+    font-weight: 500;
 }
 
 

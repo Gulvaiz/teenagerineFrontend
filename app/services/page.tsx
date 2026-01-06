@@ -1,14 +1,13 @@
 "use client";
 
 import Link from 'next/link';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+
 import styles from './services.module.css';
 
 export default function ServicesPage() {
     return (
         <>
-            <Header />
+
             <main className="container">
                 <div className={styles.pageContainer}>
                     <h1 className={styles.title}>OUR SERVICES</h1>
@@ -56,7 +55,7 @@ export default function ServicesPage() {
                     </div>
                 </div>
             </main>
-            <Footer />
+
         </>
     );
 }
