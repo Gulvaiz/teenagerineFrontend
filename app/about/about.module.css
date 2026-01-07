@@ -304,7 +304,7 @@
 .quoteBox {
     background-color: rgba(255, 255, 255, 0.1);
     /* Semi-transparent */
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
     /* Blur effect */
     padding: 40px 40px;
     border-radius: 12px;
@@ -352,11 +352,11 @@
 .valueCard {
     text-align: center;
     padding: 20px;
-    transition: transform 0.3s ease;
+    /* transition: transform 0.3s ease; */
 }
 
-.valueCard.elevated {
-    transform: translateY(-30px);
+.valueCard:hover {
+
     /* More elevation */
     background: #FFFFFF;
     border-radius: 16px;
@@ -384,7 +384,7 @@
 .ctaSection {
     background-color: #0F172A;
     /* Dark navy/black */
-    padding: 100px 0;
+    padding: 80px 0;
     text-align: center;
     color: #FFFFFF;
 }
@@ -406,6 +406,7 @@
 .ctaButtons {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 30px;
 }
 
@@ -415,9 +416,9 @@
     font-family: var(--font-sans);
     font-weight: 600;
     text-transform: uppercase;
-    padding: 18px 50px;
+    padding: 10px 30px;
     /* Larger buttons */
-    border-radius: 50px;
+    border-radius: 10px;
     border: 2px solid #FFFFFF;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -437,9 +438,9 @@
     font-family: var(--font-sans);
     font-weight: 600;
     text-transform: uppercase;
-    padding: 18px 50px;
+    padding: 10px 30px;
     /* Larger buttons */
-    border-radius: 50px;
+    border-radius: 10px;
     border: 2px solid #FFFFFF;
     cursor: pointer;
     transition: all 0.3s ease;

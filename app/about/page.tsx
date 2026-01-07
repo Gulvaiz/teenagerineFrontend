@@ -146,7 +146,7 @@ export default function AboutPage() {
                             <h3 className={styles.valueTitle}>Quality</h3>
                             <p className={styles.valueDesc}>Every item is carefully curated and authenticated to meet the highest standards.</p>
                         </div>
-                        <div className={`${styles.valueCard} ${styles.elevated}`}>
+                        <div className={`${styles.valueCard} `}>
                             <h3 className={styles.valueTitle}>Community</h3>
                             <p className={styles.valueDesc}>Building a community of fashion lovers who care about the planet&apos;s future.</p>
                         </div>
